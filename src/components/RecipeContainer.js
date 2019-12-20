@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Recipe from './Recipe';
+import '../index.css';
+
+
+
 
 const RecipeContainer = () => {
   const [recipes, setRecipes] = useState([]);
@@ -16,9 +20,10 @@ const RecipeContainer = () => {
   }, []);
 
   
+  //{ recipes.map(recipe => <Recipe id={recipe.id} recipe={recipe} />) }
   return (
-    <div>
-       { recipes.map(recipe => <Recipe id={recipe.id} recipe={recipe} />) }
+    <div className="grid recipe-list">
+        { recipes.map(recipe => <Recipe id={recipe.id} recipe={recipe} />) }
     </div>
   )
 }
