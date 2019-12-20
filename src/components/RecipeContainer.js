@@ -15,8 +15,7 @@ const RecipeContainer = () => {
     fetchRecipes();
   }, []);
 
-  console.log(recipes);
-
+  
   return (
     <div>
        { recipes.map(recipe => <Recipe id={recipe.id} recipe={recipe} />) }
