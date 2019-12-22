@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import '../index.css';
 
 export default function Home() {
   return (
     <div>
-      <h1>HOME</h1>
+      <h1 className="bg-home">HOME</h1>
     </div>
   )
 }
