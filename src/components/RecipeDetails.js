@@ -9,7 +9,7 @@ const RecipeDetails = (props) => {
 
   useEffect(() => {
     const fetchRecipeDetails = async () => {
-      const response = await fetch(`https://api.spoonacular.com/recipes/719172/analyzedInstructions?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`);
+      const response = await fetch(`https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`);
       const data = await response.json();
       const steps = data[0].steps;
       setSteps(steps);

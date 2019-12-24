@@ -19,7 +19,7 @@ const Recipe = (props) => {
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
-          <Link to={`${id}`}>
+          <Link to={`${id}`} >
             <Button animated="vertical" size="medium">
               <Button.Content visible>View</Button.Content>
               <Button.Content hidden>
