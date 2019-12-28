@@ -6,6 +6,7 @@ import Steps from './Steps';
 const RecipeDetails = (props) => {
   const id = props.id;
   const [steps, setSteps] = useState([]);
+  const [ingredients,  setIngredients] = useState([]);
 
   useEffect(() => {
     const fetchRecipeDetails = async () => {
@@ -14,15 +15,24 @@ const RecipeDetails = (props) => {
       const steps = data[0].steps;
       setSteps(steps);
     }
+
+    const fetchIngredientDetails = async () => {
+      const response = await fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`);
+      const ingData = await response.json();
+      console.log("ingData ", ingData);
+      setIngredients(ingData);
+    }
+
     fetchRecipeDetails();
+    fetchIngredientDetails();
   },[])
 
-  let ingredients = [];
-  steps.forEach(step => {
-    step.ingredients.forEach(ingredient => {
-      ingredients.push(ingredient);
-    })
-  })
+  // let ingredients = [];
+  // steps.forEach(step => {
+  //   step.ingredients.forEach(ingredient => {
+  //     ingredients.push(ingredient);
+  //   })
+  // })
 
   let instructions = [];
   steps.forEach(step => {
@@ -38,3 +48,4 @@ const RecipeDetails = (props) => {
   )
 }
 export default RecipeDetails
+
