@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react';
 
 const Ingredients = ({ ingredients }) => {
-  console.log("Ingredients from Ingredients Component",ingredients);
+  //console.log("Ingredients from Ingredients Component",ingredients);
   return (
     <Fragment>
       <h1>Ingredients and Quantities:</h1>
       <ul>
+        {ingredients.map(ing => <li>{ing.name} - {ing.quantity} {ing.unit}</li>)}
         
       </ul>
     </Fragment>
