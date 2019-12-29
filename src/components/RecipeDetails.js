@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-//import Ingredients from './Ingredients';
+import Ingredients from './Ingredients';
 import Steps from './Steps';
 
 
@@ -19,9 +19,7 @@ const RecipeDetails = (props) => {
     const fetchIngredientDetails = async () => {
       const response = await fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`);
       const ingData = await response.json();
-      //console.log("ingData ", ingData);
       const ingList = ingData.ingredients;
-      //console.log("ingLIst", ingList);
       setIngredients(ingList);
     }
 
@@ -32,15 +30,11 @@ const RecipeDetails = (props) => {
   let completeIngList = [];
   ingredients.forEach(ing => {
     let ingObj = {};
-    console.log(ing.name)
-    console.log(ing.amount.us.value);
-    console.log(ing.amount.us.unit);
     ingObj["name"] = ing.name;
-    ingObj["quantitiy"] = ing.amount.us.value;
+    ingObj["quantity"] = ing.amount.us.value;
     ingObj["unit"] = ing.amount.us.unit;
     completeIngList.push(ingObj);
   })
-  console.log("Complete Ingredient List",completeIngList);
 
   let instructions = [];
   steps.forEach(step => {
@@ -51,6 +45,7 @@ const RecipeDetails = (props) => {
     <div className="bg-rdetails">
       <h1>Recipe Details</h1>
       <p>Ingredients component will render here...</p>
+      <Ingredients ingredients={completeIngList} />
       <Steps instructions={instructions} />   
     </div>
   )
