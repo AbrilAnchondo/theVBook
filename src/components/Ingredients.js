@@ -6,7 +6,7 @@ const Ingredients = ({ ingredients }) => {
     <Fragment>
       <h1>Ingredients and Quantities:</h1>
       <ul>
-        {ingredients.map(ing => <li>{ing.name} - {ing.quantity} {ing.unit}</li>)}
+        {ingredients.map((ing, index) => <li key={index}>{ing.name} - {ing.quantity} {ing.unit}</li>)}
         
       </ul>
     </Fragment>

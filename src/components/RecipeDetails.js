@@ -4,6 +4,9 @@ import Steps from './Steps';
 
 
 const RecipeDetails = (props) => {
+  //console.log(props);
+  const image = props.location.state.image;
+  //console.log(image);
   const id = props.id;
   const [steps, setSteps] = useState([]);
   const [ingredients,  setIngredients] = useState([]);
@@ -44,7 +47,7 @@ const RecipeDetails = (props) => {
   return (
     <div className="bg-rdetails">
       <h1>Recipe Details</h1>
-      <p>Ingredients component will render here...</p>
+      
       <Ingredients ingredients={completeIngList} />
       <Steps instructions={instructions} />   
     </div>
