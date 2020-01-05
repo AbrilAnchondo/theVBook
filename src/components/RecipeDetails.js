@@ -49,7 +49,6 @@ const RecipeDetails = (props) => {
  
   return (
     <div className="bg-rdetails">
-      <h1>Recipe Details</h1>
       <Image src={imageURL} fluid/>
       <Ingredients ingredients={completeIngList} />
       <Steps instructions={instructions} />   
