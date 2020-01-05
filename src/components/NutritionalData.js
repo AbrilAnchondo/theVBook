@@ -1,4 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react';
+import { Table } from 'semantic-ui-react';
 
 const NutritionalData = (props) => {
   const [nutritionalData, setNutritionalData] = useState([]);
@@ -17,13 +18,39 @@ const NutritionalData = (props) => {
   return (
     <Fragment>
       <h3>Nutritional Information</h3>
-      <p>Calories: {nutritionalData.calories}</p>
-      <p>Protein: {nutritionalData.protein}</p>
-      <p>Carbs: {nutritionalData.carbs}</p>
-      <p>Fat: {nutritionalData.fat}</p>
+      <Table color="grey" inverted>
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell>Nutrient</Table.HeaderCell>
+            <Table.HeaderCell>Amount</Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell>Calories</Table.Cell>
+            <Table.Cell>{nutritionalData.calories}</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>Protein</Table.Cell>
+            <Table.Cell>{nutritionalData.protein}</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>Carbs</Table.Cell>
+            <Table.Cell>{nutritionalData.carbs}</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell>Fat</Table.Cell>
+            <Table.Cell>{nutritionalData.fat}</Table.Cell>
+          </Table.Row>
+        </Table.Body>
+      </Table>
     </Fragment>
   )
 
 }
 
 export default NutritionalData
+
+
+

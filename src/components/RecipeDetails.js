@@ -53,9 +53,7 @@ const RecipeDetails = (props) => {
       <Image src={imageURL} fluid/>
       <Ingredients ingredients={completeIngList} />
       <Steps instructions={instructions} />   
-      <hr></hr>
       <NutritionalData recipeId={id} />
-      <hr></hr>
     </div>
   )
 }
