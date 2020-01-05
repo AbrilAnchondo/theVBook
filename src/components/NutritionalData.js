@@ -16,7 +16,11 @@ const NutritionalData = (props) => {
 
   return (
     <Fragment>
-      <h3>Nutritional Information:</h3>
+      <h3>Nutritional Information</h3>
+      <p>Calories: {nutritionalData.calories}</p>
+      <p>Protein: {nutritionalData.protein}</p>
+      <p>Carbs: {nutritionalData.carbs}</p>
+      <p>Fat: {nutritionalData.fat}</p>
     </Fragment>
   )
 

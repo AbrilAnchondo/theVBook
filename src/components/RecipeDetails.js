@@ -29,21 +29,9 @@ const RecipeDetails = (props) => {
       setIngredients(ingList);
     }
 
-    // const fetchNutritionalInfo = async () => {
-    //   const response = await fetch(`https://api.spoonacular.com/recipes/${id}/nutritionWidget.json?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`);
-    //   const nutriData = await response.json();
-    //   //console.log(nutriData);
-    //   setNutritionalData(nutriData);
-
-
-    //}
-
     fetchRecipeDetails();
     fetchIngredientDetails();
-    //fetchNutritionalInfo();
   },[])
-
-  //console.log("state nutritional data", nutritionalData);
 
   let completeIngList = [];
   ingredients.forEach(ing => {
@@ -65,7 +53,9 @@ const RecipeDetails = (props) => {
       <Image src={imageURL} fluid/>
       <Ingredients ingredients={completeIngList} />
       <Steps instructions={instructions} />   
+      <hr></hr>
       <NutritionalData recipeId={id} />
+      <hr></hr>
     </div>
   )
 }
