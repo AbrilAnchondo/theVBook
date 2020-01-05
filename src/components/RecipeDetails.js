@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Ingredients from './Ingredients';
 import Steps from './Steps';
+import { Image } from 'semantic-ui-react'
 
 
 const RecipeDetails = (props) => {
   //console.log(props);
   const image = props.location.state.image;
-  //console.log(image);
+  console.log(image);
+  let imageURL = `https://spoonacular.com/recipeImages/${image}?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`
   const id = props.id;
   const [steps, setSteps] = useState([]);
   const [ingredients,  setIngredients] = useState([]);
@@ -47,11 +49,13 @@ const RecipeDetails = (props) => {
   return (
     <div className="bg-rdetails">
       <h1>Recipe Details</h1>
-      
+      <Image src={imageURL} fluid/>
       <Ingredients ingredients={completeIngList} />
       <Steps instructions={instructions} />   
     </div>
   )
 }
 export default RecipeDetails
+
+
 
