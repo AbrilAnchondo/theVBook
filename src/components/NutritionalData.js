@@ -18,6 +18,9 @@ const NutritionalData = (props) => {
     fetchNutritionalInfo();
   },[])
 
+  console.log("bad stuff state", badStuff);
+
+
   return (
     <Fragment>
       <h3>Nutritional Information</h3>
@@ -28,10 +31,10 @@ const NutritionalData = (props) => {
         <Segment color="green">Fat  {nutritionalData.fat}</Segment>
       </Segment.Group>
       <h3>Limit your intake of:</h3>
-      {badStuff.map((nutrient, index) => <li key={index}>{nutrient.title} - {nutrient.amount} - {nutrient.perceptOfDailyNeeds}</li>)}
+      {badStuff.map((nutrient, index) => <li key={index}>{nutrient.title} - {nutrient.amount} - {nutrient.percentOfDailyNeeds}%</li>)}
       <h3>Make sure you get enough of:</h3>
       <ul>
-      {goodStuff.map((nutrient, index) => <li key={index}>{nutrient.title} - {nutrient.amount} - {nutrient.perceptOfDailyNeeds}</li>)}
+      {goodStuff.map((nutrient, index) => <li key={index}>{nutrient.title} - {nutrient.amount} - {nutrient.percentOfDailyNeeds}%</li>)}
       </ul>
     </Fragment>
   )
