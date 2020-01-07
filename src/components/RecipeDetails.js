@@ -11,6 +11,7 @@ const RecipeDetails = (props) => {
   //console.log(image);
   let imageURL = `https://spoonacular.com/recipeImages/${image}?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`
   const id = props.id;
+  //console.log("recipe id ",id);
   const [steps, setSteps] = useState([]);
   const [ingredients,  setIngredients] = useState([]);
 

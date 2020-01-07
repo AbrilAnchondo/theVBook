@@ -2,15 +2,18 @@ import React, { useState, useEffect, Fragment } from 'react';
 import { Table, Segment } from 'semantic-ui-react';
 
 const NutritionalData = (props) => {
-  const [nutritionalData, setNutritionalData] = useState([]);
+  const [nutritionalData, setNutritionalData] = useState({});
+  const [badStuff, setBadStuff] = useState([]);
+  const [goodStuff, setGoodStuff] = useState([]);
   const id = props.recipeId;
 
   useEffect(() => {
     const fetchNutritionalInfo = async () => {
       const response = await fetch(`https://api.spoonacular.com/recipes/${id}/nutritionWidget.json?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`);
       const nutriData = await response.json();
-      //console.log("nutridata response", nutriData);
       setNutritionalData(nutriData);
+      setBadStuff(nutriData.bad);
+      setGoodStuff(nutriData.good);
     }
     fetchNutritionalInfo();
   },[])
@@ -24,6 +27,12 @@ const NutritionalData = (props) => {
         <Segment color="green">Carbs  {nutritionalData.carbs}</Segment>
         <Segment color="green">Fat  {nutritionalData.fat}</Segment>
       </Segment.Group>
+      <h3>Limit your intake of:</h3>
+      {badStuff.map((nutrient, index) => <li key={index}>{nutrient.title} - {nutrient.amount} - {nutrient.perceptOfDailyNeeds}</li>)}
+      <h3>Make sure you get enough of:</h3>
+      <ul>
+      {goodStuff.map((nutrient, index) => <li key={index}>{nutrient.title} - {nutrient.amount} - {nutrient.perceptOfDailyNeeds}</li>)}
+      </ul>
     </Fragment>
   )
 
