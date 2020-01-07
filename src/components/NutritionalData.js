@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import { Table, Segment, Progress, Container } from 'semantic-ui-react';
+import { Table, Segment, Progress, Container, Header } from 'semantic-ui-react';
 
 const NutritionalData = (props) => {
   const [nutritionalData, setNutritionalData] = useState({});
@@ -23,7 +23,7 @@ const NutritionalData = (props) => {
 
   return (
     <Fragment>
-      <h3>Nutritional Information</h3>
+      <Header as='h3'>Nutritional Information</Header>
       <Segment.Group horizontal>
         <Segment color="purple">Calories  {nutritionalData.calories}</Segment>
         <Segment color="purple">Protein  {nutritionalData.protein}</Segment>
@@ -31,10 +31,10 @@ const NutritionalData = (props) => {
         <Segment color="purple">Fat  {nutritionalData.fat}</Segment>
       </Segment.Group>
       <Container fluid>
-      <h3>Limit your intake of:</h3>
+      <Header as='h3' dividing>Limit your intake of:</Header>
       *Daily needs covered
       {badStuff.map((nutrient, index) => <p key={index}>{nutrient.title} - {nutrient.amount} <Progress inverted color='violet' size='small' value={nutrient.percentOfDailyNeeds} total='100' progress='percent'/></p>)}
-      <h3>Make sure you get enough of:</h3>
+      <Header as='h3' dividing>Make sure you get enough of:</Header>
       **Daily needs covered
       {goodStuff.map((nutrient, index) => <p key={index}>{nutrient.title} - {nutrient.amount} <Progress size='small' inverted color='pink' value={nutrient.percentOfDailyNeeds} total='100' progress='percent'/></p>)}
       </Container>
