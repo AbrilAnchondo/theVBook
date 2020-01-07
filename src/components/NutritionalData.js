@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import { Table, Segment } from 'semantic-ui-react';
+import { Table, Segment, Progress, Container } from 'semantic-ui-react';
 
 const NutritionalData = (props) => {
   const [nutritionalData, setNutritionalData] = useState({});
@@ -25,17 +25,19 @@ const NutritionalData = (props) => {
     <Fragment>
       <h3>Nutritional Information</h3>
       <Segment.Group horizontal>
-        <Segment color="green">Calories  {nutritionalData.calories}</Segment>
-        <Segment color="green">Protein  {nutritionalData.protein}</Segment>
-        <Segment color="green">Carbs  {nutritionalData.carbs}</Segment>
-        <Segment color="green">Fat  {nutritionalData.fat}</Segment>
+        <Segment color="purple">Calories  {nutritionalData.calories}</Segment>
+        <Segment color="purple">Protein  {nutritionalData.protein}</Segment>
+        <Segment color="purple">Carbs  {nutritionalData.carbs}</Segment>
+        <Segment color="purple">Fat  {nutritionalData.fat}</Segment>
       </Segment.Group>
+      <Container fluid>
       <h3>Limit your intake of:</h3>
-      {badStuff.map((nutrient, index) => <li key={index}>{nutrient.title} - {nutrient.amount} - {nutrient.percentOfDailyNeeds}%</li>)}
+      *Daily needs covered
+      {badStuff.map((nutrient, index) => <p key={index}>{nutrient.title} - {nutrient.amount} <Progress inverted color='violet' size='small' value={nutrient.percentOfDailyNeeds} total='100' progress='percent'/></p>)}
       <h3>Make sure you get enough of:</h3>
-      <ul>
-      {goodStuff.map((nutrient, index) => <li key={index}>{nutrient.title} - {nutrient.amount} - {nutrient.percentOfDailyNeeds}%</li>)}
-      </ul>
+      **Daily needs covered
+      {goodStuff.map((nutrient, index) => <p key={index}>{nutrient.title} - {nutrient.amount} <Progress size='small' inverted color='pink' value={nutrient.percentOfDailyNeeds} total='100' progress='percent'/></p>)}
+      </Container>
     </Fragment>
   )
 
@@ -43,7 +45,12 @@ const NutritionalData = (props) => {
 
 export default NutritionalData
 
+//<Progress value='4' total='5' progress='percent' />
 
+
+
+
+  
 
 
 
