@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Ingredients from './Ingredients';
 import Steps from './Steps';
 import NutritionalData from './NutritionalData';
+import Substitute from './Substitute';
 import { Image } from 'semantic-ui-react'
 
 
@@ -44,6 +45,11 @@ const RecipeDetails = (props) => {
     completeIngList.push(ingObj);
   })
 
+  let substituteList = [];
+  ingredients.forEach(ing => {
+    substituteList.push(ing.name)
+  })
+  
   let instructions = [];
   steps.forEach(step => {
     instructions.push(step.step);
@@ -53,6 +59,7 @@ const RecipeDetails = (props) => {
     <div className="bg-rdetails">
       <Image src={imageURL} fluid/>
       <Ingredients ingredients={completeIngList} />
+      <Substitute ingredients={substituteList}/>
       <Steps instructions={instructions} />   
       <NutritionalData recipeId={id} />
     </div>
