@@ -7,7 +7,7 @@ const Ingredients = ({ ingredients }) => {
   return (
     <Fragment>
       <Header as='h2' dividing>Ingredients and Quantities</Header>
-        {ingredients.map(ing => <img src={baseURL+ing.image}/>)}
+        {ingredients.map(ing => <img src={baseURL+ing.image} alt={""}/>)}
       <ul>
         {ingredients.map((ing, index) => <li key={index}>{ing.name} - {ing.quantity} {ing.unit}</li>)}
       </ul>

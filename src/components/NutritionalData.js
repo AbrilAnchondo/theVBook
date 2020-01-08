@@ -30,11 +30,11 @@ const NutritionalData = (props) => {
       <div>
       <Label circular color='violet' size='mini'></Label> <Label circular color='pink' size='mini'></Label> Daily needs covered
       <Header as='h3' dividing>Limit your intake of:</Header>
-      {badStuff.map((nutrient, index) => <p key={index}>{nutrient.title} - {nutrient.amount} <Progress inverted color='violet' size='small' value={nutrient.percentOfDailyNeeds} total='100' progress='percent'/></p>)}
+      {badStuff.map((nutrient, index) => <div key={index}>{nutrient.title} - {nutrient.amount} <Progress inverted color='violet' size='small' value={nutrient.percentOfDailyNeeds} total='100' progress='percent'/></div>)}
       </div>
       <div style={{height: "20%"}}>
       <Header as='h3' dividing>Make sure you get enough of:</Header>
-      {goodStuff.map((nutrient, index) => <p key={index}>{nutrient.title} - {nutrient.amount} <Progress size='small' inverted color='pink' value={nutrient.percentOfDailyNeeds} total='100' progress='percent'/></p>)}
+      {goodStuff.map((nutrient, index) => <div key={index}>{nutrient.title} - {nutrient.amount} <Progress size='small' inverted color='pink' value={nutrient.percentOfDailyNeeds} total='100' progress='percent'/></div>)}
       </div>
     </Fragment>
   )
