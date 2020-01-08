@@ -11,7 +11,7 @@ const RecipeDetails = (props) => {
   //console.log(image);
   let imageURL = `https://spoonacular.com/recipeImages/${image}?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`
   const id = props.id;
-  //console.log("recipe id ",id);
+  console.log("recipe id ",id);
   const [steps, setSteps] = useState([]);
   const [ingredients,  setIngredients] = useState([]);
 
@@ -24,7 +24,7 @@ const RecipeDetails = (props) => {
     }
 
     const fetchIngredientDetails = async () => {
-      const response = await fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`);
+      const response = await fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&defaultCss=true`);
       const ingData = await response.json();
       const ingList = ingData.ingredients;
       setIngredients(ingList);
@@ -40,6 +40,7 @@ const RecipeDetails = (props) => {
     ingObj["name"] = ing.name;
     ingObj["quantity"] = ing.amount.us.value;
     ingObj["unit"] = ing.amount.us.unit;
+    ingObj["image"] = ing.image;
     completeIngList.push(ingObj);
   })
 

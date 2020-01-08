@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import { Table, Segment, Progress, Header, Label } from 'semantic-ui-react';
+import { Segment, Progress, Header, Label } from 'semantic-ui-react';
 
 const NutritionalData = (props) => {
   const [nutritionalData, setNutritionalData] = useState({});
@@ -18,9 +18,6 @@ const NutritionalData = (props) => {
     fetchNutritionalInfo();
   },[])
 
-  console.log("bad stuff state", badStuff);
-
-
   return (
     <Fragment>
       <Header as='h3'>Nutritional Information</Header>
@@ -35,7 +32,7 @@ const NutritionalData = (props) => {
       <Header as='h3' dividing>Limit your intake of:</Header>
       {badStuff.map((nutrient, index) => <p key={index}>{nutrient.title} - {nutrient.amount} <Progress inverted color='violet' size='small' value={nutrient.percentOfDailyNeeds} total='100' progress='percent'/></p>)}
       </div>
-      <div>
+      <div style={{height: "20%"}}>
       <Header as='h3' dividing>Make sure you get enough of:</Header>
       {goodStuff.map((nutrient, index) => <p key={index}>{nutrient.title} - {nutrient.amount} <Progress size='small' inverted color='pink' value={nutrient.percentOfDailyNeeds} total='100' progress='percent'/></p>)}
       </div>
@@ -45,15 +42,6 @@ const NutritionalData = (props) => {
 }
 
 export default NutritionalData
-
-//<Progress value='4' total='5' progress='percent' />
-
-
-
-
-  
-
-
 
 
 // <Table color="grey" inverted>
