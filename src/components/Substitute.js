@@ -17,16 +17,18 @@ const Substitute = ({ ingredients }) => {
     const subs = await response.json();
     setSubstitutes(subs.substitutes);
     setMessage(subs.message);
+    setInput('');
   }
   
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <label>
-          Need a substitute?
+          Need a substitute? 
           <input type='text' 
             name='name' 
             value={input}
+            placeholder=' type ingredient...'
             onChange={handleChange} />
         </label>
         <input type='submit' value='Submit' />
