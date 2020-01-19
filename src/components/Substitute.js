@@ -35,7 +35,7 @@ const Substitute = ({ ingredients }) => {
       </form>
       <br></br>
       <h3>{message}</h3>
-      {substitutes.map(substitute => <p>{substitute}</p>)}
+      {substitutes.map((substitute,index) => <p key={index}>{substitute}</p>)}
     </div>
   )
 }
