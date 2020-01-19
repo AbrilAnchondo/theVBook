@@ -7,7 +7,7 @@ const Substitute = ({ ingredients }) => {
   const [message, setMessage] = useState('');
 
   const handleChange = (event) => {
-    console.log(event.target.value);
+    //console.log(event.target.value);
     setInput(event.target.value); 
   }
 

@@ -3,6 +3,7 @@ import Ingredients from './Ingredients';
 import Steps from './Steps';
 import NutritionalData from './NutritionalData';
 import Substitute from './Substitute';
+import Conversions from './Conversions';
 import { Image } from 'semantic-ui-react'
 
 
@@ -60,6 +61,7 @@ const RecipeDetails = (props) => {
       <Image src={imageURL} fluid/>
       <Ingredients ingredients={completeIngList} />
       <Substitute ingredients={substituteList}/>
+      <Conversions />
       <Steps instructions={instructions} />   
       <NutritionalData recipeId={id} />
     </div>
