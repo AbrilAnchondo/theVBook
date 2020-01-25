@@ -1,38 +1,40 @@
 import React, { useState } from 'react';
 
-const Conversions = () => {
-  const [ingredientName, setIngredientName] = useState('');
-  const [sourceAmount, setSourceAmount] = useState('');
-  const [sourceUnit, setSourceUnit] = useState('');
-  const [targetUnit, setTargetUnit] = useState('');
-  const [conversion, setConversion] = useState({});
-  
+const Conversions = () =>   {
+  const [conversion, setConversion] = useState({
+    ing: "",
+    sourceAmount: "",
+    sourceUnit: "",
+    targetUnit: ""
+    });
+  const [answer, setAnswer] = useState('');
 
   const handleChange = (event) => {
-    console.log(event.target.value);
-  
+    let conv = {...conversion};
+    conv[event.target.name] = event.target.value;
+    setConversion(conv);
+    console.log("conv",conv)
   }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     //console.log("handle submit event", event);
-    // const response = await fetch(`https://api.spoonacular.com/recipes/convert?ingredientName=flour&sourceAmount=2.5&sourceUnit=cups&targetUnit=grams&apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`)
-    // const converting = await response.json();
-    // console.log("resonse converting", converting);
-   
-
-
+    const response = await fetch(`https://api.spoonacular.com/recipes/convert?ingredientName=${conversion.ing}&sourceAmount=${conversion.sourceAmount}&sourceUnit=${conversion.sourceUnit}&targetUnit=${conversion.targetUnit}&apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`)
+    const result = await response.json();
+    const answer = result.answer
+    setAnswer(answer);
   }
 
   return (
     <div>
-     <h3>Need a conversion?</h3> 
+     <br></br>
+     <p>Need a conversion?</p> 
      <form onSubmit={handleSubmit}>
        <label>
          What
          <input type='text'
-          name='name'
-          value={ingredientName}
+          name='ing'
+          value={conversion.ing}
           placeholder='ingredient name...'
           onChange={handleChange}
           />
@@ -41,8 +43,8 @@ const Conversions = () => {
        <label>
          How much
          <input type='text'
-          name='amount'
-          value={sourceAmount}
+          name='sourceAmount'
+          value={conversion.sourceAmount}
           placeholder='amount...'
           onChange={handleChange}
           />
@@ -51,8 +53,8 @@ const Conversions = () => {
        <label>
          Unit to convert
          <input type='text'
-          name='sourceunit'
-          value={sourceUnit}
+          name='sourceUnit'
+          value={conversion.sourceUnit}
           placeholder='unit...'
           onChange={handleChange}
           />
@@ -61,16 +63,17 @@ const Conversions = () => {
        <label>
          Unit to convert to
          <input type='text'
-          name='targetunit'
-          value={targetUnit}
+          name='targetUnit'
+          value={conversion.targetUnit}
           placeholder='unit...'
           onChange={handleChange}
           />
        </label>
-
+  
        <input type='submit' value='Submit' />
      </form>
      <br></br>
+     {answer}
     </div>
   )
 }
