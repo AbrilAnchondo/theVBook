@@ -26,6 +26,12 @@ const Conversions = () =>   {
     const answer = result.answer
     setAnswer(answer);
     setShowButton(true);
+    setConversion({
+      ing: "",
+      sourceAmount: "",
+      sourceUnit: "",
+      targetUnit: ""
+    });
   }
 
   const handleButtonClick = () => {
