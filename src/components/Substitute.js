@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-
+import { Button } from 'semantic-ui-react';
 
 const Substitute = ({ ingredients }) => {
   const [input, setInput] = useState('');
   const [substitutes, setSubstitutes] = useState([]);
   const [message, setMessage] = useState('');
+  const [showButton, setShowButton] = useState(false);
 
   const handleChange = (event) => {
     //console.log(event.target.value);
@@ -15,7 +16,6 @@ const Substitute = ({ ingredients }) => {
     event.preventDefault();
     const response = await fetch(`https://api.spoonacular.com/food/ingredients/substitutes?ingredientName=${input}&apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`);
     const subs = await response.json();
-    console.log("response substitute", subs);
     if(subs.message === "Could not find any substitutes for that ingredient.") {
       alert(subs.message);
       setInput('');
@@ -23,7 +23,14 @@ const Substitute = ({ ingredients }) => {
       setSubstitutes(subs.substitutes);
       setMessage(subs.message);
       setInput('');
+      setShowButton(true);
     }
+  }
+
+  const handleButtonClick = () => {
+    setMessage('');
+    setSubstitutes([]);
+    setShowButton(false);
   }
   
   return (
@@ -42,6 +49,7 @@ const Substitute = ({ ingredients }) => {
       <br></br>
       <h3>{message}</h3>
       {substitutes.map((substitute,index) => <p key={index}>{substitute}</p>)}
+      {showButton ? <Button onClick={handleButtonClick}basic size='mini' color='blue'>Clear</Button> : null}
     </div>
   )
 }
