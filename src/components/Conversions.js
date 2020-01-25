@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button } from 'semantic-ui-react';
 
 const Conversions = () =>   {
   const [conversion, setConversion] = useState({
@@ -8,6 +9,7 @@ const Conversions = () =>   {
     targetUnit: ""
     });
   const [answer, setAnswer] = useState('');
+  const [showButton, setShowButton] = useState(false);
 
   const handleChange = (event) => {
     let conv = {...conversion};
@@ -23,6 +25,12 @@ const Conversions = () =>   {
     const result = await response.json();
     const answer = result.answer
     setAnswer(answer);
+    setShowButton(true);
+  }
+
+  const handleButtonClick = () => {
+    setAnswer('');
+    setShowButton(false);
   }
 
   return (
@@ -74,6 +82,8 @@ const Conversions = () =>   {
      </form>
      <br></br>
      {answer}
+     <br></br>
+     {showButton ? <Button onClick={handleButtonClick} basic size='mini' color='grey'>Clear</Button> : null}
     </div>
   )
 }
