@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import { Segment, Progress, Header, Label } from 'semantic-ui-react';
+import { Segment, Progress, Header, Label, Grid } from 'semantic-ui-react';
 
 const NutritionalData = (props) => {
   const [nutritionalData, setNutritionalData] = useState({});
@@ -27,47 +27,66 @@ const NutritionalData = (props) => {
         <Segment color="blue">Carbs  {nutritionalData.carbs}</Segment>
         <Segment color="blue">Fat  {nutritionalData.fat}</Segment>
       </Segment.Group>
-      <div>
-      <Label circular color='violet' size='mini'></Label> <Label circular color='pink' size='mini'></Label> Daily needs covered
-      <Header as='h3' dividing>Limit your intake of:</Header>
-      {badStuff.map((nutrient, index) => <div key={index}>{nutrient.title} - {nutrient.amount} <Progress inverted color='violet' size='small' value={nutrient.percentOfDailyNeeds} total='100' progress='percent'/></div>)}
-      </div>
-      <div style={{height: "20%"}}>
-      <Header as='h3' dividing>Make sure you get enough of:</Header>
-      {goodStuff.map((nutrient, index) => <div key={index}>{nutrient.title} - {nutrient.amount} <Progress size='small' inverted color='pink' value={nutrient.percentOfDailyNeeds} total='100' progress='percent'/></div>)}
-      </div>
-    </Fragment>
+      <Grid celled>
+      <Grid.Row>
+        <Grid.Column width={3}>
+          <Header>Make sure you get enough of:</Header>
+        </Grid.Column>
+        <Grid.Column width={13}>
+        {goodStuff.map((nutrient, index) => <div key={index}>{nutrient.title} - {nutrient.amount} <Progress size='small' inverted color='pink' value={nutrient.percentOfDailyNeeds} total='100' progress='percent'/></div>)}
+        </Grid.Column>
+      </Grid.Row>
+
+      <Grid.Row>
+        <Grid.Column width={3}>
+          <Header>Make sure you limit your intake of:</Header>
+        </Grid.Column>
+        <Grid.Column width={13}>
+        {badStuff.map((nutrient, index) => <div key={index}>{nutrient.title} - {nutrient.amount} <Progress inverted color='violet' size='small' value={nutrient.percentOfDailyNeeds} total='100' progress='percent'/></div>)}
+        </Grid.Column>
+      </Grid.Row>
+    </Grid>
+  </Fragment>
   )
 
 }
 
 export default NutritionalData
 
+{/* <Fragment>
+<Header as='h3'>Nutritional Information</Header>
+<Segment.Group horizontal>
+  <Segment color="blue">Calories  {nutritionalData.calories}</Segment>
+  <Segment color="blue">Protein  {nutritionalData.protein}</Segment>
+  <Segment color="blue">Carbs  {nutritionalData.carbs}</Segment>
+  <Segment color="blue">Fat  {nutritionalData.fat}</Segment>
+</Segment.Group>
+<div>
+<Label circular color='violet' size='mini'></Label> <Label circular color='pink' size='mini'></Label> Daily needs covered
+<Header as='h3' dividing>Limit your intake of:</Header>
 
-// <Table color="grey" inverted>
-// <Table.Header>
-//   <Table.Row>
-//     <Table.HeaderCell>Nutrient</Table.HeaderCell>
-//     <Table.HeaderCell>Amount</Table.HeaderCell>
-//   </Table.Row>
-// </Table.Header>
+{badStuff.map((nutrient, index) => <div key={index}>{nutrient.title} - {nutrient.amount} <Progress inverted color='violet' size='small' value={nutrient.percentOfDailyNeeds} total='100' progress='percent'/></div>)}
 
-// <Table.Body>
-//   <Table.Row>
-//     <Table.Cell>Calories</Table.Cell>
-//     <Table.Cell>{nutritionalData.calories}</Table.Cell>
-//   </Table.Row>
-//   <Table.Row>
-//     <Table.Cell>Protein</Table.Cell>
-//     <Table.Cell>{nutritionalData.protein}</Table.Cell>
-//   </Table.Row>
-//   <Table.Row>
-//     <Table.Cell>Carbs</Table.Cell>
-//     <Table.Cell>{nutritionalData.carbs}</Table.Cell>
-//   </Table.Row>
-//   <Table.Row>
-//     <Table.Cell>Fat</Table.Cell>
-//     <Table.Cell>{nutritionalData.fat}</Table.Cell>
-//   </Table.Row>
-// </Table.Body>
-// </Table>
+</div>
+<div style={{height: "20%"}}>
+<Header as='h3' dividing>Make sure you get enough of:</Header>
+{goodStuff.map((nutrient, index) => <div key={index}>{nutrient.title} - {nutrient.amount} <Progress size='small' inverted color='pink' value={nutrient.percentOfDailyNeeds} total='100' progress='percent'/></div>)}
+</div>
+</Fragment> */}
+
+
+{/* <Segment>
+
+<Grid columns={2} relaxed='very'>
+  <Grid.Column>
+    <Header>Limit your intake of:</Header>
+    {goodStuff.map((nutrient, index) => <div key={index}>{nutrient.title} - {nutrient.amount} <Progress size='small' inverted color='pink' value={nutrient.percentOfDailyNeeds} total='100' progress='percent'/></div>)}  
+  </Grid.Column>
+  <Grid.Column>
+    <Header>Make sure you get enough of:</Header>
+    {badStuff.map((nutrient, index) => <div key={index}>{nutrient.title} - {nutrient.amount} <Progress inverted color='violet' size='small' value={nutrient.percentOfDailyNeeds} total='100' progress='percent'/></div>)}
+  </Grid.Column>
+</Grid>
+
+<Divider horizontal>And</Divider>
+</Segment> */}
