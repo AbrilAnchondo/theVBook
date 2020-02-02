@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button } from 'semantic-ui-react';
+import { Button, Form } from 'semantic-ui-react';
 
 const Substitute = ({ ingredients }) => {
   const [input, setInput] = useState('');
@@ -35,17 +35,18 @@ const Substitute = ({ ingredients }) => {
   
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Need a substitute? 
+      <Form onSubmit={handleSubmit}>
+        <Form.Field>
+          <label><h2>Need a substitute?</h2>
           <input type='text' 
-            name='name' 
-            value={input}
-            placeholder=' type ingredient...'
-            onChange={handleChange} />
-        </label>
-        <input type='submit' value='Submit' />
-      </form>
+          name='name' 
+          value={input}
+          placeholder=' type ingredient...'
+          onChange={handleChange} />
+          </label>
+          <input type='submit' value='Submit' />
+        </Form.Field>
+      </Form>
       <br></br>
       <h3>{message}</h3>
       {substitutes.map((substitute,index) => <p key={index}>{substitute}</p>)}

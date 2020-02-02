@@ -2,9 +2,7 @@ import React, { Fragment } from 'react';
 import { List, Image } from 'semantic-ui-react';
 
 const Ingredients = ({ ingredients }) => {
-  //console.log("Ingredients from Ingredients Component",ingredients);
   let baseURL = 'https://spoonacular.com/cdn/ingredients_100x100/';
-  console.log('ingredients', ingredients);
   return (
     <List celled>
       <List.Item>
