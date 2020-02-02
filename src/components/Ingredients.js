@@ -4,7 +4,9 @@ import { Header, List, Image } from 'semantic-ui-react';
 const Ingredients = ({ ingredients }) => {
   //console.log("Ingredients from Ingredients Component",ingredients);
   let baseURL = 'https://spoonacular.com/cdn/ingredients_100x100/';
+  console.log('ingredients', ingredients);
   return (
+
 
     <Fragment>
       <Header as='h2' dividing>Ingredients and Quantities</Header>
