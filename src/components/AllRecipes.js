@@ -19,20 +19,17 @@ const AllRecipes = () => {
      
     }
     fetchRecipes();
-  }, [intolerances]);
+  }, [cuisine,diet,intolerances]);
 
   const onCuisineChange = (e, { value }) => {
-    console.log(value);
     setCuisine(value);
   }
 
   const onDietChange = (e, { value }) => {
-    console.log(value);
     setDiet(value);
   }
   
   const onIntolerancesChange = (e, { value }) => {
-    console.log(value);
     setIntolerances(value);
   }
 

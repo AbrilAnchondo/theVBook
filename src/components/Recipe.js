@@ -28,7 +28,7 @@ const Recipe = (props) => {
             </Button>
           </Link>
             <Button as='div' labelPosition='right' size="mini">
-             <Button size="">
+             <Button >
               <Icon name='heart' />
               
             </Button>
