@@ -57,33 +57,34 @@ const Options = (props) => {
       <form>
         <label>
           Select Cuisine Type: 
-          <select value={props.cuisine} onChange={props.onCuisineChange} placeholder="Select">
-            <option value='af'>African</option>
-            <option value='am'>American</option>
-            <option value='br'>British</option>
-            <option value='caj'>Cajun</option>
-            <option value='car'>Caribbean</option>
-            <option value='ch'>Chinese</option>
-            <option value='ee'>Easter European</option>
-            <option value='eu'>European</option>
-            <option value='fr'>French</option>
-            <option value='ge'>German</option>
-            <option value='gr'>Greek</option>
-            <option value='in'>Indian</option>
-            <option value='ir'>Irish</option>
-            <option value='it'>Italian</option>
-            <option value='ja'>Japanese</option>
-            <option value='je'>Jewish</option>
-            <option value='ko'>Korean</option>
-            <option value='la'>Latin American</option>
-            <option value='md'>Mediterranean</option>
-            <option value='me'>Mexican</option>
-            <option value='mi'>Middle Eastern</option>
-            <option value='no'>Nordic</option>
-            <option value='so'>Souther</option>
-            <option value='sp'>Spanish</option>
-            <option value='th'>Thai</option>
-            <option value='vi'>Vietnamese</option>
+          <select value={props.cuisine} onChange={props.onCuisineChange} >
+            <option value=''>Choose an option</option>
+            <option value='African'>African</option>
+            <option value='American'>American</option>
+            <option value='British'>British</option>
+            <option value='Cajun'>Cajun</option>
+            <option value='Caribbean'>Caribbean</option>
+            <option value='Chinese'>Chinese</option>
+            <option value='Easter European'>Easter European</option>
+            <option value='European'>European</option>
+            <option value='French'>French</option>
+            <option value='German'>German</option>
+            <option value='Greek'>Greek</option>
+            <option value='Indian'>Indian</option>
+            <option value='Irish'>Irish</option>
+            <option value='Italian'>Italian</option>
+            <option value='Japanese'>Japanese</option>
+            <option value='Jewish'>Jewish</option>
+            <option value='Korean'>Korean</option>
+            <option value='Latin American'>Latin American</option>
+            <option value='Mediterranean'>Mediterranean</option>
+            <option value='Mexican'>Mexican</option>
+            <option value='Middle Eastern'>Middle Eastern</option>
+            <option value='Nordic'>Nordic</option>
+            <option value='Southern'>Southern</option>
+            <option value='Spanish'>Spanish</option>
+            <option value='Thai'>Thai</option>
+            <option value='Vietnamese'>Vietnamese</option>
           </select>
         </label>  
       </form>
