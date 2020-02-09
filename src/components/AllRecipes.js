@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
+import Options from './Options';
 import Recipe from './Recipe';
 import '../index.css';
 
@@ -18,9 +19,12 @@ const AllRecipes = () => {
   }, []);
 
   return (
-    <div className="grid recipe-list">
-        { recipes.map(recipe => <Recipe key={recipe.id} recipe={recipe} />) }
-    </div>
+    <Fragment>
+      <Options />
+      <div className="grid recipe-list">
+          { recipes.map(recipe => <Recipe key={recipe.id} recipe={recipe} />) }
+      </div>
+    </Fragment>
   )
 }
 

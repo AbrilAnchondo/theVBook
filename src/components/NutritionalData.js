@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import { Progress, Header, Label, Grid, Table } from 'semantic-ui-react';
+import { Progress, Header, Grid, Table } from 'semantic-ui-react';
 
 const NutritionalData = (props) => {
   const [nutritionalData, setNutritionalData] = useState({});
