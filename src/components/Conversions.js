@@ -40,7 +40,7 @@ const Conversions = () =>   {
   }
 
   return (
-    <div>
+    <div className="conversion">
     <h2>Need a Conversion?</h2>
      <Form onSubmit={handleSubmit}>
        <Form.Field width={4}>

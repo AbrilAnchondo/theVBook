@@ -43,6 +43,7 @@ const NutritionalData = (props) => {
         </Table>
       </div>
 
+      <br></br>
 
       <div style={{width: "30%"}}>
         <Header>Make sure you get enough of these</Header>
@@ -65,6 +66,8 @@ const NutritionalData = (props) => {
         </Table>
       </div>
 
+      <br></br>
+      
       <div style={{width: "30%"}}>
         <Header>Make sure you limit your intake of these</Header>
         <Table color='orange' key='orange' inverted>
