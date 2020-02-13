@@ -1,5 +1,6 @@
 import React from 'react';
 import { Router, Link } from '@reach/router';
+import { Menu } from 'semantic-ui-react';
 import Home from './components/Home';
 import AllRecipes from './components/AllRecipes';
 import RecipeDetails from './components/RecipeDetails';
@@ -7,12 +8,16 @@ import RecipeContainer from './components/RecipeContainer';
 
 
 function App() {
+
   return (
+
     <div>
-      <nav>
-        <Link to="/">Home</Link>{" "}
-        <Link to="recipes">Recipes</Link>
-      </nav>
+
+      <ul className="topnav">
+        <li className="active"><Link to="/">Home</Link></li>
+        <li><Link to="recipes">Recipes</Link></li>
+      </ul>
+
       <Router>
         <Home path="/" />
         <RecipeContainer path="recipes">

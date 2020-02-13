@@ -3,7 +3,9 @@ import '../index.css';
 
 export default function Home() {
   return (
-    <div class="bg-home">
+    <div className="bg-home">
+      
+
     </div>
   )
 }
