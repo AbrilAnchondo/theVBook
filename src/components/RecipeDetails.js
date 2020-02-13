@@ -6,7 +6,7 @@ import Substitute from './Substitute';
 import Conversions from './Conversions';
 import { Image } from 'semantic-ui-react';
 
-
+import '../index.css';
 
 const RecipeDetails = (props) => {
   //console.log(props);

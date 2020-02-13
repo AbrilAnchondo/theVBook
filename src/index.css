@@ -32,14 +32,9 @@ body {
   object-fit: cover;
 }
 
-/* .bg-rdetails {
-  background-image: url('https://images.unsplash.com/photo-1534352436920-f658b50b73fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60');
-  height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  object-fit: cover;
-  opacity: 0.5;
-
-} */
-
+ .bg-rdetails {
+  background-image: url('https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2110&q=80');
+  background-attachment: fixed;
+  background-size: cover;
+} 
 
