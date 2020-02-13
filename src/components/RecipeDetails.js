@@ -4,7 +4,8 @@ import Steps from './Steps';
 import NutritionalData from './NutritionalData';
 import Substitute from './Substitute';
 import Conversions from './Conversions';
-import { Image } from 'semantic-ui-react'
+import { Image } from 'semantic-ui-react';
+
 
 
 const RecipeDetails = (props) => {

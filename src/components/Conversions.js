@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button } from 'semantic-ui-react';
+import { Button, Form } from 'semantic-ui-react';
 
 const Conversions = () =>   {
   const [conversion, setConversion] = useState({
@@ -41,51 +41,53 @@ const Conversions = () =>   {
 
   return (
     <div>
-     <br></br>
-     <p>Need a conversion?</p> 
-     <form onSubmit={handleSubmit}>
-       <label>
-         What
-         <input type='text'
+    <h2>Need a Conversion?</h2>
+     <Form onSubmit={handleSubmit}>
+       <Form.Field width={4}>
+       <label><h4>What?</h4>
+        <input type='text' 
           name='ing'
           value={conversion.ing}
           placeholder='ingredient name...'
           onChange={handleChange}
-          />
-       </label>
+        />
+       </label>  
+       </Form.Field>
 
-       <label>
-         How much
-         <input type='text'
+       <Form.Field width={4}>
+       <label><h4>How Much?</h4>
+        <input type='text' 
           name='sourceAmount'
           value={conversion.sourceAmount}
-          placeholder='amount...'
+          placeholder='amount'
           onChange={handleChange}
-          />
-       </label>
+        />
+       </label> 
+       </Form.Field>
 
-       <label>
-         Unit to convert
-         <input type='text'
+       <Form.Field width={4}>
+       <label><h4>Unit to convert</h4>
+        <input type='text' 
           name='sourceUnit'
           value={conversion.sourceUnit}
           placeholder='unit...'
           onChange={handleChange}
-          />
+        />
        </label>
+       </Form.Field>
 
-       <label>
-         Unit to convert to
-         <input type='text'
+       <Form.Field width={4}>
+       <label><h4>Unit to convert to</h4>
+        <input type='text' 
           name='targetUnit'
           value={conversion.targetUnit}
           placeholder='unit...'
           onChange={handleChange}
-          />
+        />
        </label>
-  
-       <input type='submit' value='Submit' />
-     </form>
+       <input type='submit' value='Submit' />  
+       </Form.Field>
+     </Form>
      <br></br>
      {answer}
      <br></br>
@@ -95,3 +97,52 @@ const Conversions = () =>   {
 }
 
 export default Conversions
+{/* <p>Need a conversion?</p> 
+<form onSubmit={handleSubmit}>
+  <label>
+    What
+    <input type='text'
+     name='ing'
+     value={conversion.ing}
+     placeholder='ingredient name...'
+     onChange={handleChange}
+     />
+  </label>
+
+  <label>
+    How much
+    <input type='text'
+     name='sourceAmount'
+     value={conversion.sourceAmount}
+     placeholder='amount...'
+     onChange={handleChange}
+     />
+  </label>
+
+  <label>
+    Unit to convert
+    <input type='text'
+     name='sourceUnit'
+     value={conversion.sourceUnit}
+     placeholder='unit...'
+     onChange={handleChange}
+     />
+  </label>
+
+  <label>
+    Unit to convert to
+    <input type='text'
+     name='targetUnit'
+     value={conversion.targetUnit}
+     placeholder='unit...'
+     onChange={handleChange}
+     />
+  </label>
+
+  <input type='submit' value='Submit' />
+</form>
+<br></br>
+{answer}
+<br></br>
+{showButton ? <Button onClick={handleButtonClick} basic size='mini' color='grey'>Clear</Button> : null}
+</div> */}
