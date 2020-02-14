@@ -1,6 +1,6 @@
 import React from 'react';
 import { Router, Link } from '@reach/router';
-import { Menu } from 'semantic-ui-react';
+
 import Home from './components/Home';
 import AllRecipes from './components/AllRecipes';
 import RecipeDetails from './components/RecipeDetails';
@@ -25,6 +25,10 @@ function App() {
           <RecipeDetails path=":id" />
         </RecipeContainer>
       </Router>
+
+      <div className="footer">
+        Copyright &copy; 2020
+      </div>
     </div>
   );
 }

@@ -1,7 +1,8 @@
+
+
 body {
   margin: auto;
   padding: 0;
-
 }
 
 ul.topnav {
@@ -65,6 +66,18 @@ ul.topnav li a:hover:not(.active) {background-color: #111;}
   align-items: center;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;
+}
+
+.main {
+  min-height: calc(100vh - 55px);
+}
+
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: #333;
+  color: white;
+  height: 65px;
 }
 
 /*  media queries */
