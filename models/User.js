@@ -1,5 +1,5 @@
 //models hold the schema, defines our user
-const mongoose = requires('mongoose');
+const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
   name: {

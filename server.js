@@ -8,7 +8,12 @@ connectDB();
 
 const PORT = process.env.PORT || 5000;
 
+//init middleware to have access to the req and res objects
+app.use(express.json({extended: false}));
+
 app.get('/', (req, res) => res.send('API is running...'));
+
+
 
 //Define routes
 app.use('/api/users', require('./routes/api/users'));
