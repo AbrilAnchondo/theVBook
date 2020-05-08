@@ -4,19 +4,23 @@ import Steps from './Steps';
 import NutritionalData from './NutritionalData';
 import Substitute from './Substitute';
 import Conversions from './Conversions';
-import { Image } from 'semantic-ui-react';
+import { Image, Message, Divider, Button } from 'semantic-ui-react';
+import { Link } from '@reach/router';
 
 import '../index.css';
 
 const RecipeDetails = (props) => {
-  //console.log(props);
+  console.log("Props",props);
   const image = props.location.state.image;
-  //console.log(image);
+  console.log(image);
   let imageURL = `https://spoonacular.com/recipeImages/${image}?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`
   const id = props.id;
   console.log("recipe id ",id);
   const [steps, setSteps] = useState([]);
   const [ingredients,  setIngredients] = useState([]);
+
+  console.log("Steps", steps);
+  console.log("Ingredients", ingredients);
 
   useEffect(() => {
     const fetchRecipeDetails = async () => {
@@ -36,6 +40,11 @@ const RecipeDetails = (props) => {
     fetchRecipeDetails();
     fetchIngredientDetails();
   },[])
+
+  const saveRecipe = (e) => {
+    console.log('Button clicked');
+    
+  }
 
   let completeIngList = [];
   ingredients.forEach(ing => {
@@ -59,11 +68,33 @@ const RecipeDetails = (props) => {
  
   return (
     <div className="bg-rdetails">
-      <Image src={imageURL} fluid/>
+      {
+        localStorage.length !== 0 ? <Message>
+        <Message.Header>You can now add recipes to your VBook!</Message.Header></Message>
+        :
+        <Message>
+        <Message.Header>Signup and start saving recipes!</Message.Header></Message>
+      }
+
+      <div className="img-container">
+        <Image src={imageURL} centered="true" rounded="true"/>
+      </div>
+      <Button 
+        onClick={e => saveRecipe(e)}
+        color="black" 
+        style={{marginTop: '20px'}} 
+        fluid>Save this recipe!
+      </Button>
+
+      <h3><Link to='/myvbook' state={{ image: `${imageURL}` }}>Go to MyVBook</Link></h3>
+
       <Ingredients ingredients={completeIngList} />
-      <Substitute ingredients={substituteList}/>
+
       <Conversions />
-      <Steps instructions={instructions} />   
+      <Divider horizontal>OR</Divider>
+      <Substitute ingredients={substituteList}/>
+      <Divider />
+      <Steps instructions={instructions} /> 
       <NutritionalData recipeId={id} />
     </div>
   )

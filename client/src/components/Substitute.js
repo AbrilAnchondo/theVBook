@@ -36,7 +36,7 @@ const Substitute = ({ ingredients }) => {
   return (
     <div className="substitute">
       <Form onSubmit={handleSubmit}>
-        <Form.Field width={4}>
+        <Form.Field>
           <label><h2>Need a substitute?</h2>
           <input type='text' 
           name='name' 

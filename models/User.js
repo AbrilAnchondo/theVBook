@@ -10,7 +10,24 @@ const UserSchema = new mongoose.Schema({
     type: String,
     require: true,
     unique: true
-  }
-})
+  },
+  recipes: [
+    {
+      recipeID: {
+        type: String
+      },
+      favorite: {
+        type: Boolean,
+        default: false
+      },
+      category: {
+        type: String
+      },
+      notepad: {
+        type: String
+      }
+    }
+  ]
+});
 
 module.exports = User = mongoose.model('user', UserSchema);

@@ -5,33 +5,18 @@ body {
   padding: 0;
 }
 
-ul.topnav {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-  height: 100px;
+.navbar {
+  padding: 20px;
 }
-
-ul.topnav li {float: left;}
-
-ul.topnav li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 35px 16px;
-  text-decoration: none;
-}
-
-ul.topnav li a:hover:not(.active) {background-color: #111;}
 
 .recipe-list {
-  background-image: url('https://images.unsplash.com/photo-1506508618093-6fe5ce3def4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60');
+  background-image: url('https://images.unsplash.com/photo-1545810300-732e4b9e06b3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60');
   height: 100%;
   background-position: center;
   background-repeat: repeat;
   object-fit: cover;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .grid {
@@ -53,24 +38,47 @@ ul.topnav li a:hover:not(.active) {background-color: #111;}
   background-repeat: no-repeat;
   object-fit: cover;
   background-position: center;
+  border-radius: 10px;
 }
 
  .bg-rdetails {
   background-image: url('https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2110&q=80');
   background-attachment: fixed;
   background-size: cover;
+  border-radius: 10px;
+  padding: 20px;
 } 
 
 .substitute, .conversion {
-  background-color: white;
-  width: 25%;
-  align-items: center;
+  background-color: rgb(170, 162, 162);
+  width: 80%;
+  padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.table {
+  width: 80%;
 }
 
 .main {
   min-height: calc(100vh - 55px);
+}
+
+.login-wrapper {
+  background-image: url('https://images.unsplash.com/photo-1532768778661-1b347c5f02ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60');
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100vh;
+  border-radius: 10px;
+}
+
+.signup-wrapper {
+  background-image: url('https://images.unsplash.com/photo-1484980972926-edee96e0960d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60');
+  background-attachment: fixed;
+  background-size: cover;
+  height: 100vh;
+  border-radius: 10px;
 }
 
 .footer {

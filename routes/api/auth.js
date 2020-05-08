@@ -23,7 +23,7 @@ async (req,res) => {
       return res.status(400).json({ errors: [ { msg: 'Invalid credentials'}]})
     }
     
-    res.send('User registered');
+    res.send(user);
   }catch(err) {
     console.error(err.message);
     res.status(500).send('Server error')

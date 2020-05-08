@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react';
-import { Card, Image, Button, Icon, Label } from 'semantic-ui-react';
+import { Card, Image, Button, Icon } from 'semantic-ui-react';
 import { Link } from '@reach/router';
 import '../index.css';
 
 
 const Recipe = (props) => {
   const { id, title, servings, image, readyInMinutes } =  props.recipe;
+  //console.log("Recipe", props);
   let imageUrl = `https://spoonacular.com/recipeImages/${image}?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`
   return (
     <Fragment>
@@ -27,15 +28,6 @@ const Recipe = (props) => {
               </Button.Content>
             </Button>
           </Link>
-            <Button as='div' labelPosition='right' size="mini">
-             <Button >
-              <Icon name='heart' />
-              
-            </Button>
-            <Label as='a' basic pointing='left'>
-              0
-            </Label>
-          </Button>
         </Card.Content>
       </Card>
       </Fragment>
