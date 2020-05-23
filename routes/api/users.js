@@ -7,22 +7,20 @@ const User = require('../../models/User');
 
 // //route GET api/users/:id
 // //description get logged in user info
-// router.get('/', async (req, res) => {
-//   const { email } = req.body;
-//   try {
-//     let user = await User.findOne({ email });
-  
-//     res.json(user);
-//   } catch(err) {
-//     console.error(err.message);
-//     res.status(500).send('Server error');
-//   }
-// });
+router.get('/:id', async (req, res) => {
+  try {
+    const user = await User.findOne({ _id: req.params.id });
+    res.json(user.recipes);
+  } catch(err) {
+    console.error(err.message);
+    res.status(500).send('Server error');
+  }
+});
 
 // //route POST   api/users
 // //description  register user
 // //access       public
-router.post('/', [
+ router.post('/', [
   check('name', 'Name is required')
     .not()
     .isEmpty(),
