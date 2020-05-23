@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
 import Ingredients from './Ingredients';
 import Steps from './Steps';
 import NutritionalData from './NutritionalData';
@@ -9,18 +11,19 @@ import { Link } from '@reach/router';
 
 import '../index.css';
 
+
 const RecipeDetails = (props) => {
-  console.log("Props",props);
+  //console.log("Props",props);
   const image = props.location.state.image;
-  console.log(image);
+  //console.log(image);
   let imageURL = `https://spoonacular.com/recipeImages/${image}?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`
   const id = props.id;
-  console.log("recipe id ",id);
+  //console.log("recipe id ",id);
   const [steps, setSteps] = useState([]);
   const [ingredients,  setIngredients] = useState([]);
 
-  console.log("Steps", steps);
-  console.log("Ingredients", ingredients);
+  //console.log("Steps", steps);
+  //console.log("Ingredients", ingredients);
 
   useEffect(() => {
     const fetchRecipeDetails = async () => {
@@ -41,8 +44,28 @@ const RecipeDetails = (props) => {
     fetchIngredientDetails();
   },[])
 
-  const saveRecipe = (e) => {
-    console.log('Button clicked');
+  const saveRecipe = async e => {
+    const userId = localStorage.userId
+    const mySavedRecipe = {
+      recipeID: id
+    };
+
+    try {
+      const configObj = {
+          headers: {
+            'Content-Type': 'application/json',
+            'Accepts': 'application/json/'
+          }
+        };
+
+        const body = JSON.stringify(mySavedRecipe);
+        const res = await axios.put(`http://localhost:5000/api/users/${userId}/recipes`, body, configObj);
+        console.log('response: ',res);
+    }catch(err) {
+      console.error('error: ',err);
+      //console.log(err.response.data.errors[0].msg);
+    }
+
     
   }
 
