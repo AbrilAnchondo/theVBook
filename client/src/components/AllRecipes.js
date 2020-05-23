@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import Options from './Options';
+import RecipeList from './RecipeList';
 import Recipe from './Recipe';
 import '../index.css';
 import { Divider, Grid, Image, Segment, Placeholder } from 'semantic-ui-react';
@@ -79,8 +80,8 @@ const AllRecipes = () => {
         intolerances={intolerances}
         onIntolerancesChange={onIntolerancesChange}
       />
-      <div className="grid recipe-list">
-          { recipes.map(recipe => <Recipe key={recipe.id} recipe={recipe} />) }
+      <div>
+        <RecipeList recipes={recipes} />
       </div>
     </Fragment>
   )
