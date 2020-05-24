@@ -36,22 +36,6 @@ const MyVBook = (props) => {
     fetchUserRecipes();
  },[])
 
-  // useEffect(() => {
-  //   //console.log(userRe);
-  //   let ids = userRe.map(re => re.recipeID).join();
-  //   console.log('ids: ',ids);
-  //     const fetchRecipesFromAPI = async () => {
-  //     const res = await fetch(`https://api.spoonacular.com/recipes/informationBulk?ids=${ids}&includeNutrition=false&apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`);
-  //     console.log(res);
-  //     const recipeList = await res.json();
-  //     //console.log(recipeList);
-  //     setRecipeList(recipeList);
-  //     //console.log('state recipeList: ',recipeList);
-  //     }
-  //     fetchRecipesFromAPI();
-  // },[userRe])  
-  
-  //console.log(recipeList);
   return (
       <div>
         <h1>User's saved recipes</h1>
