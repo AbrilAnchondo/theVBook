@@ -3,11 +3,11 @@ import { Card, Image, Button, Icon } from 'semantic-ui-react';
 import { Link } from '@reach/router';
 import '../index.css';
 
-
 const Recipe = (props) => {
   const { id, title, servings, image, readyInMinutes } =  props.recipe;
-  //console.log("Recipe", props);
-  let imageUrl = `https://spoonacular.com/recipeImages/${image}?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`
+
+  let imageUrl = image.startsWith('https://') ? image+`?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}` : `https://spoonacular.com/recipeImages/${image}?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`;
+
   return (
     <Fragment>
        <Card>
@@ -31,7 +31,6 @@ const Recipe = (props) => {
         </Card.Content>
       </Card>
       </Fragment>
-  
   ) 
 }
 
