@@ -83,6 +83,7 @@ function App() {
             <RecipeDetails path=":id" />
           </RecipeContainer>
           <MyVBook path="/myvbook" />
+          <RecipeDetails path="/myvbook/:id" />
           <Register path="/register" />
           <Login path="/login" />
           <Logout path="/logout" style={{float: "right"}}/>
