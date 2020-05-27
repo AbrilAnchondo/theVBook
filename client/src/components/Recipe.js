@@ -6,6 +6,7 @@ import '../index.css';
 const Recipe = (props) => {
   const { id, title, servings, image, readyInMinutes } =  props.recipe;
 
+  // TODO: CHECK IF CONDITIONAL IS NEEDED
   let imageUrl = image.startsWith('https://') ? image+`?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}` : `https://spoonacular.com/recipeImages/${image}?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`;
 
   return (
