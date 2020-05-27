@@ -80,9 +80,14 @@ router.put('/:id/recipes', async (req,res) => {
 
   try {
     const user = await User.findOne({ _id: req.params.id });
-    user.recipes.unshift(newRecipe);
-    await user.save();
-    res.json(user.recipes);
+    const duplicate = user.recipes.filter(re => re.recipeID === req.body.recipeID);
+    if (duplicate.length >= 1) {
+      return res.status(400).json({ errors: [ { msg: 'Recipe already saved'}]})
+    }else {
+      user.recipes.unshift(newRecipe);
+      await user.save();
+      res.json(user.recipes);
+    }
   }catch(err) {
     console.error(err.message);
     res.status(500).send('Server error')
