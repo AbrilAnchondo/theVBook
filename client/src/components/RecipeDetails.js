@@ -79,10 +79,10 @@ const RecipeDetails = (props) => {
     completeIngList.push(ingObj);
   })
 
-  let substituteList = [];
-  ingredients.forEach(ing => {
-    substituteList.push(ing.name)
-  })
+  // let substituteList = [];
+  // ingredients.forEach(ing => {
+  //   substituteList.push(ing.name)
+  // })
   
   let instructions = [];
   steps.forEach(step => {
@@ -113,9 +113,9 @@ const RecipeDetails = (props) => {
 
       <Ingredients ingredients={completeIngList} />
 
-      <Conversions />
+      {/* <Conversions />
       <Divider horizontal>OR</Divider>
-      <Substitute ingredients={substituteList}/>
+      <Substitute ingredients={substituteList}/> */}
       <Divider />
       <Steps instructions={instructions} /> 
       <NutritionalData recipeId={id} />

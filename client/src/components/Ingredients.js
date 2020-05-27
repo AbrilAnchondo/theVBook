@@ -3,7 +3,7 @@ import { List, Image, Divider } from 'semantic-ui-react';
 
 const Ingredients = ({ ingredients }) => {
   let baseURL = 'https://spoonacular.com/cdn/ingredients_100x100/';
-  console.log("ingredient list:", ingredients);
+  //console.log("ingredient list:", ingredients);
   return (
     <List size="huge">
       <h2>Ingredients you'll need</h2>

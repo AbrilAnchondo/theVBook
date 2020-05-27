@@ -1,15 +1,14 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import { Header, Table } from 'semantic-ui-react';
 
-const NutritionalData = (props) => {
+const NutritionalData = ({ recipeId }) => {
   const [nutritionalData, setNutritionalData] = useState({});
   const [badStuff, setBadStuff] = useState([]);
   const [goodStuff, setGoodStuff] = useState([]);
-  const id = props.recipeId;
 
   useEffect(() => {
     const fetchNutritionalInfo = async () => {
-      const response = await fetch(`https://api.spoonacular.com/recipes/${id}/nutritionWidget.json?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`);
+      const response = await fetch(`https://api.spoonacular.com/recipes/${recipeId}/nutritionWidget.json?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`);
       const nutriData = await response.json();
       setNutritionalData(nutriData);
       setBadStuff(nutriData.bad);
@@ -35,7 +34,7 @@ const NutritionalData = (props) => {
           <Table.Body>
             <Table.Row>
               <Table.Cell>{nutritionalData.calories}</Table.Cell>
-              <Table.Cell>{nutritionalData.calories}</Table.Cell>
+              <Table.Cell>{nutritionalData.protein}</Table.Cell>
               <Table.Cell>{nutritionalData.carbs}</Table.Cell>
               <Table.Cell>{nutritionalData.fat}</Table.Cell>
             </Table.Row>
