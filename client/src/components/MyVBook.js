@@ -55,8 +55,8 @@ const MyVBook = (props) => {
 
   return (
       <div>
-        <h1>Your Recipes</h1>
-        <SavedReList fullRes={fullReList} />
+        <h1 className='vbook-title'>My Recipe Book</h1>
+        <SavedReList fullReList={fullReList} />
         {/* <RecipeList recipes={recipeList} /> */}
       </div>
   )
