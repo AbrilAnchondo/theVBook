@@ -37,7 +37,7 @@ const AllRecipes = () => {
 
   return (
     <Fragment>
-      <Placeholder>
+      <Placeholder inverted fluid>
         <Placeholder.Header image>
           <Placeholder.Line />
           <Placeholder.Line />

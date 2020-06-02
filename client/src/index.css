@@ -3,6 +3,7 @@
 body {
   margin: auto;
   padding: 0;
+  background-color: black;
 }
 
 .navbar {
@@ -34,7 +35,7 @@ body {
 .bg-home {
   height: 100vh;
   width: 100%;
-  background-image: url('https://images.unsplash.com/photo-1506395308321-904a71783d60?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60');
+  background-image: url('https://images.unsplash.com/photo-1548172639-78b9a845fccb?ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80');
   background-repeat: no-repeat;
   object-fit: cover;
   background-position: center;
@@ -50,7 +51,7 @@ body {
 } 
 
 .substitute, .conversion {
-  background-color: rgb(170, 162, 162);
+  background-color: rgb(219, 218, 215);
   width: 80%;
   padding: 20px;
   border-radius: 10px;
@@ -162,7 +163,7 @@ body {
 .col::before {
   content: '';
   display: block;
-  width: 50%;
+  width: 40%;
   height: 110%;
   background: linear-gradient(to right, rgb(247, 245, 245) 10%, rgba(255, 255, 255, 0) 100%);
   position: absolute;
@@ -174,7 +175,7 @@ body {
 .col::after {
   content: '';
   display: block;
-  width: 50%;
+  width: 40%;
   height: 110%;
   background: linear-gradient(to left, rgb(247, 245, 245) 10%, rgba(255, 255, 255, 0) 100%);
   position: absolute;
@@ -185,9 +186,14 @@ body {
   right: 0;
 }
 
+.my-recipe-card-text {
+  font-size: 18px;
+}
+
 .vbook-title {
   text-align: center;
   margin-bottom: 20px;
+  display: block;
 }
 
 .arrows {

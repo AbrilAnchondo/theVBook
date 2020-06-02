@@ -7,8 +7,8 @@ const SavedReList = ({ fullReList }) => {
   
 
   const toPreviousRecipe = () => {
-    console.log('previous');
-    console.log('index: ',index);
+    // console.log('previous');
+    // console.log('index: ',index);
     setIndex(index-1);
     if(index === 0) {
       setIndex(fullReList.length-1);
@@ -17,8 +17,8 @@ const SavedReList = ({ fullReList }) => {
   }
 
   const toNextRecipe = () => {
-    console.log('next');
-    console.log('index: ',index);
+    // console.log('next');
+    // console.log('index: ',index);
     setIndex(index+1);
     if(index === fullReList.length-1) {
       setIndex(0);
@@ -29,12 +29,12 @@ const SavedReList = ({ fullReList }) => {
     <div>
       <div className='arrows'>
         <span>
-          <i class="fas fa-caret-square-left fa-3x"
+          <i className="fas fa-caret-square-left fa-3x"
             onClick={() => toPreviousRecipe()}
           ></i>
         </span>
         <span>
-          <i class="fas fa-caret-square-right fa-3x"
+          <i className="fas fa-caret-square-right fa-3x"
             onClick={() => toNextRecipe()}
           ></i>
         </span>

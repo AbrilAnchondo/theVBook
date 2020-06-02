@@ -4,8 +4,6 @@ import axios from 'axios';
 import Ingredients from './Ingredients';
 import Steps from './Steps';
 import NutritionalData from './NutritionalData';
-import Substitute from './Substitute';
-import Conversions from './Conversions';
 import { Image, Message, Divider, Button } from 'semantic-ui-react';
 import { Link } from '@reach/router';
 
@@ -37,6 +35,7 @@ const RecipeDetails = (props) => {
       const response = await fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&defaultCss=true`);
       const ingData = await response.json();
       const ingList = ingData.ingredients;
+      //console.log('ingredient list: ',ingList);
       setIngredients(ingList);
     }
 
@@ -47,7 +46,8 @@ const RecipeDetails = (props) => {
   const saveRecipe = async e => {
     const userId = localStorage.userId
     const mySavedRecipe = {
-      recipeID: id
+      recipeID: id,
+      notepad: "notes..."
     };
 
     try {
@@ -112,10 +112,6 @@ const RecipeDetails = (props) => {
       <h3><Link to='/myvbook' state={{ image: `${imageURL}` }}>Go to MyVBook</Link></h3>
 
       <Ingredients ingredients={completeIngList} />
-
-      {/* <Conversions />
-      <Divider horizontal>OR</Divider>
-      <Substitute ingredients={substituteList}/> */}
       <Divider />
       <Steps instructions={instructions} /> 
       <NutritionalData recipeId={id} />

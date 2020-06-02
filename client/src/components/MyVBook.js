@@ -6,9 +6,8 @@ import SavedReList from './SavedReList';
 //import { set } from 'mongoose';
 //import { Divider, Image } from 'semantic-ui-react';
 
-const MyVBook = (props) => {
+const MyVBook = () => {
   //console.log("props",props.location.state.image)
-  //const src = props.location.state.image;
   let userId = localStorage.userId;
   const [userRe, setUserRe] = useState([]);
   const [recipeList, setRecipeList] = useState([]);
@@ -32,7 +31,7 @@ const MyVBook = (props) => {
       const res = await fetch(`https://api.spoonacular.com/recipes/informationBulk?ids=${ids}&includeNutrition=true&apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`);
       //console.log(res);
       const recipeList = await res.json();
-      console.log('recipeList: ',recipeList);
+      //console.log('recipeList: ',recipeList);
       setRecipeList(recipeList);
     } 
     fetchUserRecipes();
@@ -47,17 +46,16 @@ const MyVBook = (props) => {
       }
     })
   })
-  console.log('temp: ',temp)
+  //console.log('temp: ',temp)
   return temp
  }
  let fullReList = mergedList(userRe,recipeList);
- console.log('fullReList: ',fullReList);
+ //console.log('fullReList: ',fullReList);
 
   return (
       <div>
         <h1 className='vbook-title'>My Recipe Book</h1>
         <SavedReList fullReList={fullReList} />
-        {/* <RecipeList recipes={recipeList} /> */}
       </div>
   )
 }

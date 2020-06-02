@@ -7,6 +7,7 @@ import AllRecipes from './components/AllRecipes';
 import RecipeDetails from './components/RecipeDetails';
 import RecipeContainer from './components/RecipeContainer';
 import MyVBook from './components/MyVBook';
+import MyRecipeDetails from './components/MyRecipeDetails';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Logout from './components/auth/Logout';
@@ -83,7 +84,7 @@ function App() {
             <RecipeDetails path=":id" />
           </RecipeContainer>
           <MyVBook path="/myvbook" />
-          <RecipeDetails path="/myvbook/:id" />
+          <MyRecipeDetails path="/myvbook/:id"/>
           <Register path="/register" />
           <Login path="/login" />
           <Logout path="/logout" style={{float: "right"}}/>
