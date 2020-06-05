@@ -2,13 +2,11 @@ import React, { useState } from 'react';
 import MyRecipe from './MyRecipe';
 
 const SavedReList = ({ fullReList }) => {
-  //console.log('SavedReList props: ',fullRes);
+  console.log('SavedReList props: ',fullReList);
   const [index, setIndex] = useState(0);
   
 
   const toPreviousRecipe = () => {
-    // console.log('previous');
-    // console.log('index: ',index);
     setIndex(index-1);
     if(index === 0) {
       setIndex(fullReList.length-1);
@@ -17,8 +15,6 @@ const SavedReList = ({ fullReList }) => {
   }
 
   const toNextRecipe = () => {
-    // console.log('next');
-    // console.log('index: ',index);
     setIndex(index+1);
     if(index === fullReList.length-1) {
       setIndex(0);

@@ -30,6 +30,7 @@ const Register = () => {
       };
       const body = JSON.stringify(newUser);
       const res = await axios.post('http://localhost:5000/api/users', body, configObj);
+      console.log(res.data);
       alert('Thanks for joining! Please login...');
       navigate('/login')
     }catch(err) {

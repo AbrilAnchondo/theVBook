@@ -47,7 +47,9 @@ const RecipeDetails = (props) => {
     const userId = localStorage.userId
     const mySavedRecipe = {
       recipeID: id,
-      notepad: "notes..."
+      favorite: false,
+      category: "",
+      notepad: ""
     };
 
     try {

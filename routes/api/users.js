@@ -118,7 +118,6 @@ router.delete('/:id/recipes/:re_id', async (req, res) => {
 //description update recipe note for a given recipe
 //access?
 router.put('/:id/recipes/:re_id/notepad', async (req, res) => {
-  console.log(req.body.notepad);
   let newNote = req.body.notepad;
 
   try {

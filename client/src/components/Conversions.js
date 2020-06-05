@@ -41,7 +41,6 @@ const Conversions = () =>   {
 
   return (
     <div className="conversion">
-    <h2>Need a Conversion?</h2>
      <Form onSubmit={handleSubmit}>
        <Form.Field>
        <label><h4>What?</h4>
