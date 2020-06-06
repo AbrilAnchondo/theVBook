@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Segment, List, Image } from 'semantic-ui-react';
+import { Segment, List, Image, Button, Divider, Form } from 'semantic-ui-react';
 
 import Conversions from './Conversions';
 import Substitute from './Substitute';
@@ -7,6 +7,7 @@ import axios from 'axios';
 
 const MyRecipeDetails = (props) => {
   console.log('MyRecipeDetials props: ',props);
+  
   const userId = localStorage.userId;
   //TODO: include diets, nutrition and wine pairing 
   const { 
@@ -22,8 +23,10 @@ const MyRecipeDetails = (props) => {
     lowFodmap, 
     notepad, 
     _id} = props.location.state.details;
-  //console.log('notepad: ', notepad);
-  const [note, setNote] = useState(notepad);
+    //console.log('notepad: ', notepad);
+
+    const [note, setNote] = useState(notepad);
+    const [showForm, setShowForm] = useState('none');
 
   let imageUrl = `${image}?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`;
   let instructions = analyzedInstructions[0].steps;
@@ -55,9 +58,19 @@ const MyRecipeDetails = (props) => {
       });
       const res = await axios.put(`http://localhost:5000/api/users/${userId}/recipes/${_id}/notepad`, body, configObj);
       console.log('res: ',res.data);
+      setShowForm('none');
     } catch (err) {
       console.error("error: ",err);
     }
+  }
+
+  const showEditForm = () => {
+    setShowForm('block'); 
+  }
+
+  const hideForm = () => {
+    console.log('cancel');
+    setShowForm('none');
   }
 
   return (
@@ -82,20 +95,25 @@ const MyRecipeDetails = (props) => {
       </List>  
 
       <div className="notepad">Notes: {note}</div>
-      <form className="notepad-form" onSubmit={(e) => onSubmit(e)}>
-        <label>
-          <textarea 
-            value={note} 
-            name="note" 
-            onChange={(e) => onChange(e)} 
-            />
-        </label>
-        <input type="submit" value="update" />
-      </form>
-      <h3>Get a Conversion: </h3>
+        <Button color='black' onClick={() => showEditForm()}>Edit</Button>
+        <Form style={{'display': showForm}} onSubmit={(e) => onSubmit(e)}>
+          <Form.Field>
+            <textarea 
+              value={note} 
+              name="note" 
+              onChange={(e) => onChange(e)} 
+              />
+          </Form.Field>
+          <Button primary type="submit" value="update">Save</Button>
+          <Button secondary onClick={() => hideForm()}>Cancel</Button>
+        </Form>
+      <div>
+      <Divider></Divider>
+      <h3>Get a Conversion:</h3>
       <Conversions />
-      <h3>Get a Substitue: </h3>
+      <h3>Get a Conversion:</h3>
       <Substitute />
+      </div>
     </div>
   )
 }

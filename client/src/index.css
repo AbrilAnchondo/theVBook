@@ -52,7 +52,7 @@ body {
 
 .substitute, .conversion {
   background-color: rgb(219, 218, 215);
-  width: 80%;
+  width: 50%;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -203,6 +203,20 @@ body {
 
 .fas {
   margin: 10px;
+}
+
+.notepad {
+  /* display: flex;
+  flex-wrap: wrap; */
+  overflow-y: scroll;
+  margin-bottom: 10px;
+  word-wrap: break-word;
+  width: 50%;
+  height: 40vh;
+  padding: 20px;
+  border-radius: 10px;
+  background-color:  rgb(219, 218, 215);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .footer {
