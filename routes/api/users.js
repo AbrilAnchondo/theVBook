@@ -156,4 +156,25 @@ router.put('/:id/recipes/:re_id/category', async (req, res) => {
   }
 });
 
+//route PUT api/users/:id/recipes/:re_id/favorite 
+//description: update recipe favorite property for a given recipe
+router.put('/:id/recipes/:re_id/favorite', async (req, res) => {
+  let isFavorite = req.body.favorite;
+
+  try {
+    const user = await User.findOne({ _id: req.params.id });
+    const targetIndex = user.recipes
+      .map(item => item.id)
+      .indexOf(req.params.re_id);
+
+    user.recipes[targetIndex].favorite = isFavorite;
+    console.log('targetIndex: ',targetIndex);
+    await (user.save());
+    res.json(user.recipes);
+  } catch (error) {
+    console.error(err.message);
+    res.status(500).send('Server error');
+  }
+});
+
 module.exports = router;

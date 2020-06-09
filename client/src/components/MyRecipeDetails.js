@@ -24,12 +24,16 @@ const MyRecipeDetails = (props) => {
     lowFodmap, 
     notepad, 
     _id,
+    favorite,
+    category,
     recipeID
   } = props.location.state.details;
     //console.log('notepad: ', notepad);
 
     const [note, setNote] = useState(notepad);
     const [showForm, setShowForm] = useState('none');
+    const [isFavorite, setIsFavorite] = useState(favorite);
+    const [categorize, setCategorize] = useState(category);
 
   let imageUrl = `${image}?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`;
   let instructions = analyzedInstructions[0].steps;
@@ -45,9 +49,6 @@ const MyRecipeDetails = (props) => {
   //TODO: check if it works
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log("note: ",note);
-    console.log('userId: ',userId);
-    console.log('recipe id: ', _id);
     try {
       const configObj = {
         headers: {
@@ -76,6 +77,49 @@ const MyRecipeDetails = (props) => {
     setShowForm('none');
   }
 
+  const makeFavorite = async () => {
+    try {
+      const configObj = {
+        headers: {
+          'Content-Type': 'application/json',
+          'Accepts': 'application/json'
+        }
+      };
+
+      const body = JSON.stringify({
+        favorite : true
+      });
+
+      const res = await axios.put(`http://localhost:5000/api/users/${userId}/recipes/${_id}/favorite`, body, configObj);
+      //console.log('res: ',res.data);
+      setIsFavorite(true);
+    } catch (err) {
+      console.error("error: ",err);
+    }
+  }
+
+  const  unFavorite = async () => {
+    console.log('un favorite');
+    try {
+      const configObj = {
+        headers: {
+          'Content-Type': 'application/json',
+          'Accepts': 'application/json'
+        }
+      };
+
+      const body = JSON.stringify({
+        favorite : false
+      });
+
+      const res = await axios.put(`http://localhost:5000/api/users/${userId}/recipes/${_id}/favorite`, body, configObj);
+      //console.log('res: ',res.data);
+      setIsFavorite(false);
+    } catch (err) {
+      console.error("error: ",err);
+    }
+  }
+
   return (
     <div>
       <h1>{title}</h1>
@@ -95,8 +139,12 @@ const MyRecipeDetails = (props) => {
       <h2>Instructions: </h2>
       <List divided size="large">
         {instructions.map(step => <List.Item key={step.number}><List.Content>{step.number} - {step.step}</List.Content></List.Item>)}
-      </List>  
+      </List>
 
+      <Divider />  
+
+      <div>Make it a favorite: {isFavorite === false ? <i class="far fa-heart" onClick={() => makeFavorite()}></i> :  <i class="fas fa-heart" onClick={() => unFavorite()}></i>}</div>
+      <div>Give it a category: {category === '' ? 'Click to Add or Edit your category' : category}</div>
       <div className="notepad">Notes: {note}</div>
         <Button color='black' onClick={() => showEditForm()}>Edit</Button>
         <Form style={{'display': showForm}} onSubmit={(e) => onSubmit(e)}>

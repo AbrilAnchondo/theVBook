@@ -8,7 +8,7 @@ import { Divider, Grid, Image, Segment, Placeholder } from 'semantic-ui-react';
 const AllRecipes = () => {
   const [recipes, setRecipes] = useState([]);
   const [cuisine, setCuisine] = useState('');
-  const [diet, setDiet] = useState('');
+  const [diet, setDiet] = useState('Vegan');
   const [intolerances, setIntolerances] = useState('');
 
   useEffect(() => {
