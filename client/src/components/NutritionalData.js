@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react';
 import { Header, Table } from 'semantic-ui-react';
 
 const NutritionalData = ({ recipeId }) => {
+  console.log('recipeId: ',recipeId);
   const [nutritionalData, setNutritionalData] = useState({});
   const [badStuff, setBadStuff] = useState([]);
   const [goodStuff, setGoodStuff] = useState([]);

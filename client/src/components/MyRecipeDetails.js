@@ -4,6 +4,7 @@ import { Segment, List, Image, Button, Divider, Form } from 'semantic-ui-react';
 import Conversions from './Conversions';
 import Substitute from './Substitute';
 import axios from 'axios';
+import NutritionalData from './NutritionalData';
 
 const MyRecipeDetails = (props) => {
   console.log('MyRecipeDetials props: ',props);
@@ -22,7 +23,9 @@ const MyRecipeDetails = (props) => {
     weightWatcherSmartPoints, 
     lowFodmap, 
     notepad, 
-    _id} = props.location.state.details;
+    _id,
+    recipeID
+  } = props.location.state.details;
     //console.log('notepad: ', notepad);
 
     const [note, setNote] = useState(notepad);
@@ -107,12 +110,15 @@ const MyRecipeDetails = (props) => {
           <Button primary type="submit" value="update">Save</Button>
           <Button secondary onClick={() => hideForm()}>Cancel</Button>
         </Form>
-      <div>
       <Divider></Divider>
-      <h3>Get a Conversion:</h3>
-      <Conversions />
-      <h3>Get a Conversion:</h3>
-      <Substitute />
+      <div>
+        <h3>Get a Conversion:</h3>
+        <Conversions />
+        <h3>Get a Substitute:</h3>
+        <Substitute />
+      </div>
+      <div>
+        <NutritionalData recipeId={recipeID} />
       </div>
     </div>
   )

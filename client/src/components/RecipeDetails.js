@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import Ingredients from './Ingredients';
 import Steps from './Steps';
-import NutritionalData from './NutritionalData';
+// import NutritionalData from './NutritionalData';
 import { Image, Message, Divider, Button } from 'semantic-ui-react';
 import { Link } from '@reach/router';
 
@@ -116,7 +116,7 @@ const RecipeDetails = (props) => {
       <Ingredients ingredients={completeIngList} />
       <Divider />
       <Steps instructions={instructions} /> 
-      <NutritionalData recipeId={id} />
+      {/* <NutritionalData recipeId={id} /> */}
     </div>
   )
 }
