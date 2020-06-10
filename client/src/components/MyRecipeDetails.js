@@ -5,6 +5,7 @@ import Conversions from './Conversions';
 import Substitute from './Substitute';
 import axios from 'axios';
 import NutritionalData from './NutritionalData';
+//import { set } from 'mongoose';
 
 const MyRecipeDetails = (props) => {
   console.log('MyRecipeDetials props: ',props);
@@ -31,23 +32,25 @@ const MyRecipeDetails = (props) => {
     //console.log('notepad: ', notepad);
 
     const [note, setNote] = useState(notepad);
+    const [showNote, setShowNote] = useState('block');
     const [showForm, setShowForm] = useState('none');
     const [isFavorite, setIsFavorite] = useState(favorite);
     const [categorize, setCategorize] = useState(category);
+    const [showCategoryForm, setShowCategoryForm] = useState('none');
 
   let imageUrl = `${image}?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`;
   let instructions = analyzedInstructions[0].steps;
   const ingredients = extendedIngredients.map(ing => ing.originalString);
   //console.log('ingredients: ',ingredients);
 
-  const onChange = (e) => {
+  const onNoteChange = (e) => {
    //console.log('e target value: ',e.target.value);
     let newNote = e.target.value;
     setNote(newNote);
   }
 
   //TODO: check if it works
-  const onSubmit = async (e) => {
+  const updateNote = async (e) => {
     e.preventDefault();
     try {
       const configObj = {
@@ -61,20 +64,21 @@ const MyRecipeDetails = (props) => {
         notepad : note
       });
       const res = await axios.put(`http://localhost:5000/api/users/${userId}/recipes/${_id}/notepad`, body, configObj);
-      console.log('res: ',res.data);
+      //console.log('res: ',res.data);
       setShowForm('none');
     } catch (err) {
       console.error("error: ",err);
     }
   }
 
-  const showEditForm = () => {
+  const showNoteEditForm = () => {
+    setShowNote('none');
     setShowForm('block'); 
   }
 
   const hideForm = () => {
-    console.log('cancel');
     setShowForm('none');
+    setShowNote('block');
   }
 
   const makeFavorite = async () => {
@@ -99,7 +103,6 @@ const MyRecipeDetails = (props) => {
   }
 
   const  unFavorite = async () => {
-    console.log('un favorite');
     try {
       const configObj = {
         headers: {
@@ -118,6 +121,43 @@ const MyRecipeDetails = (props) => {
     } catch (err) {
       console.error("error: ",err);
     }
+  }
+
+  const onCategoryChange = (e) => {
+    // console.log('on category change');
+    // console.log('etv: ',e.target.value)
+    let newCategory = e.target.value;
+    setCategorize(newCategory);
+  }
+
+  const updateCategory = async () => {
+    console.log('update category');
+    try {
+      const configObj = {
+        headers: {
+          'Content-Type': 'application/json',
+          'Accepts': 'application/json'
+        }
+      };
+
+      const body = JSON.stringify({
+        category: categorize
+      });
+
+      const res = await axios.put(`http://localhost:5000/api/users/${userId}/recipes/${_id}/category`, body, configObj);
+      console.log('res:', res.data);
+      setShowCategoryForm('none');
+    } catch (err) {
+      console.error(err.message);
+    }
+  }
+
+  const showCategoryEditForm = () => {
+    setShowCategoryForm('block');
+  }
+
+  const hideCategoryForm = () => {
+    setShowCategoryForm('none');
   }
 
   return (
@@ -144,15 +184,36 @@ const MyRecipeDetails = (props) => {
       <Divider />  
 
       <div>Make it a favorite: {isFavorite === false ? <i class="far fa-heart" onClick={() => makeFavorite()}></i> :  <i class="fas fa-heart" onClick={() => unFavorite()}></i>}</div>
-      <div>Give it a category: {category === '' ? 'Click to Add or Edit your category' : category}</div>
-      <div className="notepad">Notes: {note}</div>
-        <Button color='black' onClick={() => showEditForm()}>Edit</Button>
-        <Form style={{'display': showForm}} onSubmit={(e) => onSubmit(e)}>
+
+      <Divider></Divider>
+
+      <div>
+        <span>Category: {categorize === '' ? 'No category assigned' : categorize} </span>
+      <Button color='black' size='mini' onClick={() => showCategoryEditForm()}>Edit</Button>
+        <Form style={{'display': showCategoryForm}} onSubmit={() => updateCategory()}>
+          <Form.Field>
+            <input 
+            placeholder='add a category...'
+            value={categorize}
+            name='category'
+            onChange={(e) => onCategoryChange(e)}
+            />
+          </Form.Field>
+          <Button primary type='submit'>Save</Button>
+          <Button secondary onClick={() => hideCategoryForm()}>Cancel</Button>
+        </Form>
+      </div>
+
+      <Divider></Divider>
+
+      <div className="notepad" style={{'display': showNote}}>Notes: {note}</div>
+        <Button color='black' onClick={() => showNoteEditForm()}>Edit</Button>
+        <Form style={{'display': showForm}} onSubmit={(e) => updateNote(e)}>
           <Form.Field>
             <textarea 
               value={note} 
               name="note" 
-              onChange={(e) => onChange(e)} 
+              onChange={(e) => onNoteChange(e)} 
               />
           </Form.Field>
           <Button primary type="submit" value="update">Save</Button>
