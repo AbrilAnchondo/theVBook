@@ -75,7 +75,7 @@ const RecipeDetails = (props) => {
   ingredients.forEach(ing => {
     let ingObj = {};
     ingObj["name"] = ing.name;
-    ingObj["quantity"] = ing.amount.us.value;
+    ingObj["amount"] = ing.amount.us.value;
     ingObj["unit"] = ing.amount.us.unit;
     ingObj["image"] = ing.image;
     completeIngList.push(ingObj);
@@ -90,7 +90,7 @@ const RecipeDetails = (props) => {
   steps.forEach(step => {
     instructions.push(step.step);
   })
- 
+  console.log('instructions: ', instructions);
   return (
     <div className="bg-rdetails">
       {

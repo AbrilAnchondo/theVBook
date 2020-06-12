@@ -5,6 +5,8 @@ import Conversions from './Conversions';
 import Substitute from './Substitute';
 import axios from 'axios';
 import NutritionalData from './NutritionalData';
+import Ingredients from './Ingredients';
+import Steps from './Steps';
 //import { set } from 'mongoose';
 
 const MyRecipeDetails = (props) => {
@@ -17,6 +19,7 @@ const MyRecipeDetails = (props) => {
     readyInMinutes, 
     glutenFree, 
     analyzedInstructions, 
+    nutrition,
     servings, 
     image, 
     extendedIngredients, 
@@ -39,9 +42,8 @@ const MyRecipeDetails = (props) => {
     const [showCategoryForm, setShowCategoryForm] = useState('none');
 
   let imageUrl = `${image}?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`;
-  let instructions = analyzedInstructions[0].steps;
-  const ingredients = extendedIngredients.map(ing => ing.originalString);
-  //console.log('ingredients: ',ingredients);
+  const getInstructions = analyzedInstructions[0].steps;
+  const instructions = getInstructions.map(step => step.step);
 
   const onNoteChange = (e) => {
    //console.log('e target value: ',e.target.value);
@@ -171,25 +173,16 @@ const MyRecipeDetails = (props) => {
       <Segment  color="violet">Good for low fod map diet restrictions: {lowFodmap}</Segment>
       <Segment color="pink">WeitghtWatchers Points: {weightWatcherSmartPoints}</Segment>
 
-      <h2>Ingredients: </h2>
-      <List celled size='big'>
-        {ingredients.map(ing => <List.Item><List.Content>{ing}</List.Content></List.Item>)}
-      </List>
-      
-      <h2>Instructions: </h2>
-      <List divided size="large">
-        {instructions.map(step => <List.Item key={step.number}><List.Content>{step.number} - {step.step}</List.Content></List.Item>)}
-      </List>
+      <Ingredients ingredients={extendedIngredients} />
+      <Steps instructions={instructions} />
+    
+      <div>Make it a favorite: {isFavorite === false ? <i className="far fa-heart" onClick={() => makeFavorite()}></i> :  <i className="fas fa-heart" onClick={() => unFavorite()}></i>}</div>
 
-      <Divider />  
-
-      <div>Make it a favorite: {isFavorite === false ? <i class="far fa-heart" onClick={() => makeFavorite()}></i> :  <i class="fas fa-heart" onClick={() => unFavorite()}></i>}</div>
-
-      <Divider></Divider>
+      <Divider />
 
       <div>
         <span>Category: {categorize === '' ? 'No category assigned' : categorize} </span>
-      <Button color='black' size='mini' onClick={() => showCategoryEditForm()}>Edit</Button>
+        <Button color='black' size='mini' onClick={() => showCategoryEditForm()}>Edit</Button>
         <Form style={{'display': showCategoryForm}} onSubmit={() => updateCategory()}>
           <Form.Field>
             <input 
@@ -204,7 +197,7 @@ const MyRecipeDetails = (props) => {
         </Form>
       </div>
 
-      <Divider></Divider>
+      <Divider />
 
       <div className="notepad" style={{'display': showNote}}>Notes: {note}</div>
         <Button color='black' onClick={() => showNoteEditForm()}>Edit</Button>
@@ -219,16 +212,18 @@ const MyRecipeDetails = (props) => {
           <Button primary type="submit" value="update">Save</Button>
           <Button secondary onClick={() => hideForm()}>Cancel</Button>
         </Form>
-      <Divider></Divider>
+
+      <Divider />
+
       <div>
-        <h3>Get a Conversion:</h3>
+        <h3>Convert:</h3>
         <Conversions />
-        <h3>Get a Substitute:</h3>
+        <h3>Substitute:</h3>
         <Substitute />
       </div>
-      <div>
-        <NutritionalData recipeId={recipeID} />
-      </div>
+
+      <Divider />
+      <NutritionalData recipeId={recipeID} />
     </div>
   )
 }

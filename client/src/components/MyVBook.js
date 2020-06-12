@@ -53,6 +53,7 @@ const MyVBook = () => {
       <div>
         <h1 className='vbook-title'>My Recipe Book</h1>
         <SavedReList fullReList={fullReList} />
+        <div className='bg-vbook'>background photo will go here</div>
       </div>
   )
 }
