@@ -20,7 +20,7 @@ const NutritionalData = ({ recipeId }) => {
 
   return (
     <Fragment>
-      <div className='table' >
+      <div className='calories-table' >
         <Header as='h3'>Nutritional Information</Header>
         <Table color='blue' inverted>
           <Table.Header>
@@ -42,7 +42,9 @@ const NutritionalData = ({ recipeId }) => {
           </Table.Body>
         </Table>
       </div>
+
       <br></br>
+      
       <div className='table' >
         <Header>Make sure you get enough of these</Header>
         <Table color='olive' key='olive' inverted>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Segment, List, Image, Button, Divider, Form } from 'semantic-ui-react';
+import { Segment, List, Image, Button, Divider, Form, Grid } from 'semantic-ui-react';
 
 import Conversions from './Conversions';
 import Substitute from './Substitute';
@@ -166,19 +166,8 @@ const MyRecipeDetails = (props) => {
     <div>
       <h1>{title}</h1>
       <Image fluid centered src={imageUrl}></Image>
-      <Segment  color="olive">{servings} servings</Segment>
-      <Segment color="green">Ready in: {readyInMinutes} minutes</Segment>
-      <Segment  color="teal">Is gluten free: {glutenFree}</Segment>
-      <Segment  color="blue">Sustainable: {sustainable}</Segment>
-      <Segment  color="violet">Good for low fod map diet restrictions: {lowFodmap}</Segment>
-      <Segment color="pink">WeitghtWatchers Points: {weightWatcherSmartPoints}</Segment>
 
-      <Ingredients ingredients={extendedIngredients} />
-      <Steps instructions={instructions} />
-    
       <div>Make it a favorite: {isFavorite === false ? <i className="far fa-heart" onClick={() => makeFavorite()}></i> :  <i className="fas fa-heart" onClick={() => unFavorite()}></i>}</div>
-
-      <Divider />
 
       <div>
         <span>Category: {categorize === '' ? 'No category assigned' : categorize} </span>
@@ -197,8 +186,16 @@ const MyRecipeDetails = (props) => {
         </Form>
       </div>
 
-      <Divider />
+      <Segment  color="olive">{servings} servings</Segment>
+      <Segment color="green">Ready in: {readyInMinutes} minutes</Segment>
+      <Segment  color="teal">Is gluten free: {glutenFree}</Segment>
+      <Segment  color="blue">Sustainable: {sustainable}</Segment>
+      <Segment  color="violet">Good for low fod map diet restrictions: {lowFodmap}</Segment>
+      <Segment color="pink">WeitghtWatchers Points: {weightWatcherSmartPoints}</Segment>
 
+      <Ingredients ingredients={extendedIngredients} />
+      <Steps instructions={instructions} />
+      
       <div className="notepad" style={{'display': showNote}}>Notes: {note}</div>
         <Button color='black' onClick={() => showNoteEditForm()}>Edit</Button>
         <Form style={{'display': showForm}} onSubmit={(e) => updateNote(e)}>
@@ -213,16 +210,18 @@ const MyRecipeDetails = (props) => {
           <Button secondary onClick={() => hideForm()}>Cancel</Button>
         </Form>
 
-      <Divider />
+      <Segment>
+        <Grid columns={2} relaxed='very'>
+          <Grid.Column>
+            <Conversions />
+          </Grid.Column>
+          <Grid.Column>
+            <Substitute />
+          </Grid.Column>
+        </Grid>
+        <Divider vertical>OR</Divider>
+      </Segment> 
 
-      <div>
-        <h3>Convert:</h3>
-        <Conversions />
-        <h3>Substitute:</h3>
-        <Substitute />
-      </div>
-
-      <Divider />
       <NutritionalData recipeId={recipeID} />
     </div>
   )
