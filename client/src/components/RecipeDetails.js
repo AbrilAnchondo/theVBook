@@ -67,8 +67,6 @@ const RecipeDetails = (props) => {
       console.error('error: ',err);
       //console.log(err.response.data.errors[0].msg);
     }
-
-    
   }
 
   let completeIngList = [];
@@ -80,11 +78,6 @@ const RecipeDetails = (props) => {
     ingObj["image"] = ing.image;
     completeIngList.push(ingObj);
   })
-
-  // let substituteList = [];
-  // ingredients.forEach(ing => {
-  //   substituteList.push(ing.name)
-  // })
   
   let instructions = [];
   steps.forEach(step => {

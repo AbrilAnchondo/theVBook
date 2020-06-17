@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Dropdown, Grid } from 'semantic-ui-react';
+import { Dropdown, Grid, Segment } from 'semantic-ui-react';
 
 const cuisineOptions = [
   { key: 'af', value: 'African', text: 'African'},
@@ -56,31 +56,36 @@ const Options = (props) => {
   return (
     <Grid columns={3}>
       <Grid.Column>
-        <Dropdown
-          onChange={props.onCuisineChange}
-          options={cuisineOptions}
-          placeholder='Select Cuisine'
-          value={props.cuisine}
-        />
+        <Segment>
+          <Dropdown
+            onChange={props.onCuisineChange}
+            options={cuisineOptions}
+            placeholder='Cuisine'
+            value={props.cuisine}
+          />
+        </Segment>
       </Grid.Column>
       <Grid.Column>
-        <Dropdown
-          onChange={props.onDietChange}
-          options={dietOptions}
-          placeholder='Select Diet'
-          value={props.diet}
-        />
+        <Segment>
+          <Dropdown
+            onChange={props.onDietChange}
+            options={dietOptions}
+            placeholder='Select Diet'
+            value={props.diet}
+          />
+        </Segment>
       </Grid.Column>
       <Grid.Column>
-        <Dropdown
-          onChange={props.onIntolerancesChange}
-          options={intolerancesOptions}
-          placeholder='Select Intolerance'
-          value={props.intolerances}
-        />
+        <Segment>
+          <Dropdown
+            onChange={props.onIntolerancesChange}
+            options={intolerancesOptions}
+            placeholder='Intolerance'
+            value={props.intolerances}
+          />
+        </Segment>
       </Grid.Column>
     </Grid>
-
     )
   }
   

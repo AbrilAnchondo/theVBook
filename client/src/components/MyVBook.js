@@ -50,10 +50,12 @@ const MyVBook = () => {
  console.log('fullReList: ',fullReList);
 
   return (
-      <div>
-        <h1 className='vbook-title'>My Recipe Book</h1>
+      <div className='vbook-hero'>
+        <div>
+          <h1 className='vbook-title'>My Recipe Book</h1>
+        </div>
         <SavedReList fullReList={fullReList} />
-        <div className='bg-vbook'>background photo will go here</div>
+        <div className='bg-vbook'></div>
       </div>
   )
 }
