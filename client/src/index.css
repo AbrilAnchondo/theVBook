@@ -169,7 +169,7 @@ body {
 }
 
 .col {
-  height: 264px;
+  height: 280px;
   position: relative; 
 }
 
@@ -208,12 +208,6 @@ body {
   margin-bottom: 20px;
   display: block;
   color: white;
-}
-
-.vbook-hero {
-  background-color: rgb(29, 28, 28);
-  width: 100%;
-  height: 20%;
 }
 
 .arrows {

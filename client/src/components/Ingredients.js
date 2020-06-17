@@ -5,7 +5,7 @@ const Ingredients = ({ ingredients }) => {
   let baseURL = 'https://spoonacular.com/cdn/ingredients_100x100/';
   console.log("ingredient list:", ingredients);
   return (
-    <List size="huge">
+    <List size="large">
       <h2>Ingredients</h2>
       <List.Item >
         {

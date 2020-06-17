@@ -50,7 +50,7 @@ const MyVBook = () => {
  console.log('fullReList: ',fullReList);
 
   return (
-      <div className='vbook-hero'>
+      <div>
         <div>
           <h1 className='vbook-title'>My Recipe Book</h1>
         </div>

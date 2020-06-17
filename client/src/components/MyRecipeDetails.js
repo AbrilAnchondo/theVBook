@@ -68,6 +68,7 @@ const MyRecipeDetails = (props) => {
       const res = await axios.put(`http://localhost:5000/api/users/${userId}/recipes/${_id}/notepad`, body, configObj);
       //console.log('res: ',res.data);
       setShowForm('none');
+      setShowNote('block');
     } catch (err) {
       console.error("error: ",err);
     }
