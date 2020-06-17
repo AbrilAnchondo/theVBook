@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SavedReList from './SavedReList';
+import MyRecipeOptions from './MyRecipeOptions';
 
 const MyVBook = () => {
   //console.log("props",props.location.state.image)
@@ -54,6 +55,7 @@ const MyVBook = () => {
         <div>
           <h1 className='vbook-title'>My Recipe Book</h1>
         </div>
+        <MyRecipeOptions />
         <SavedReList fullReList={fullReList} />
         <div className='bg-vbook'></div>
       </div>

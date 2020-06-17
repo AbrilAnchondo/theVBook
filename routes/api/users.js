@@ -156,6 +156,20 @@ router.put('/:id/recipes/:re_id/category', async (req, res) => {
   }
 });
 
+//route GET api/users/:id/favorites
+//description: get favorite user recipes
+router.get('/:id/favorites', async (req,res) => {
+  try {
+    const user = await User.findById({ _id: req.params.id });
+    const favRecipes = user.recipes
+      .filter(re => re.favorite === true);
+    res.json(favRecipes);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server error')
+  }
+})
+
 //route PUT api/users/:id/recipes/:re_id/favorite 
 //description: update recipe favorite property for a given recipe
 router.put('/:id/recipes/:re_id/favorite', async (req, res) => {
