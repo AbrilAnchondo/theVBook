@@ -1,20 +1,19 @@
 import React from 'react';
 
-import { Dropdown, Segment } from 'semantic-ui-react';
-
-const myOptions = [
-  {key: 'all', value: 'All', text: 'All'},
-  {key: 'fav', value: 'Favorites', text: 'Favorites'}
-];
-
-const MyRecipeOptions = () => {
+const MyRecipeOptions = (props) => {
+  console.log('myRecipeOptions props: ',props);
   return (
-      <Segment>
-        <Dropdown 
-          options={myOptions}
-          placeholder='Filter'
-        />
-      </Segment>
+    <div>
+      <form>
+        <label>
+          Filter:
+        <select value={props.filterTerm} onChange={props.onFilterChange}>
+          <option value='All'>All</option>
+          <option value='Favorites'>Favorites</option>
+        </select>
+        </label>
+      </form>
+    </div>
   )
 }
 

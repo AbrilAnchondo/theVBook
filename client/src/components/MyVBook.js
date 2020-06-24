@@ -2,12 +2,16 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import SavedReList from './SavedReList';
 import MyRecipeOptions from './MyRecipeOptions';
+//import { set } from 'mongoose';
+//import MyRecipeDetails from './MyRecipeDetails';
 
 const MyVBook = () => {
   //console.log("props",props.location.state.image)
   let userId = localStorage.userId;
   const [userRe, setUserRe] = useState([]);
   const [recipeList, setRecipeList] = useState([]);
+  const [filterTerm, setFilterTerm] = useState('All');
+
   
   useEffect (() => {
     const fetchUserRecipes = async () => {
@@ -18,6 +22,7 @@ const MyVBook = () => {
           'Accepts': 'application/json'
         }
       };
+
       const response = await axios.get(`http://localhost:5000/api/users/${userId}`, configObj);
       //console.log('response: ',response);
       const userRe = response.data;
@@ -26,6 +31,7 @@ const MyVBook = () => {
 
       let ids = userRe.map(re => re.recipeID).join();
       //console.log('ids: ',ids);
+
       const res = await fetch(`https://api.spoonacular.com/recipes/informationBulk?ids=${ids}&includeNutrition=true&apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`);
       //console.log(res);
       const recipeList = await res.json();
@@ -47,15 +53,29 @@ const MyVBook = () => {
   //console.log('temp: ',temp)
   return temp
  }
- let fullReList = mergedList(userRe,recipeList);
- console.log('fullReList: ',fullReList);
+ 
+ const getFilteredRecipes = () => {
+   let filtered = userRe;
+   filtered = userRe.filter(re => filterTerm === 'Favorites' ? re.favorite === true : userRe);
+   return filtered   
+  }
+
+  let fullReList = mergedList(getFilteredRecipes(),recipeList);
+  //console.log('fullReList: ',fullReList);
+
+ const onFilterChange = (e) => {
+   setFilterTerm(e.target.value); 
+  }   
 
   return (
       <div>
         <div>
           <h1 className='vbook-title'>My Recipe Book</h1>
         </div>
-        <MyRecipeOptions />
+        <MyRecipeOptions 
+          filterTerm={filterTerm}
+          onFilterChange={onFilterChange}
+        />
         <SavedReList fullReList={fullReList} />
         <div className='bg-vbook'></div>
       </div>
