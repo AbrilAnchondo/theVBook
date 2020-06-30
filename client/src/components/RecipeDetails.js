@@ -63,7 +63,9 @@ const RecipeDetails = (props) => {
         const body = JSON.stringify(mySavedRecipe);
         const res = await axios.put(`http://localhost:5000/api/users/${userId}/recipes`, body, configObj);
         console.log('response: ',res);
-    }catch(err) {
+      }catch(err) {
+      console.error(err.response.data.errors[0].msg);
+      alert(err.response.data.errors[0].msg);
       console.error('error: ',err);
       //console.log(err.response.data.errors[0].msg);
     }
