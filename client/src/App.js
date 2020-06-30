@@ -11,6 +11,7 @@ import MyRecipeDetails from './components/MyRecipeDetails';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Logout from './components/auth/Logout';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -89,7 +90,7 @@ function App() {
           <Login path="/login" />
           <Logout path="/logout" style={{float: "right"}}/>
         </Router>
-
+        <Footer />
       </div>
         
     
