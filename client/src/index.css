@@ -3,11 +3,16 @@
 body {
   margin: auto;
   padding: 0;
+  background: black;
 }
 
-.navbar {
-  padding: 20px;
+.main {
+  padding: 8px;
 }
+
+/* ===============================
+   Recipes
+=============================== */
 
 .recipe-list {
   background-image: url('https://images.unsplash.com/photo-1545810300-732e4b9e06b3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60');
@@ -30,18 +35,78 @@ body {
   object-fit: cover;
 }
 
-.bg-home {
+
+/* ===============================
+     setting backgrounds 
+=============================== */
+/* .bg-home {
   height: 100vh;
   width: 100%;
-  /* background-image: url('https://images.unsplash.com/photo-1548172639-78b9a845fccb?ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80');
+  background-image: url('https://images.unsplash.com/photo-1494390248081-4e521a5940db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2195&q=80');
   background-repeat: no-repeat;
   object-fit: cover;
   background-position: center;
-  border-radius: 10px; */
-  background-color: black;
+  border-radius: 10px;
+} */
+
+.home > div {
+  margin: 5px;
 }
 
- .bg-rdetails {
+.home-1{
+  height: 40vh;
+  background-image: url('https://images.unsplash.com/photo-1518843875459-f738682238a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60');
+  background-position: center;
+  opacity: 0.9;
+}
+
+
+.home-2 {
+  height: 30vh;
+  background-color: black;;
+}
+
+.home-3 {
+  margin-top: 2px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+}
+
+.home-3 > div {
+  padding: 10px;
+  height: 200px;
+  background-size: cover;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.bg-1 {
+  background: url('https://images.unsplash.com/photo-1508061253366-f7da158b6d46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60');
+}
+
+.bg-2 {
+  background: url('https://images.unsplash.com/photo-1586810512929-6b8659fde098?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60')
+}
+
+.bg-3 {
+  background: url('https://images.unsplash.com/photo-1582362731063-debbd3406f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60')
+}
+
+.bg-4 {
+  background: url('https://images.unsplash.com/photo-1546548970-71785318a17b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60')
+}
+
+.home-4 {
+  height: 30vh;
+ background: black;
+ color: white;
+}
+
+.bg-rdetails {
   background-image: url('https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2110&q=80');
   background-attachment: fixed;
   background-size: cover;
@@ -56,6 +121,24 @@ body {
   background-image: url('https://images.unsplash.com/photo-1541472952075-0ae0017d86de?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60');
   opacity: 0.8;
 }
+
+.vbook-title {
+  text-align: center;
+  padding-top: 25px;
+  margin: 0;
+  background-color: black;
+  color: white;
+  height: 100px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.vbook-filters {
+  display: flex;
+  justify-content: center;
+}
+
+
 
 .substitute, .conversion {
   background-color: rgb(219, 218, 215);
@@ -74,23 +157,30 @@ body {
   width: 50%;
 }
 
-.main {
-  min-height: calc(100vh - 55px);
-}
-
 .login-wrapper {
   background-image: url('https://images.unsplash.com/photo-1532768778661-1b347c5f02ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60');
   background-attachment: fixed;
   background-size: cover;
   height: 100vh;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
+.login-form-wrapper {
+  margin-bottom: 3px;
+}
 .signup-wrapper {
   background-image: url('https://images.unsplash.com/photo-1484980972926-edee96e0960d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60');
   background-attachment: fixed;
   background-size: cover;
   height: 100vh;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
+
+/* ===============================
+carousel in VBook / Saved Recipes
+=============================== */
 
 .card-slider-wrapper {
   display: flex;
@@ -200,15 +290,6 @@ body {
   font-size: 18px;
 }
 
-.vbook-title {
-  text-align: center;
-  padding-top: 20px;
-  margin: 20px 10px;
-  display: block;
-  background-color: black;
-  color: white;
-  height: 80px;
-}
 
 .arrows {
   margin-bottom: 15px;
@@ -233,14 +314,22 @@ body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+/* ===============================
+           footer
+=============================== */
 .footer {
   text-align: center;
   padding: 1.5rem;
   background: black;
   color: white;
+  margin-top: 3px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
-/*  media queries */
+/* ===============================
+          media queries
+=============================== */
 @media screen and (max-width: 600px) {
   ul.topnav li {float: none;}
 }

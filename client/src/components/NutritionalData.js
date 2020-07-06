@@ -52,7 +52,7 @@ const NutritionalData = ({ recipeId }) => {
             <Table.Row>
               <Table.HeaderCell>Nutrient</Table.HeaderCell>
               <Table.HeaderCell>Amount</Table.HeaderCell>
-              <Table.HeaderCell>Percentage Of Daily Needs</Table.HeaderCell>
+              <Table.HeaderCell>% Of Daily Needs</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
 
@@ -75,7 +75,7 @@ const NutritionalData = ({ recipeId }) => {
             <Table.Row>
               <Table.HeaderCell>Nutrient</Table.HeaderCell>
               <Table.HeaderCell>Amount</Table.HeaderCell>
-              <Table.HeaderCell>Percentage Of Daily Needs</Table.HeaderCell>
+              <Table.HeaderCell>% Of Daily Needs</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
 

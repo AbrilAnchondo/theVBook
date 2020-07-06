@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import { Router, Link } from '@reach/router';
 import { Menu } from 'semantic-ui-react';
 
@@ -22,11 +22,8 @@ function App() {
   }
 
   return (
-
-    
-      <div className="navbar">
-        
-        <Menu inverted >
+      <div className='main'>
+       <Menu inverted>
           <Menu.Item
             name='home'
             active={activeItem === 'home'}
@@ -92,9 +89,6 @@ function App() {
         </Router>
         <Footer />
       </div>
-        
-    
-    
   );
 }
 
