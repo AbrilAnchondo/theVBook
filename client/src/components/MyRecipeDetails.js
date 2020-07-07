@@ -10,7 +10,7 @@ import Steps from './Steps';
 //import { set } from 'mongoose';
 
 const MyRecipeDetails = (props) => {
-  console.log('MyRecipeDetials props: ',props);
+  //console.log('MyRecipeDetials props: ',props);
   
   const userId = localStorage.userId;
   //TODO: include diets, nutrition and wine pairing 

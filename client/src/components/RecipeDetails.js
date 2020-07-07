@@ -11,7 +11,7 @@ import '../index.css';
 
 
 const RecipeDetails = (props) => {
-  //console.log("Props",props);
+  //console.log("Props title",props);
   const image = props.location.state.image;
   //console.log(image);
   let imageURL = `https://spoonacular.com/recipeImages/${image}?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`
@@ -90,7 +90,7 @@ const RecipeDetails = (props) => {
     <div className="bg-rdetails">
       {
         localStorage.length !== 0 ? <Message>
-        <Message.Header>You can now add recipes to your VBook!</Message.Header></Message>
+        <Message.Header>Go ahead and save some recipes!</Message.Header></Message>
         :
         <Message>
         <Message.Header>Signup and start saving recipes!</Message.Header></Message>
@@ -106,7 +106,7 @@ const RecipeDetails = (props) => {
         fluid>Save this recipe!
       </Button>
 
-      <h3><Link to='/myvbook' state={{ image: `${imageURL}` }}>Go to MyVBook</Link></h3>
+      <h3><Link to='/myvbook' state={{ image: `${imageURL}`}}>Go to MyVBook</Link></h3>
 
       <Ingredients ingredients={completeIngList} />
       <Divider />

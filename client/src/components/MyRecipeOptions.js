@@ -1,10 +1,11 @@
 import React from 'react';
+import { Form, Segment } from 'semantic-ui-react';
 
 const MyRecipeOptions = (props) => {
   console.log('myRecipeOptions props: ',props);
   return (
     <div>
-      <form>
+      <Form>
         <label>
           Favorites:
         <select value={props.filterTerm} 
@@ -14,7 +15,7 @@ const MyRecipeOptions = (props) => {
           <option value='Favorites'>Favorites</option>
         </select>
         </label>
-      </form>
+      </Form>
     </div>
   )
 }

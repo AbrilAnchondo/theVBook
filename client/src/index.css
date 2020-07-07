@@ -77,12 +77,17 @@ body {
   padding: 10px;
   height: 200px;
   background-size: cover;
+  opacity: 0.7;
   
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 }
+
+/* .home-3 > h2 {
+  
+} */
 
 .bg-1 {
   background: url('https://images.unsplash.com/photo-1508061253366-f7da158b6d46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60');
@@ -133,10 +138,9 @@ body {
   border-top-right-radius: 10px;
 }
 
-.vbook-filters {
-  display: flex;
-  justify-content: center;
-}
+/* .vbook-filters {
+  
+} */
 
 
 

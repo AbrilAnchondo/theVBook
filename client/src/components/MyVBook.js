@@ -3,7 +3,6 @@ import axios from 'axios';
 import SavedReList from './SavedReList';
 import MyRecipeOptions from './MyRecipeOptions';
 import CategoryOptions from './CategoryOptions';
-import { Segment } from 'semantic-ui-react';
 //import { set } from 'mongoose';
 //import MyRecipeDetails from './MyRecipeDetails';
 
@@ -92,6 +91,7 @@ const MyVBook = () => {
             filterTerm={filterTerm}
             onFilterChange={onFilterChange}
           />
+          
           <CategoryOptions categories={categories} 
             categoryTerm={categoryTerm}
             onCategoryChange={onCategoryChange}

@@ -7,9 +7,7 @@ export default function Home() {
     <div className="home">
 
       <div className='home-1'>
-      
       </div>
-
 
       <div className='home-2'>
         section 2
@@ -17,20 +15,23 @@ export default function Home() {
 
       <div className='home-3'>
         <div className='bg-1'>
+          <h2>PROTEIN</h2>
         </div>
 
         <div className='bg-2'>
+          <h2>FIBER</h2>
         </div>
 
         <div className='bg-3'>
+          <h2>HEALTHY FAT</h2>
         </div>
 
         <div className='bg-4'>
+          <h2>VITAMINS</h2>
         </div>
       </div>
 
       <div className='home-4'>
-        section 4
       </div>
 
     </div>

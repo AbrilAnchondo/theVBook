@@ -1,4 +1,5 @@
 import React from 'react';
+import { Segment, Form } from 'semantic-ui-react';
 
 const CategoryOptions = (props) => {
   console.log('category props: ',props);
@@ -8,10 +9,14 @@ const displayCategories = () => (
       <option value={categorie}>{categorie}</option>
    ))
   )
+
+const ops = [
+
+]
   
   return (
     <div>
-      <form>
+      <Form>
         <label>Categories:
           <select value={props.categoryTerm} 
             onChange={props.onCategoryChange}
@@ -20,8 +25,10 @@ const displayCategories = () => (
             {displayCategories()}
           </select>
         </label>
-      </form>
+      </Form>
     </div>
+    
+
   )
 }
 
