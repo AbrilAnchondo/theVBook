@@ -17,7 +17,7 @@ const ops = [
   return (
     <div>
       <Form>
-        <label>Categories:
+        <label>Select a Category:
           <select value={props.categoryTerm} 
             onChange={props.onCategoryChange}
           >

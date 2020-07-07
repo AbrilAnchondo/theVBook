@@ -7,7 +7,7 @@ const MyRecipeOptions = (props) => {
     <div>
       <Form>
         <label>
-          Favorites:
+          Select Favorites:
         <select value={props.filterTerm} 
           onChange={props.onFilterChange}
         >
