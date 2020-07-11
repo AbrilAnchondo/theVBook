@@ -45,9 +45,9 @@ const NutritionalData = ({ recipeId }) => {
 
       <br></br>
       
-      <div className='table' >
+      <div className='table-good' >
         <Header>Make sure you get enough of these</Header>
-        <Table color='olive' key='olive' inverted>
+        <Table color='olive' key='olive' inverted fixed>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>Nutrient</Table.HeaderCell>
@@ -60,7 +60,7 @@ const NutritionalData = ({ recipeId }) => {
           {goodStuff.map((nutrient, index) => <Table.Row key={index}>
             <Table.Cell>{nutrient.title}</Table.Cell>
             <Table.Cell>{nutrient.amount}</Table.Cell>
-            <Table.Cell>{nutrient.percentOfDailyNeeds} %</Table.Cell>
+            <Table.Cell>{nutrient.percentOfDailyNeeds}</Table.Cell>
             </Table.Row>)}
           </Table.Body>
         </Table>
@@ -68,9 +68,9 @@ const NutritionalData = ({ recipeId }) => {
 
       <br></br>
       
-      <div className='table' >
+      <div className='table-bad' >
         <Header>Make sure you limit your intake of these</Header>
-        <Table color='orange' key='orange' inverted>
+        <Table color='orange' key='orange' inverted fixed>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>Nutrient</Table.HeaderCell>
@@ -83,7 +83,7 @@ const NutritionalData = ({ recipeId }) => {
           {badStuff.map((nutrient, index) => <Table.Row key={index}>
             <Table.Cell>{nutrient.title}</Table.Cell>
             <Table.Cell>{nutrient.amount}</Table.Cell>
-            <Table.Cell>{nutrient.percentOfDailyNeeds} %</Table.Cell>
+            <Table.Cell>{nutrient.percentOfDailyNeeds}</Table.Cell>
             </Table.Row>)}
           </Table.Body>
         </Table>
