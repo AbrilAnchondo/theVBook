@@ -64,7 +64,7 @@ body {
   justify-content: space-around;
   /* justify-content: space-around; */
   height: 30vh;
-  background-color: black;
+  background-color: rgb(14, 13, 13);
   color: white;
   opacity: 0.9;
   /* flex-direction: row; */
@@ -103,10 +103,6 @@ body {
   text-align: center;
 }
 
-/* .home-3 > h2 {
-  
-} */
-
 .bg-1 {
   background: url('https://images.unsplash.com/photo-1508061253366-f7da158b6d46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60');
 }
@@ -125,7 +121,8 @@ body {
 
 .home-4 {
   height: 30vh;
- background: black;
+ background-color: rgb(14, 13, 13);
+ opacity: 0.9;
  color: white;
 }
 
