@@ -3,7 +3,7 @@ import SearchByKeyWord from './SearchByKeyWord';
 import Options from './Options';
 import RecipeList from './RecipeList';
 import '../index.css';
-import { Divider, Grid, Image, Segment, Placeholder } from 'semantic-ui-react';
+import { Divider, Segment, Button } from 'semantic-ui-react';
 
 
 const AllRecipes = () => {
@@ -12,16 +12,20 @@ const AllRecipes = () => {
   const [diet, setDiet] = useState('Vegan');
   const [intolerances, setIntolerances] = useState('');
   const [keyword, setKeyWord] = useState('');
+  const [limit, setLimit] = useState(5);
+  const [skip, setSkip] = useState(0);
+
 
   useEffect(() => {
     const fetchRecipes = async () => { 
-      const response = await fetch(`https://api.spoonacular.com/recipes/search?query=${keyword}&cuisine=${cuisine}&diet=${diet}&intolerances=${intolerances}&number=20&apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`);
+      const response = await fetch(`https://api.spoonacular.com/recipes/search?query=${keyword}&cuisine=${cuisine}&diet=${diet}&intolerances=${intolerances}&number=${limit}&offset=${skip}&apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`);
       const data = await response.json();
       const results = data.results;
-      setRecipes(results);
+      console.log('recipes from api: ',results);
+      setRecipes([...recipes, ...results]);
     }
     fetchRecipes();
-  }, [cuisine,diet,intolerances,keyword]);
+  }, [cuisine,diet,intolerances,keyword,skip]);
 
   const onCuisineChange = (e, { value }) => {
     setCuisine(value);
@@ -41,6 +45,11 @@ const AllRecipes = () => {
     setKeyWord(word);
   }
 
+  const loadMore = (e) => {
+    console.log('load more clicked');
+    setSkip(skip + limit);
+  }
+
   return (
     <Fragment>
       <Segment>
@@ -54,6 +63,8 @@ const AllRecipes = () => {
           intolerances={intolerances}
           onIntolerancesChange={onIntolerancesChange}
         />
+        <Divider horizontal></Divider>
+        <Button onClick={loadMore}>Load More</Button>
       </Segment>
      
       <div>
