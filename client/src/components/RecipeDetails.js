@@ -44,7 +44,7 @@ const RecipeDetails = (props) => {
   },[])
 
   const saveRecipe = async e => {
-    const userId = localStorage.userId
+    const userId = localStorage.userId;
     const mySavedRecipe = {
       recipeID: id,
       favorite: false,
@@ -90,28 +90,38 @@ const RecipeDetails = (props) => {
     <div className="bg-rdetails">
       {
         localStorage.length !== 0 ? <Message>
-        <Message.Header>Go ahead and save some recipes!</Message.Header></Message>
+        <Message.Header>Look for the save button and navigate to MyVBook</Message.Header></Message>
         :
-        <Message>
-        <Message.Header>Signup and start saving recipes!</Message.Header></Message>
+        null
       }
 
       <div className="img-container">
         <Image src={imageURL} centered="true" rounded="true"/>
       </div>
-      <Button 
-        onClick={e => saveRecipe(e)}
-        color="black" 
-        style={{marginTop: '20px'}} 
-        fluid>Save this recipe!
-      </Button>
+      {localStorage.length === 0 ? 
+        <Link to='/register'>
+          <Button fluid 
+            color="black"
+            style={{marginTop: '20px'}}
+            >
+            Register to start saving recipes!
+          </Button>
+        </Link>
+        :
+        <Button 
+          onClick={e => saveRecipe(e)}
+          color="black" 
+          style={{marginTop: '20px'}} 
+          fluid>Save this recipe!
+        </Button>
+        }
 
       <h3><Link to='/myvbook' state={{ image: `${imageURL}`}}>Go to MyVBook</Link></h3>
 
       <Ingredients ingredients={completeIngList} />
       <Divider />
       <Steps instructions={instructions} /> 
-      {/* <NutritionalData recipeId={id} /> */}
+      <div className='back-arrow'><i class="fas fa-arrow-left"> back to recipes</i></div>    
     </div>
   )
 }
