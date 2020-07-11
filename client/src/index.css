@@ -56,15 +56,37 @@ body {
 .home-1{
   height: 40vh;
   background-image: url('https://images.unsplash.com/photo-1518843875459-f738682238a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60');
-  background-position: center;
+  /* background-position: center; */
+  /* background-repeat: no-repeat; */
+  object-fit: cover;
   opacity: 0.9;
 }
 
 
 .home-2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /* justify-content: space-around; */
   height: 30vh;
-  background-color: black;;
+  background-color: black;
+  color: white;
+  /* flex-direction: row; */
 }
+
+.home-2 > div {
+  font-size: 3em;
+  padding: 10px;
+  margin: 20px 0;
+}
+
+/* .home-2 > div:nth-of-type(1) {
+  align-self: flex-start;
+}
+
+.home-2 > div:nth-of-type(3) {
+  align-self: flex-end
+} */
 
 .home-3 {
   margin-top: 2px;

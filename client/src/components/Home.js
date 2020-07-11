@@ -10,7 +10,9 @@ export default function Home() {
       </div>
 
       <div className='home-2'>
-        section 2
+        <div>Browse</div>
+        <div>Save Recipes</div>
+        <div>Add notes</div>
       </div>
 
       <div className='home-3'>
