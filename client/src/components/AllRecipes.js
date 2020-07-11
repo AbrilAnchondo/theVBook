@@ -64,12 +64,15 @@ const AllRecipes = () => {
           onIntolerancesChange={onIntolerancesChange}
         />
         <Divider horizontal></Divider>
-        <Button onClick={loadMore}>Load More</Button>
       </Segment>
      
       <div>
         <RecipeList recipes={recipes} />
       </div>
+      <Button fluid className='btn-load' 
+        onClick={loadMore}>
+          Load More
+      </Button>
     </Fragment>
   )
 }
