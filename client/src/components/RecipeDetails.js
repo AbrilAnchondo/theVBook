@@ -121,7 +121,10 @@ const RecipeDetails = (props) => {
       <Ingredients ingredients={completeIngList} />
       <Divider />
       <Steps instructions={instructions} /> 
-      <div className='back-arrow'><i class="fas fa-arrow-left"> back to recipes</i></div>    
+      <Link to='/recipes'>
+        <div className='back-arrow'><i class="fas fa-arrow-left"> back to recipes</i>
+        </div>
+      </Link>    
     </div>
   )
 }

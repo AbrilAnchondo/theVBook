@@ -39,15 +39,6 @@ body {
 /* ===============================
      setting backgrounds 
 =============================== */
-/* .bg-home {
-  height: 100vh;
-  width: 100%;
-  background-image: url('https://images.unsplash.com/photo-1494390248081-4e521a5940db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2195&q=80');
-  background-repeat: no-repeat;
-  object-fit: cover;
-  background-position: center;
-  border-radius: 10px;
-} */
 
 .home > div {
   margin: 3px;
@@ -130,7 +121,6 @@ body {
   background-image: url('https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2110&q=80');
   background-attachment: fixed;
   background-size: cover;
-  /* border-radius: 10px;git */
   padding: 20px;
 } 
 
@@ -156,6 +146,10 @@ body {
 .back-arrow {
   display: flex;
   justify-content: flex-end;
+}
+
+.category {
+  font-style: italic;
 }
 
 .substitute, .conversion {
@@ -318,17 +312,24 @@ carousel in VBook / Saved Recipes
   margin: 10px;
 }
 
+.notepad-container {
+  display: flex;
+  justify-content: center;
+}
+
+
+
 .notepad {
-  /* display: flex;
-  flex-wrap: wrap; */
+  text-align: center;
   overflow-y: scroll;
   margin-bottom: 10px;
   word-wrap: break-word;
-  width: 50%;
+  width: 100%;
   height: 40vh;
   padding: 20px;
   border-radius: 10px;
-  background-color:  rgb(219, 218, 215);
+  background-color: black;
+  color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 

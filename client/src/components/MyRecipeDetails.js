@@ -10,7 +10,7 @@ import Steps from './Steps';
 //import { set } from 'mongoose';
 
 const MyRecipeDetails = (props) => {
-  //console.log('MyRecipeDetials props: ',props);
+  console.log('MyRecipeDetials props: ',props);
   
   const userId = localStorage.userId;
   //TODO: include diets, nutrition and wine pairing 
@@ -19,6 +19,7 @@ const MyRecipeDetails = (props) => {
     readyInMinutes, 
     glutenFree, 
     analyzedInstructions, 
+    diets,
     nutrition,
     servings, 
     image, 
@@ -40,6 +41,7 @@ const MyRecipeDetails = (props) => {
     const [isFavorite, setIsFavorite] = useState(favorite);
     const [categorize, setCategorize] = useState(category);
     const [showCategoryForm, setShowCategoryForm] = useState('none');
+    const [showGlutenFree, setShowGlutenFree] = useState('');
 
   let imageUrl = `${image}?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`;
   const getInstructions = analyzedInstructions[0].steps;
@@ -163,16 +165,22 @@ const MyRecipeDetails = (props) => {
     setShowCategoryForm('none');
   }
 
+  // const square = { width: 175, height: 175 }
+
+  console.log('state showProperty: ',showGlutenFree);
+  
   return (
     <div>
       <h1>{title}</h1>
       <Image fluid centered src={imageUrl}></Image>
 
-      <div>Make it a favorite: {isFavorite === false ? <i className="far fa-heart" onClick={() => makeFavorite()}></i> :  <i className="fas fa-heart" onClick={() => unFavorite()}></i>}</div>
+      <Segment color='black'>
+        Make it a favorite: {isFavorite === false ? <i className="far fa-heart" onClick={() => makeFavorite()}></i> :  <i className="fas fa-heart" onClick={() => unFavorite()}></i>}
+      </Segment>
 
-      <div>
-        <span>Category: {categorize === '' ? 'No category assigned' : categorize} </span>
-        <Button color='black' size='mini' onClick={() => showCategoryEditForm()}>Edit</Button>
+      <Segment color='black'>
+        Category: <span className='category'>{categorize === '' ? 'no category assiged' : categorize} </span>
+        <Button tertiary size='mini' onClick={() => showCategoryEditForm()}>Edit</Button>
         <Form style={{'display': showCategoryForm}} onSubmit={() => updateCategory()}>
           <Form.Field>
             <input 
@@ -185,31 +193,41 @@ const MyRecipeDetails = (props) => {
           <Button primary type='submit'>Save</Button>
           <Button secondary onClick={() => hideCategoryForm()}>Cancel</Button>
         </Form>
-      </div>
+      </Segment>
 
-      <Segment  color="olive">{servings} servings</Segment>
-      <Segment color="green">Ready in: {readyInMinutes} minutes</Segment>
-      <Segment  color="teal">Is gluten free: {glutenFree}</Segment>
-      <Segment  color="blue">Sustainable: {sustainable}</Segment>
-      <Segment  color="violet">Good for low fod map diet restrictions: {lowFodmap}</Segment>
-      <Segment color="pink">WeitghtWatchers Points: {weightWatcherSmartPoints}</Segment>
+      <Segment color='black'>
+        {diets.map(type => type.toUpperCase() + ' / ')}
+      </Segment>
 
+      <Segment color="olive">{servings} servings</Segment>
+      <Segment color="green">Ready in {readyInMinutes} minutes</Segment>
+      <Segment color='teal'>{glutenFree ? 'Gluten Free' : 'Not Gluten Free'}</Segment>
+      <Segment color='blue'>{sustainable ? 'Sustainable' : 'Not marked as sustainable'}</Segment>
+      <Segment color='purple'>{lowFodmap ? 'Good forLow FODMAP diet restrictions' : 'Does not support a Low FODMAP diet'}</Segment>
+      <Segment color="pink">WeitghtWatchers Points {weightWatcherSmartPoints}</Segment>
+    
       <Ingredients ingredients={extendedIngredients} />
+
       <Steps instructions={instructions} />
       
-      <div className="notepad" style={{'display': showNote}}>Notes: {note}</div>
-        <Button color='black' onClick={() => showNoteEditForm()}>Edit</Button>
-        <Form style={{'display': showForm}} onSubmit={(e) => updateNote(e)}>
-          <Form.Field>
-            <textarea 
-              value={note} 
-              name="note" 
-              onChange={(e) => onNoteChange(e)} 
-              />
-          </Form.Field>
-          <Button primary type="submit" value="update">Save</Button>
-          <Button secondary onClick={() => hideForm()}>Cancel</Button>
-        </Form>
+      <div className='notepad-container'>
+        <div className="notepad" style={{'display': showNote}}>
+          <span className='note-heading' >Notes</span>
+          {note}
+        </div>
+      </div> 
+      <Button style={{'display': showNote}} fluid color='black' onClick={() => showNoteEditForm()}>Edit</Button>
+      <Form style={{'display': showForm}} onSubmit={(e) => updateNote(e)}>
+        <Form.Field>
+          <textarea 
+            value={note} 
+            name="note" 
+            onChange={(e) => onNoteChange(e)} 
+            />
+        </Form.Field>
+        <Button primary type="submit" value="update">Save</Button>
+        <Button secondary onClick={() => hideForm()}>Cancel</Button>
+      </Form>
 
       <Segment>
         <Grid columns={2} relaxed='very'>
