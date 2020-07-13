@@ -175,7 +175,7 @@ const MyRecipeDetails = (props) => {
         </Header>
       </Segment>
 
-      <Image fluid centered src={imageUrl}></Image>
+      <Image fluid centered src={imageUrl} style={{'marginBottom': '5px'}}></Image>
 
       {/* <Segment color='black'>
         Make it a favorite: {isFavorite === false ? <i className="far fa-heart" onClick={() => makeFavorite()}></i> :  <i className="fas fa-heart" onClick={() => unFavorite()}></i>}

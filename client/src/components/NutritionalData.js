@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import { Header, Table } from 'semantic-ui-react';
+import { Segment, Header } from 'semantic-ui-react';
 
 const NutritionalData = ({ recipeId }) => {
   console.log('recipeId: ',recipeId);
@@ -20,76 +20,56 @@ const NutritionalData = ({ recipeId }) => {
 
   return (
     <Fragment>
-      <div className='calories-table' >
-        <Header as='h3'>Nutritional Information</Header>
-        <Table color='blue' inverted>
-          <Table.Header>
-            <Table.Row>
-              <Table.HeaderCell>Calories</Table.HeaderCell>
-              <Table.HeaderCell>Protein</Table.HeaderCell>
-              <Table.HeaderCell>Carbs</Table.HeaderCell>
-              <Table.HeaderCell>Fat</Table.HeaderCell>
-            </Table.Row>
-          </Table.Header>
-
-          <Table.Body>
-            <Table.Row>
-              <Table.Cell>{nutritionalData.calories}</Table.Cell>
-              <Table.Cell>{nutritionalData.protein}</Table.Cell>
-              <Table.Cell>{nutritionalData.carbs}</Table.Cell>
-              <Table.Cell>{nutritionalData.fat}</Table.Cell>
-            </Table.Row>
-          </Table.Body>
-        </Table>
-      </div>
+    <Segment color='blue' inverted>
+      <Header as='h2' textAlign='center'>Nutritional Information</Header>
+    </Segment> 
+    <div className='table-container'>
+      <table className='table-calories'>
+        <tr>
+          <th>Calories</th>
+          <th>Protein</th>
+          <th>Carbs</th>
+          <th>Fat</th>
+        </tr>
+        <tr>
+          <td>{nutritionalData.calories}</td>
+          <td>{nutritionalData.protein}</td>
+          <td>{nutritionalData.carbs}</td>
+          <td>{nutritionalData.fat}</td>
+        </tr>
+      </table>
 
       <br></br>
-      
-      <div className='table-good' >
-        <Header>Make sure you get enough of these</Header>
-        <Table color='olive' key='olive' inverted fixed>
-          <Table.Header>
-            <Table.Row>
-              <Table.HeaderCell>Nutrient</Table.HeaderCell>
-              <Table.HeaderCell>Amount</Table.HeaderCell>
-              <Table.HeaderCell>% Of Daily Needs</Table.HeaderCell>
-            </Table.Row>
-          </Table.Header>
-
-          <Table.Body>
-          {goodStuff.map((nutrient, index) => <Table.Row key={index}>
-            <Table.Cell>{nutrient.title}</Table.Cell>
-            <Table.Cell>{nutrient.amount}</Table.Cell>
-            <Table.Cell>{nutrient.percentOfDailyNeeds}</Table.Cell>
-            </Table.Row>)}
-          </Table.Body>
-        </Table>
-      </div>
+       <Header as='h3' textAlign='center'>Make sure you get enough of these</Header>
+      <table className='table-good'>
+        <tr>
+          <th>Nutrient</th>
+          <th>Amount</th>
+          <th>% Daily Needs</th>
+        </tr>
+        {goodStuff.map((nutrient, index) => <tr key={index}>
+          <td>{nutrient.title}</td>
+          <td>{nutrient.amount}</td>
+          <td>{nutrient.percentOfDailyNeeds}</td>
+          </tr>)}
+      </table>
 
       <br></br>
-      
-      <div className='table-bad' >
-        <Header>Make sure you limit your intake of these</Header>
-        <Table color='orange' key='orange' inverted fixed>
-          <Table.Header>
-            <Table.Row>
-              <Table.HeaderCell>Nutrient</Table.HeaderCell>
-              <Table.HeaderCell>Amount</Table.HeaderCell>
-              <Table.HeaderCell>% Of Daily Needs</Table.HeaderCell>
-            </Table.Row>
-          </Table.Header>
-
-          <Table.Body>
-          {badStuff.map((nutrient, index) => <Table.Row key={index}>
-            <Table.Cell>{nutrient.title}</Table.Cell>
-            <Table.Cell>{nutrient.amount}</Table.Cell>
-            <Table.Cell>{nutrient.percentOfDailyNeeds}</Table.Cell>
-            </Table.Row>)}
-          </Table.Body>
-        </Table>
-      </div>
-
-  </Fragment>
+      <Header as='h3' textAlign='center'>Make sure you limit your intake of these</Header>
+      <table className='table-bad'>
+        <tr>
+          <th>Nutrient</th>
+          <th>Amount</th>
+          <th>% Daily Needs</th>
+        </tr>
+        {goodStuff.map((nutrient, index) => <tr key={index}>
+          <td>{nutrient.title}</td>
+          <td>{nutrient.amount}</td>
+          <td>{nutrient.percentOfDailyNeeds}</td>
+          </tr>)}
+      </table>
+    </div>
+    </Fragment>
   )
 
 }
