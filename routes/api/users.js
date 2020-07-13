@@ -182,7 +182,7 @@ router.put('/:id/recipes/:re_id/favorite', async (req, res) => {
       .indexOf(req.params.re_id);
 
     user.recipes[targetIndex].favorite = isFavorite;
-    console.log('targetIndex: ',targetIndex);
+    //console.log('targetIndex: ',targetIndex);
     await (user.save());
     res.json(user.recipes);
   } catch (error) {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Segment, List, Image, Button, Divider, Form, Grid } from 'semantic-ui-react';
+import { Segment, Header, Image, Button, Divider, Form, Grid, Icon, Label } from 'semantic-ui-react';
 
 import Conversions from './Conversions';
 import Substitute from './Substitute';
@@ -166,19 +166,40 @@ const MyRecipeDetails = (props) => {
   }
 
   // const square = { width: 175, height: 175 }
-
-  console.log('state showProperty: ',showGlutenFree);
   
   return (
     <div>
-      <h1>{title}</h1>
-      <Image fluid centered src={imageUrl}></Image>
-
-      <Segment color='black'>
-        Make it a favorite: {isFavorite === false ? <i className="far fa-heart" onClick={() => makeFavorite()}></i> :  <i className="fas fa-heart" onClick={() => unFavorite()}></i>}
+      <Segment inverted>
+        <Header inverted as='h2' textAlign='center'>
+          {title}
+        </Header>
       </Segment>
 
-      <Segment color='black'>
+      <Image fluid centered src={imageUrl}></Image>
+
+      {/* <Segment color='black'>
+        Make it a favorite: {isFavorite === false ? <i className="far fa-heart" onClick={() => makeFavorite()}></i> :  <i className="fas fa-heart" onClick={() => unFavorite()}></i>}
+      </Segment> */}
+
+      {isFavorite === false ? 
+        <Button as='div' labelPosition='right'>
+          <Button color='' onClick={() => makeFavorite()}>
+            <Icon name='heart' />
+          </Button>
+          <Label as='a' basic color=''>
+          </Label>
+        </Button>
+        :
+        <Button as='div' labelPosition='right'>
+          <Button color='red' onClick={() => unFavorite()}>
+            <Icon name='heart' />
+          </Button>
+          <Label as='a' basic color='red'>
+          </Label>
+        </Button>
+      }
+
+      <Segment tertiary color='black'>
         Category: <span className='category'>{categorize === '' ? 'no category assiged' : categorize} </span>
         <Button tertiary size='mini' onClick={() => showCategoryEditForm()}>Edit</Button>
         <Form style={{'display': showCategoryForm}} onSubmit={() => updateCategory()}>
@@ -195,21 +216,21 @@ const MyRecipeDetails = (props) => {
         </Form>
       </Segment>
 
-      <Segment color='black'>
+      <Segment inverted secondary color='grey'>
         {diets.map(type => type.toUpperCase() + ' / ')}
       </Segment>
 
-      <Segment color="olive">{servings} servings</Segment>
-      <Segment color="green">Ready in {readyInMinutes} minutes</Segment>
-      <Segment color='teal'>{glutenFree ? 'Gluten Free' : 'Not Gluten Free'}</Segment>
-      <Segment color='blue'>{sustainable ? 'Sustainable' : 'Not marked as sustainable'}</Segment>
-      <Segment color='purple'>{lowFodmap ? 'Good forLow FODMAP diet restrictions' : 'Does not support a Low FODMAP diet'}</Segment>
-      <Segment color="pink">WeitghtWatchers Points {weightWatcherSmartPoints}</Segment>
+      <Segment inverted color="olive">{servings} servings</Segment>
+      <Segment inverted color="green">Ready in {readyInMinutes} minutes</Segment>
+      <Segment inverted color='teal'>{glutenFree ? 'Gluten Free' : 'Not Gluten Free'}</Segment>
+      <Segment inverted color='blue'>{sustainable ? 'Sustainable' : 'Not marked as sustainable'}</Segment>
+      <Segment inverted color='purple'>{lowFodmap ? 'Good forLow FODMAP diet restrictions' : 'Does not support a Low FODMAP diet'}</Segment>
+      <Segment inverted color="pink">WeitghtWatchers Points {weightWatcherSmartPoints}</Segment>
     
       <Ingredients ingredients={extendedIngredients} />
 
       <Steps instructions={instructions} />
-      
+
       <div className='notepad-container'>
         <div className="notepad" style={{'display': showNote}}>
           <span className='note-heading' >Notes</span>

@@ -15,6 +15,7 @@ const MyRecipe = ({ reDetails, id }) => {
   const isFav = () => (
     reDetails.favorite ? <i class="fas fa-heart"></i> : <i class="far fa-heart"></i>
   )
+  
   return (
     <div className='card' id={`card-${id}`}>
       <img src={imageUrl} alt='' className='card-img'></img>
