@@ -1,6 +1,6 @@
 import React from 'react';
 import '../index.css';
-import { Image } from 'semantic-ui-react';
+import Zoom from 'react-reveal/Zoom';
 
 export default function Home() {
   return (
@@ -10,10 +10,12 @@ export default function Home() {
       </div>
 
       <div className='home-2'>
+        <Zoom duration={1000} delay={500}>
         <div>Browse</div>
         <div>Save Recipes</div>
         <div>Add notes</div>
-      </div>
+        </Zoom>
+      </div> 
 
       <div className='home-3'>
         <div className='bg-1'>

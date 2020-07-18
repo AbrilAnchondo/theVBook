@@ -1,13 +1,18 @@
-
+/* @import url('https://fonts.googleapis.com/css2?family=Advent+Pro:wght@500&family=Rajdhani:wght@500&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap');
 
 body {
   margin: auto;
   padding: 0;
   background: black;
+  /* font-family: 'Rajdhani', sans-serif; */
+  /* font-family: 'Advent Pro', sans-serif; */
+  font-family: 'Dosis', sans-serif;
 }
 
 .main {
-  padding: 8px;
+  padding: 3px;
+  /* font-family: 'PT Sans', sans-serif;; */
 }
 
 /* ===============================
@@ -35,14 +40,13 @@ body {
   object-fit: cover;
 }
 
-
 /* ===============================
      setting backgrounds 
 =============================== */
 
-.home > div {
+/* .home > div {
   margin: 3px;
-}
+} */
 
 .home-1{
   height: 60vh;
@@ -62,9 +66,11 @@ body {
 }
 
 .home-2 > div {
-  font-size: 3em;
-  padding: 10px;
-  margin: 20px 0;
+  
+  font-size: 1.5em;
+  text-transform: uppercase;
+  /* padding: 10px;
+  margin: 20px 0; */
 }
 
 /* .home-2 > div:nth-of-type(1) {
@@ -161,6 +167,9 @@ body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.steps {
+  font-size: large;
+}
 /* ===============================
             Tables
 =============================== */
@@ -377,6 +386,7 @@ carousel in VBook / Saved Recipes
   margin-top: 3px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  /* font-family: 'PT Sans', sans-serif; */
 }
 
 /* ===============================
@@ -384,4 +394,10 @@ carousel in VBook / Saved Recipes
 =============================== */
 @media screen and (max-width: 600px) {
   ul.topnav li {float: none;}
+}
+
+@media (max-width: 600px) {
+  .home-2 {
+    flex-direction: column;
+  }
 }

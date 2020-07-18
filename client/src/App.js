@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState } from 'react';
 import { Router, Link } from '@reach/router';
 import { Menu } from 'semantic-ui-react';
 
