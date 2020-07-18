@@ -38,7 +38,7 @@ export default function Home() {
 
       <div className='home-4'>
       <Flip top>
-          <p>Find Vegan and Vegetarian recipes that suit your specific need and bring to your life all the benefits of a healthier diet</p>
+          <div>Find Vegan and Vegetarian recipes that suit your specific need and bring to your life all the benefits of a healthier diet</div>
       </Flip>
       </div>
 

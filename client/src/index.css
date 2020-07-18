@@ -92,12 +92,15 @@ body {
 }
 
 .home-4 {
-  font-size: xx-large;
-  text-align: center;
-  padding-top: 90px;
-  padding-right: 60px;
-  padding-left: 60px;
-  /* font-family: 'Neucha', cursive; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Neucha', cursive;
+}
+
+.home-4 > div {
+  font-size: large;
+  padding: 20px 20px;
 }
 
 .bg-1 {
@@ -314,7 +317,7 @@ carousel in VBook / Saved Recipes
   position: relative; 
 }
 
-.col::before {
+/* .col::before {
   content: '';
   display: block;
   width: 40%;
@@ -324,9 +327,9 @@ carousel in VBook / Saved Recipes
   top: 0;
   left: 0;
   z-index: 2; 
-}
+} */
 
-.col::after {
+/* .col::after {
   content: '';
   display: block;
   width: 40%;
@@ -338,7 +341,7 @@ carousel in VBook / Saved Recipes
   z-index: 2; 
   left: auto;
   right: 0;
-}
+} */
 
 .my-recipe-card-text {
   font-size: 18px;
