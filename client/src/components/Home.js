@@ -1,6 +1,7 @@
 import React from 'react';
 import '../index.css';
 import Zoom from 'react-reveal/Zoom';
+import Flip from 'react-reveal/Flip';
 
 export default function Home() {
   return (
@@ -36,6 +37,9 @@ export default function Home() {
       </div>
 
       <div className='home-4'>
+      <Flip top>
+          <p>Find Vegan and Vegetarian recipes that suit your specific need and bring to your life all the benefits of a healthier diet</p>
+      </Flip>
       </div>
 
     </div>

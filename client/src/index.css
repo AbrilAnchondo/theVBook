@@ -1,13 +1,14 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Advent+Pro:wght@500&family=Rajdhani:wght@500&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
 
 body {
   margin: auto;
   padding: 0;
   background: black;
-  /* font-family: 'Rajdhani', sans-serif; */
   /* font-family: 'Advent Pro', sans-serif; */
   font-family: 'Dosis', sans-serif;
+  /* font-family: 'Neucha', cursive; */
 }
 
 .main {
@@ -57,12 +58,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  /* justify-content: space-around; */
   height: 30vh;
   background-color: rgb(14, 13, 13);
   color: white;
   opacity: 0.9;
-  /* flex-direction: row; */
 }
 
 .home-2 > div {
@@ -72,14 +71,6 @@ body {
   /* padding: 10px;
   margin: 20px 0; */
 }
-
-/* .home-2 > div:nth-of-type(1) {
-  align-self: flex-start;
-}
-
-.home-2 > div:nth-of-type(3) {
-  align-self: flex-end
-} */
 
 .home-3 {
   margin-top: 2px;
@@ -98,6 +89,15 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+.home-4 {
+  font-size: xx-large;
+  text-align: center;
+  padding-top: 90px;
+  padding-right: 60px;
+  padding-left: 60px;
+  /* font-family: 'Neucha', cursive; */
 }
 
 .bg-1 {
@@ -131,7 +131,7 @@ body {
 } 
 
 .bg-vbook {
-  margin-top: 150px;
+  margin-top: 250px;
   width: 100%;
   height: 50vh;
   background-image: url('https://images.unsplash.com/photo-1541472952075-0ae0017d86de?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60');
