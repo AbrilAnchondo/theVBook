@@ -17,7 +17,7 @@ const ops = [
   return (
     <div>
       <Form>
-        <label>Select a Category:
+        <label className='h2-header'>Select a Category:
           <select value={props.categoryTerm} 
             onChange={props.onCategoryChange}
           >

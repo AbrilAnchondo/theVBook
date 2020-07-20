@@ -13,7 +13,7 @@ const Recipe = (props) => {
        <Card>
         <Image src={imageUrl} ui={false} className="card-img"/>
         <Card.Content>
-          <Card.Header>{title}l</Card.Header>
+          <Card.Header textAlign='left'>{title}</Card.Header>
           <Card.Meta>{servings} Servings</Card.Meta>
           <Card.Description>
             Ready in {readyInMinutes} minutes

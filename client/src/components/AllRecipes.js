@@ -69,9 +69,9 @@ const AllRecipes = () => {
       <div>
         <RecipeList recipes={recipes} />
       </div>
-      <Button fluid className='btn-load' 
+      <Button fluid color='grey'
         onClick={loadMore}>
-          Load More
+          <span className='header'>Load More</span>
       </Button>
     </Fragment>
   )

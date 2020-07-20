@@ -170,9 +170,9 @@ const MyRecipeDetails = (props) => {
   return (
     <div>
       <Segment inverted>
-        <Header inverted as='h2' textAlign='center'>
+        <h2 className='header'>
           {title}
-        </Header>
+        </h2>
       </Segment>
 
       <Image fluid centered src={imageUrl} style={{'marginBottom': '5px'}}></Image>
@@ -199,9 +199,9 @@ const MyRecipeDetails = (props) => {
         </Button>
       }
 
-      <Segment tertiary color='black'>
+      <Segment secondary color='black'>
         Category: <span className='category'>{categorize === '' ? 'no category assiged' : categorize} </span>
-        <Button tertiary size='mini' onClick={() => showCategoryEditForm()}>Edit</Button>
+        <Button color='grey' size='mini' onClick={() => showCategoryEditForm()}>Edit</Button>
         <Form style={{'display': showCategoryForm}} onSubmit={() => updateCategory()}>
           <Form.Field>
             <input 
@@ -216,28 +216,28 @@ const MyRecipeDetails = (props) => {
         </Form>
       </Segment>
 
-      <Segment inverted secondary color='grey'>
+      <Segment tertiary color='grey' className='h2-header'>
         {diets.map(type => type.toUpperCase() + ' / ')}
       </Segment>
 
-      <Segment inverted color="olive">{servings} servings</Segment>
-      <Segment inverted color="green">Ready in {readyInMinutes} minutes</Segment>
-      <Segment inverted color='teal'>{glutenFree ? 'Gluten Free' : 'Not Gluten Free'}</Segment>
-      <Segment inverted color='blue'>{sustainable ? 'Sustainable' : 'Not marked as sustainable'}</Segment>
-      <Segment inverted color='purple'>{lowFodmap ? 'Good forLow FODMAP diet restrictions' : 'Does not support a Low FODMAP diet'}</Segment>
-      <Segment inverted color="pink">WeitghtWatchers Points {weightWatcherSmartPoints}</Segment>
+      <Segment color="olive" className='h2-header'>{servings} servings</Segment>
+      <Segment color="green" className='h2-header'>Ready in {readyInMinutes} minutes</Segment>
+      <Segment color='teal' className='h2-header'>{glutenFree ? 'Gluten Free' : 'Not Gluten Free'}</Segment>
+      <Segment color='blue' className='h2-header'>{sustainable ? 'Sustainable' : 'Not marked as sustainable'}</Segment>
+      <Segment color='purple' className='h2-header'>{lowFodmap ? 'Good forLow FODMAP diet restrictions' : 'Does not support a Low FODMAP diet'}</Segment>
+      <Segment color='pink' className='h2-header'>WeitghtWatchers Points {weightWatcherSmartPoints}</Segment>
     
       <Ingredients ingredients={extendedIngredients} />
 
       <Steps instructions={instructions} />
 
+      <Segment tertiary textAlign="center"><h2 className='h2-header'>Notepad</h2></Segment>
       <div className='notepad-container'>
         <div className="notepad" style={{'display': showNote}}>
-          <span className='note-heading' >Notes</span>
           {note}
         </div>
       </div> 
-      <Button style={{'display': showNote}} fluid color='black' onClick={() => showNoteEditForm()}>Edit</Button>
+      <Button style={{'display': showNote}} fluid tertiary onClick={() => showNoteEditForm()}>Edit</Button>
       <Form style={{'display': showForm}} onSubmit={(e) => updateNote(e)}>
         <Form.Field>
           <textarea 
