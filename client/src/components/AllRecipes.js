@@ -52,6 +52,7 @@ const AllRecipes = () => {
 
   return (
     <Fragment>
+      <Segment inverted textAlign='center'><h1 className='h2-header'>What do you feel like eating?</h1></Segment>
       <Segment>
         <SearchByKeyWord onInputChange={onInputChange} keyword={keyword}/>
         <Divider horizontal />
@@ -67,11 +68,11 @@ const AllRecipes = () => {
       </Segment>
      
       <div>
-        <RecipeList recipes={recipes} />
+        <RecipeList className='recipe-list' recipes={recipes} />
       </div>
       <Button fluid color='grey'
         onClick={loadMore}>
-          <span className='header'>Load More</span>
+        <span className='header'>Load More</span>
       </Button>
     </Fragment>
   )

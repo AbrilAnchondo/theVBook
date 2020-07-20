@@ -8,6 +8,7 @@ export default function Home() {
     <div className="home">
 
       <div className='home-1'>
+        <img className='home-img' src='https://images.unsplash.com/photo-1576021182211-9ea8dced3690?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60' alt=''/>
       </div>
 
       <div className='home-2'>

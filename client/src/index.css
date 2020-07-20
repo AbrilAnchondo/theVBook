@@ -44,13 +44,10 @@ body {
      setting backgrounds 
 =============================== */
 
-/* .home > div {
-  margin: 3px;
-} */
-
-.home-1{
-  height: 60vh;
-  background-image: url('https://images.unsplash.com/photo-1518843875459-f738682238a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60');
+.home-img {
+  width:100%;
+  height:400px;
+  object-fit:cover;
 }
 
 .home-2 {
@@ -61,7 +58,7 @@ body {
   background-color: rgb(14, 13, 13);
   color: white;
   opacity: 0.9;
-  
+  margin-bottom: 3px;
 }
 
 .home-2 > div {
@@ -73,10 +70,9 @@ body {
 }
 
 .home-3 {
-  margin-top: 2px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 5px;
+  gap: 3px;
 }
 
 .home-3 > div {
@@ -96,8 +92,16 @@ body {
   align-items: center;
   justify-content: center;
   font-family: 'Neucha', cursive;
+  margin-top: 3px;
 }
 
+.home-4 {
+ height: 30vh;
+ background-color: rgb(14, 13, 13);
+ opacity: 0.9;
+ color: white;
+}
+  
 .home-4 > div {
   font-size: large;
   padding: 20px 20px;
@@ -119,12 +123,7 @@ body {
   background: url('https://images.unsplash.com/photo-1546548970-71785318a17b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60')
 }
 
-.home-4 {
-  height: 30vh;
- background-color: rgb(14, 13, 13);
- opacity: 0.9;
- color: white;
-}
+/* ------------------------------------------------------ */
 
 .bg-rdetails {
   background-image: url('https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2110&q=80');
@@ -184,6 +183,10 @@ body {
 .header {
   font-family: 'Neucha', cursive;
   text-align: center;
+}
+
+.recipe-list {
+  margin-bottom: 2px;
 }
 
 /* ===============================
@@ -378,8 +381,6 @@ carousel in VBook / Saved Recipes
   display: flex;
   justify-content: center;
 }
-
-
 
 .notepad {
   text-align: center;
