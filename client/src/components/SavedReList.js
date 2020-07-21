@@ -22,15 +22,15 @@ const SavedReList = ({ fullReList }) => {
   }
 
   return (
-    <div>
+    <div className='bg-mylist'>
       <div className='arrows'>
         <span>
-          <i className="far fa-caret-square-left fa-3x"
+          <i className="fas fa-arrow-circle-left fa-3x"
             onClick={() => toPreviousRecipe()}
           ></i>
         </span>
         <span>
-          <i className="far fa-caret-square-right fa-3x"
+          <i className="fas fa-arrow-circle-right fa-3x"
             onClick={() => toNextRecipe()}
           ></i>
         </span>

@@ -24,7 +24,6 @@ body {
   height: 100%;
   background-position: center;
   background-repeat: repeat;
-  object-fit: cover;
   padding: 10px;
 }
 
@@ -132,24 +131,25 @@ body {
   padding: 20px;
 } 
 
-.bg-vbook {
-  margin-top: 250px;
-  width: 100%;
-  height: 50vh;
-  background-image: url('https://images.unsplash.com/photo-1541472952075-0ae0017d86de?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60');
-  opacity: 0.8;
+.bg-mylist {
+  background-image: url('https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60');
+  background-size: cover;
+  height: 100vh;
 }
 
 .vbook-title {
   text-align: center;
   padding-top: 25px;
-  margin: 0;
   background-color: black;
   color: white;
-  height: 100px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  height: 80px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
   font-family: 'Neucha', cursive;
+}
+
+.vbook-filters {
+  margin: 20px 0;
 }
 
 .back-arrow {
@@ -174,6 +174,7 @@ body {
 .steps {
   font-size: large;
   font-family: 'Neucha', cursive;
+  font-weight: 700;
 }
 
 .h2-header{
@@ -186,11 +187,11 @@ body {
 }
 
 .recipe-list {
-  margin-bottom: 2px;
+  margin: 2px 0;
 }
 
 /* ===============================
-            Tables
+  Nutritional Data Tables
 =============================== */
 
 .table-container {
@@ -231,7 +232,11 @@ tr:nth-child(even){background-color: #f2f2f2}
   border-bottom: solid  1px rgb(194, 193, 193);
   border-radius: 5px;
 }
-/*=====================================*/
+/* --------------------------------------------- */
+
+/* ===========================================
+      login and signup pages
+=========================================== */
 
 .login-wrapper {
   background-image: url('https://images.unsplash.com/photo-1532768778661-1b347c5f02ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60');
@@ -253,6 +258,7 @@ tr:nth-child(even){background-color: #f2f2f2}
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
+/* ----------------------------------------------- */
 
 /* ===============================
 carousel in VBook / Saved Recipes
@@ -265,8 +271,8 @@ carousel in VBook / Saved Recipes
 }
 
 .card-slider-wrapper .card {
-  flex: 1;
-  min-width: 220px;
+  /* flex: 1; */
+  min-width: 245px;
   border-radius: 8px;
   opacity: 0.5;
   transform: scale(0.7);
@@ -274,7 +280,7 @@ carousel in VBook / Saved Recipes
 }
 
 .card-slider {
-  flex: 1;
+  /* flex: 1; */
   position: relative;
   max-width: 226px;
   margin: 0 auto;
@@ -307,11 +313,11 @@ carousel in VBook / Saved Recipes
 
 
 .card {
-  border: 8px #e6e3e3 solid;
+  border: 8px #e6e9e9 solid;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
   transition: all 0.3s linear;
   cursor: pointer;
-  background-color: #e6e3e3;
+  background-color: #e6e9e9  ;
   padding: 10px;
   max-width: 220px;
   text-align: left;
@@ -331,10 +337,10 @@ carousel in VBook / Saved Recipes
   left: 0;
 }
 
-.col {
+/* .col {
   height: 280px;
   position: relative; 
-}
+} */
 
 /* .col::before {
   content: '';
@@ -369,8 +375,13 @@ carousel in VBook / Saved Recipes
 /* ---------------------------------------------------------------- */
 
 .arrows {
-  margin-bottom: 15px;
+  margin: 10px 0;
+  padding: 10px 0;
   text-align: center;
+}
+
+.arrows > span {
+  margin: 0 10px;
 }
 
 .fas {

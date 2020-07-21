@@ -20,7 +20,7 @@ const MyRecipe = ({ reDetails, id }) => {
     <div className='card' id={`card-${id}`}>
       <img src={imageUrl} alt='' className='card-img'></img>
       <span className='my-recipe-card-text'>{reDetails.title}</span>
-      <p>Category: {reDetails.category}</p>
+      <p>Category: {reDetails.category.length === 0 ? 'none' : reDetails.category}</p>
       <p>{isFav()}</p>
       <Link to={`/myvbook/${id}`} state={{details: reDetails}}><span style={{'display': 'block', 'marginTop': '24px'}}><i className="fas fa-eye"></i></span></Link>
     </div>

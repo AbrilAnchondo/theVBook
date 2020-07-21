@@ -64,6 +64,7 @@ const MyVBook = () => {
     .filter(re => (filterTerm === 'All' || re.favorite)) 
     //.filter(re => categoryTerm === 'All' ? true : re.category === categoryTerm);
     .filter(re => (categoryTerm === 'All' || re.category === categoryTerm))
+
     //.filter(re => (filter1) && (filter2))
     //.filter(re => (filterTerm === 'All' || re.favorite) && (categoryTerm === 'All' || re.category === categoryTerm))
   }
@@ -100,7 +101,6 @@ const MyVBook = () => {
         </div>
 
         <SavedReList fullReList={fullReList} />
-        <div className='bg-vbook'></div>
       </div>
   )
 }
