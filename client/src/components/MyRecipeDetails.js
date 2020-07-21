@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Segment, Header, Image, Button, Divider, Form, Grid, Icon, Label } from 'semantic-ui-react';
+import { Segment, Image, Button, Divider, Form, Grid, Icon, Label } from 'semantic-ui-react';
 
 import Conversions from './Conversions';
 import Substitute from './Substitute';
@@ -7,10 +7,8 @@ import axios from 'axios';
 import NutritionalData from './NutritionalData';
 import Ingredients from './Ingredients';
 import Steps from './Steps';
-//import { set } from 'mongoose';
 
 const MyRecipeDetails = (props) => {
-  console.log('MyRecipeDetials props: ',props);
   
   const userId = localStorage.userId;
   //TODO: include diets, nutrition and wine pairing 
@@ -20,7 +18,7 @@ const MyRecipeDetails = (props) => {
     glutenFree, 
     analyzedInstructions, 
     diets,
-    nutrition,
+    // nutrition,
     servings, 
     image, 
     extendedIngredients, 
@@ -33,7 +31,6 @@ const MyRecipeDetails = (props) => {
     category,
     recipeID
   } = props.location.state.details;
-    //console.log('notepad: ', notepad);
 
     const [note, setNote] = useState(notepad);
     const [showNote, setShowNote] = useState('block');
@@ -48,12 +45,10 @@ const MyRecipeDetails = (props) => {
   const instructions = getInstructions.map(step => step.step);
 
   const onNoteChange = (e) => {
-   //console.log('e target value: ',e.target.value);
     let newNote = e.target.value;
     setNote(newNote);
   }
 
-  //TODO: check if it works
   const updateNote = async (e) => {
     e.preventDefault();
     try {
@@ -177,11 +172,8 @@ const MyRecipeDetails = (props) => {
 
       <Image fluid centered src={imageUrl} style={{'marginBottom': '5px'}}></Image>
 
-      {/* <Segment color='black'>
-        Make it a favorite: {isFavorite === false ? <i className="far fa-heart" onClick={() => makeFavorite()}></i> :  <i className="fas fa-heart" onClick={() => unFavorite()}></i>}
-      </Segment> */}
-
-      {isFavorite === false ? 
+      {
+        isFavorite === false ? 
         <Button as='div' labelPosition='right'>
           <Button color='' onClick={() => makeFavorite()}>
             <Icon name='heart' />
@@ -237,7 +229,7 @@ const MyRecipeDetails = (props) => {
           {note}
         </div>
       </div> 
-      <Button style={{'display': showNote}} fluid tertiary onClick={() => showNoteEditForm()}>Edit</Button>
+      <Button style={{'display': showNote}} fluid onClick={() => showNoteEditForm()}>Edit</Button>
       <Form style={{'display': showForm}} onSubmit={(e) => updateNote(e)}>
         <Form.Field>
           <textarea 

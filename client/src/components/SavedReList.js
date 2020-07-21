@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import MyRecipe from './MyRecipe';
 
 const SavedReList = ({ fullReList }) => {
-  console.log('SavedReList props: ',fullReList);
   const [index, setIndex] = useState(0);
   
 

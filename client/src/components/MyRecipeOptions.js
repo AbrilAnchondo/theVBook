@@ -1,8 +1,7 @@
 import React from 'react';
-import { Form, Segment } from 'semantic-ui-react';
+import { Form } from 'semantic-ui-react';
 
 const MyRecipeOptions = (props) => {
-  console.log('myRecipeOptions props: ',props);
   return (
     <div>
       <Form>

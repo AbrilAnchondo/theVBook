@@ -3,12 +3,9 @@ import axios from 'axios';
 import SavedReList from './SavedReList';
 import MyRecipeOptions from './MyRecipeOptions';
 import CategoryOptions from './CategoryOptions';
-//import { Link } from '@reach/router';
-//import { set } from 'mongoose';
-//import MyRecipeDetails from './MyRecipeDetails';
 
+//TODO:: check how to pass recipe details
 const MyVBook = () => {
-  //console.log("props",props.location.state.image)
   let userId = localStorage.userId;
   const [userRe, setUserRe] = useState([]);
   const [recipeList, setRecipeList] = useState([]);
@@ -27,18 +24,13 @@ const MyVBook = () => {
       };
 
       const response = await axios.get(`http://localhost:5000/api/users/${userId}`, configObj);
-      //console.log('response: ',response);
       const userRe = response.data;
-      console.log('userRe :',userRe)
       setUserRe(userRe);
 
       let ids = userRe.map(re => re.recipeID).join();
-      //console.log('ids: ',ids);
 
       const res = await fetch(`https://api.spoonacular.com/recipes/informationBulk?ids=${ids}&includeNutrition=true&apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`);
-      //console.log(res);
       const recipeList = await res.json();
-      //console.log('recipeList: ',recipeList);
       setRecipeList(recipeList);
     } 
     fetchUserRecipes();
@@ -53,7 +45,6 @@ const MyVBook = () => {
       }
     })
   })
-  //console.log('temp: ',temp)
   return temp
  }
  
@@ -70,7 +61,6 @@ const MyVBook = () => {
   }
 
   let fullReList = mergedList(getFilteredRecipes(),recipeList);
-  //console.log('fullReList: ',fullReList);
 
  const onFilterChange = (e) => {
    setFilterTerm(e.target.value); 

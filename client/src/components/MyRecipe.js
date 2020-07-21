@@ -1,19 +1,14 @@
 import React from 'react';
 
-//import { Card, Image, Button, Icon } from 'semantic-ui-react';
 import { Link } from '@reach/router';
 import '../index.css';
 
 const MyRecipe = ({ reDetails, id }) => {
-  console.log('reDetails: ',reDetails);
-  console.log(reDetails.favorite);
-  console.log(reDetails.category);
-  //console.log('props id: ',id);
   //TODO:: fix size and refine card styling
   const imageUrl = `${reDetails.image}?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`
 
   const isFav = () => (
-    reDetails.favorite ? <i class="fas fa-heart"></i> : <i class="far fa-heart"></i>
+    reDetails.favorite ? <i className="fas fa-heart"></i> : <i className="far fa-heart"></i>
   )
   
   return (

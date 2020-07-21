@@ -13,16 +13,15 @@ const AllRecipes = () => {
   const [intolerances, setIntolerances] = useState('');
   const [keyword, setKeyWord] = useState('');
   const [limit, setLimit] = useState(5);
-  const [skip, setSkip] = useState(0);
+  // const [skip, setSkip] = useState(0);
   const [showRecipes, setShowRecipes] = useState('hidden');
 
 
   useEffect(() => {
     const fetchRecipes = async () => { 
-      const response = await fetch(`https://api.spoonacular.com/recipes/search?query=${keyword}&cuisine=${cuisine}&diet=${diet}&intolerances=${intolerances}&number=${limit}&offset=${skip}&apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`);
+      const response = await fetch(`https://api.spoonacular.com/recipes/search?query=${keyword}&cuisine=${cuisine}&diet=${diet}&intolerances=${intolerances}&number=${limit}&apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`);
       const data = await response.json();
       const results = data.results;
-      console.log('recipes from api: ',results);
       setRecipes(results);
     }
     fetchRecipes();
@@ -45,19 +44,16 @@ const AllRecipes = () => {
 
   const onInputChange = (e) => {
     let word = e.target.value;
-    console.log(word);
     setKeyWord(word);
     setShowRecipes('');
   }
 
   const loadMore = (e) => {
-    console.log('load more clicked');
     // setSkip(skip + limit);
     setLimit(limit + 5);
   }
 
   const clearFilters = () => {
-    console.log('clicked');
     setShowRecipes('hidden');
     setRecipes([]);
     setCuisine('');

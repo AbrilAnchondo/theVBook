@@ -1,18 +1,13 @@
 import React from 'react';
-import { Segment, Form } from 'semantic-ui-react';
+import { Form } from 'semantic-ui-react';
 
 const CategoryOptions = (props) => {
-  console.log('category props: ',props);
 
 const displayCategories = () => (
-    props.categories.map(categorie => (
-      <option value={categorie}>{categorie}</option>
+    props.categories.map((categorie, index) => (
+      <option key={index} value={categorie}>{categorie}</option>
    ))
   )
-
-const ops = [
-
-]
   
   return (
     <div>
@@ -27,8 +22,6 @@ const ops = [
         </label>
       </Form>
     </div>
-    
-
   )
 }
 

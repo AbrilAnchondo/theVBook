@@ -15,12 +15,10 @@ const Conversions = () =>   {
     let conv = {...conversion};
     conv[event.target.name] = event.target.value;
     setConversion(conv);
-    //console.log("conv",conv)
   }
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    //console.log("handle submit event", event);
     const response = await fetch(`https://api.spoonacular.com/recipes/convert?ingredientName=${conversion.ing}&sourceAmount=${conversion.sourceAmount}&sourceUnit=${conversion.sourceUnit}&targetUnit=${conversion.targetUnit}&apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`)
     const result = await response.json();
     const answer = result.answer

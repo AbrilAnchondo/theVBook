@@ -3,7 +3,6 @@ import axios from 'axios';
 
 import Ingredients from './Ingredients';
 import Steps from './Steps';
-// import NutritionalData from './NutritionalData';
 import { Image, Message, Divider, Button } from 'semantic-ui-react';
 import { Link } from '@reach/router';
 
@@ -11,17 +10,11 @@ import '../index.css';
 
 
 const RecipeDetails = (props) => {
-  //console.log("Props title",props);
   const image = props.location.state.image;
-  //console.log(image);
   let imageURL = `https://spoonacular.com/recipeImages/${image}?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`
   const id = props.id;
-  //console.log("recipe id ",id);
   const [steps, setSteps] = useState([]);
   const [ingredients,  setIngredients] = useState([]);
-
-  //console.log("Steps", steps);
-  //console.log("Ingredients", ingredients);
 
   useEffect(() => {
     const fetchRecipeDetails = async () => {
@@ -35,7 +28,6 @@ const RecipeDetails = (props) => {
       const response = await fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}&defaultCss=true`);
       const ingData = await response.json();
       const ingList = ingData.ingredients;
-      //console.log('ingredient list: ',ingList);
       setIngredients(ingList);
     }
 
@@ -62,12 +54,8 @@ const RecipeDetails = (props) => {
 
         const body = JSON.stringify(mySavedRecipe);
         const res = await axios.put(`http://localhost:5000/api/users/${userId}/recipes`, body, configObj);
-        console.log('response: ',res);
       }catch(err) {
-      console.error(err.response.data.errors[0].msg);
       alert(err.response.data.errors[0].msg);
-      console.error('error: ',err);
-      //console.log(err.response.data.errors[0].msg);
     }
   }
 
@@ -85,7 +73,6 @@ const RecipeDetails = (props) => {
   steps.forEach(step => {
     instructions.push(step.step);
   })
-  console.log('instructions: ', instructions);
   return (
     <div className="bg-rdetails">
       {
@@ -98,7 +85,9 @@ const RecipeDetails = (props) => {
       <div className="img-container">
         <Image src={imageURL} centered="true" rounded="true"/>
       </div>
-      {localStorage.length === 0 ? 
+
+      { 
+        localStorage.length === 0 ? 
         <Link to='/register'>
           <Button fluid 
             color="black"

@@ -8,7 +8,6 @@ const Substitute = ({ ingredients }) => {
   const [showButton, setShowButton] = useState(false);
 
   const handleChange = (event) => {
-    //console.log(event.target.value);
     setInput(event.target.value); 
   }
 
@@ -16,12 +15,10 @@ const Substitute = ({ ingredients }) => {
     event.preventDefault();
     const response = await fetch(`https://api.spoonacular.com/food/ingredients/substitutes?ingredientName=${input}&apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`);
     const subs = await response.json();
-    console.log('substitute response: ', subs);
     if(subs.message === "Could not find any substitutes for that ingredient." || "Could not find any ingredient by that id.") {
       alert(subs.message);
       setInput('');
     } else {
-      console.log('substitutes: ',substitutes);
       setSubstitutes(subs.substitutes);
       setMessage(subs.message);
       setInput('');

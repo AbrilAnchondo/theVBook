@@ -29,15 +29,10 @@ const Login = () => {
       };
       const body = JSON.stringify(loggedInUser);
       const res = await axios.post('http://localhost:5000/api/auth', body, configObj);
-      console.log(res);
       localStorage.userEmail = res.data.email;
       localStorage.userId = res.data._id;
-      console.log("User Id: ",localStorage.userId);
-      console.log("User Email: ",localStorage.userEmail);
       navigate('/')
     }catch(err) {
-      console.error("error:",err);
-      console.log(err.response.data.errors[0].msg);
       alert(err.response.data.errors[0].msg);
     }
   }

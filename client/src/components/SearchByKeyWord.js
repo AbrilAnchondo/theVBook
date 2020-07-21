@@ -2,7 +2,6 @@ import React from 'react';
 import { Input } from 'semantic-ui-react';
 
 const SearchByKeyWord = (props) => {
-  console.log(props);
 
   return (
         <Input 
