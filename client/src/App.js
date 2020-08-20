@@ -34,57 +34,6 @@ function App() {
             <i class="fa fa-bars"></i>
           </a>
         </div>
-       {/* <Menu inverted>
-          <Menu.Item
-            name='home'
-            active={activeItem === 'home'}
-            onClick={handleItemClick}
-          >
-            <Link to="/">Home</Link>
-          </Menu.Item>
-
-          <Menu.Item
-            name='recipes'
-            active={activeItem === 'recipes'}
-            onClick={handleItemClick}
-          >
-            <Link to="recipes">Recipes</Link>
-          </Menu.Item>
-
-          <Menu.Item
-            name='myVBook'
-            active={activeItem === 'myVBook'}
-            onClick={handleItemClick}
-          >
-            <Link to="/myvbook">MyVBook</Link>
-          </Menu.Item>
-
-          <Menu.Menu position='right'></Menu.Menu>
-          
-          <Menu.Item
-            name='register'
-            active={activeItem === 'register'}
-            onClick={handleItemClick}
-          >
-            <Link to="register">Register</Link>
-          </Menu.Item>
-
-          <Menu.Item
-            name='login'
-            active={activeItem === 'login'}
-            onClick={handleItemClick}
-          >
-            <Link to="login">Login</Link>
-          </Menu.Item>
-          
-          <Menu.Item 
-            name='logout'
-            active={activeItem === 'logout'}
-            onClick={handleItemClick}
-          >
-            <Link to="logout">Logout</Link>
-          </Menu.Item>
-        </Menu> */}
 
         <Router>
           <Home path="/" />
