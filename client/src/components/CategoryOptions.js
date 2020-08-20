@@ -3,8 +3,12 @@ import { Form } from 'semantic-ui-react';
 
 const CategoryOptions = (props) => {
 
-const displayCategories = () => (
-    props.categories.map((categorie, index) => (
+  const allCategories = Array.from(new Set(props.categories));
+
+  const myCategories = allCategories.filter(category => category !== '');
+  
+  const displayCategories = () => (
+    myCategories.map((categorie, index) => (
       <option key={index} value={categorie}>{categorie}</option>
    ))
   )
