@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+
 import SavedReList from './SavedReList';
 import MyRecipeOptions from './MyRecipeOptions';
 import CategoryOptions from './CategoryOptions';
@@ -49,6 +50,8 @@ const MyVBook = () => {
  }
  
  const getFilteredRecipes = () => {
+   console.log('filterTerm', filterTerm);
+   console.log('categoryTerm', categoryTerm);
    return userRe
     //.filter(re => filterTerm === 'All' ? true : re.favorite)
     //for each recipe return true if the filterTerm is equal to All or re.favorite is equal to true
@@ -60,6 +63,7 @@ const MyVBook = () => {
     //.filter(re => (filterTerm === 'All' || re.favorite) && (categoryTerm === 'All' || re.category === categoryTerm))
   }
 
+  console.log('getFilteredRecipes()', getFilteredRecipes());
   let fullReList = mergedList(getFilteredRecipes(),recipeList);
 
  const onFilterChange = (e) => {
@@ -69,28 +73,31 @@ const MyVBook = () => {
   const categories = userRe.map(re => re.category);
   
   const onCategoryChange = (e) => {
-    setCategoryTerm(e.target.value);
+      setCategoryTerm(e.target.value);
   }
 
   return (
-      <div>
+      <div className='vbook-container'>
         <div>
           <h1 className='vbook-title'>My VBook</h1>
         </div>
        
         <div className='vbook-filters'>
-          <MyRecipeOptions 
-            filterTerm={filterTerm}
-            onFilterChange={onFilterChange}
-          />
-          
-          <CategoryOptions categories={categories} 
-            categoryTerm={categoryTerm}
-            onCategoryChange={onCategoryChange}
-          />
+          <div>
+            <MyRecipeOptions 
+              filterTerm={filterTerm}
+              onFilterChange={onFilterChange}
+            />
+          </div>
+          <div>
+            <CategoryOptions categories={categories} 
+              categoryTerm={categoryTerm}
+              onCategoryChange={onCategoryChange}
+            />
+          </div>
         </div>
 
-        <SavedReList fullReList={fullReList} />
+        <SavedReList fullReList={fullReList}/>
       </div>
   )
 }

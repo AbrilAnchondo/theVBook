@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Card, Image, Button, Icon } from 'semantic-ui-react';
+
 import { Link } from '@reach/router';
 import '../index.css';
 
@@ -12,12 +14,17 @@ const MyRecipe = ({ reDetails, id }) => {
   )
   
   return (
-    <div className='card' id={`card-${id}`}>
-      <img src={imageUrl} alt='' className='card-img'></img>
-      <span className='my-recipe-card-text'>{reDetails.title}</span>
-      <p>Category: {reDetails.category.length === 0 ? 'none' : reDetails.category}</p>
-      <p>{isFav()}</p>
-      <Link to={`/myvbook/${id}`} state={{details: reDetails}}><span style={{'display': 'block', 'marginTop': '24px'}}><i className="fas fa-eye"></i></span></Link>
+    <div>
+      <Card>
+        <Link to={`/myvbook/${id}`} state={{details: reDetails}}>
+          <Image src={imageUrl} alt='' />
+        </Link>
+        <Card.Content>
+          <Card.Header textAlign='center'>{reDetails.title}</Card.Header>
+          <Card.Meta>Category: {reDetails.category.length === 0 ? 'none' : reDetails.category}</Card.Meta>
+          <Card.Description>{isFav()}</Card.Description>
+        </Card.Content>
+      </Card>
     </div>
   )
 }
