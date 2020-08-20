@@ -22,8 +22,19 @@ function App() {
   }
 
   return (
-      <div className='main'>
-       <Menu inverted>
+      <div>
+        <div class="topnav" id="myTopnav">
+          <a href="/" class="active">Home</a>
+          <a href="recipes">Recipes</a>
+          <a href="/myvbook">MyVBook</a>
+          <a href="register">Register</a>
+          <a href="login">Login</a>
+          <a href="logout">Logout</a>
+          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+          </a>
+        </div>
+       {/* <Menu inverted>
           <Menu.Item
             name='home'
             active={activeItem === 'home'}
@@ -73,7 +84,7 @@ function App() {
           >
             <Link to="logout">Logout</Link>
           </Menu.Item>
-        </Menu>
+        </Menu> */}
 
         <Router>
           <Home path="/" />
@@ -87,7 +98,7 @@ function App() {
           <Login path="/login" />
           <Logout path="/logout" style={{float: "right"}}/>
         </Router>
-        <Footer />
+        {/* <Footer /> */}
       </div>
   );
 }
