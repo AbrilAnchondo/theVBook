@@ -15,11 +15,6 @@ import Footer from './components/Footer';
 
 
 function App() {
-  const [activeItem, setActiveItem] = useState({});
-
-  const handleItemClick = (e, {name}) => {
-    setActiveItem({name})
-  }
 
   return (
       <div>
