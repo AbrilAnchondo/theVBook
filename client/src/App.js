@@ -15,16 +15,26 @@ import Footer from './components/Footer';
 
 function App() {
 
+  /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+  function myFunction() {
+    var x = document.getElementById('myTopnav');
+    if (x.className === 'topnav') {
+      x.className += ' responsive';
+    } else {
+      x.className = 'topnav';
+    }
+  }
+
   return (
       <div>
-        <div class='topnav' id='myTopnav'>
+        <div className='topnav' id='myTopnav'>
           <a href='/' >Home</a>
           <a href='recipes'>Recipes</a>
           <a href='/myvbook'>MyVBook</a>
           <a href='logout' style={{float: 'right'}}>Logout</a>
           <a href='login' style={{float: 'right'}}>Login</a>
           <a href='register' style={{float: 'right'}}>Register</a>
-          <a href='javascript:void(0);' class="icon" onclick='myFunction()'>
+          <a href='javascript:void(0);' className='icon' onclick='myFunction()'>
             <i class='fa fa-bars'></i>
           </a>
         </div>
