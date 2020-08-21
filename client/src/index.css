@@ -25,6 +25,7 @@ body {
   background-position: center;
   background-repeat: repeat;
   padding: 10px;
+  margin: 2px 0;
 }
 
 .grid {
@@ -131,13 +132,12 @@ body {
   padding: 20px;
 } 
 
-.bg-mylist {
-  background-image: url('https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=60');
-  background-size: cover;
-  height: 100vh;
+.vbook-container {
+  background-image: url('https://images.unsplash.com/photo-1582609978967-7857a3fa93d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60');
+
 }
 
-.vbook-title {
+/* .vbook-title {
   text-align: center;
   padding-top: 25px;
   background-color: black;
@@ -146,7 +146,7 @@ body {
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
   font-family: 'Neucha', cursive;
-}
+} */
 
 .vbook-filters {
   margin: 20px 20px;
@@ -194,9 +194,48 @@ body {
   text-align: center;
 }
 
-.recipe-list {
-  margin: 2px 0;
+/* ============================
+  MyVBook
+============================ */
+.myrecipe-list {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
+
+.mycard-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.mycard-img {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.mycard-info > div {
+  justify-content: center;
+  padding: 8px 15px;
+  height: 30px;
+  color: white;
+  font-family: 'Neucha', cursive;
+}
+
+.mycard-info:nth-child(even) {
+  /* background-image: linear-gradient(to bottom, rgb(43, 42, 42), rgb(251, 252, 249)); */
+  background: rgb(175, 174, 174);
+}
+
+.mycard-title {
+  height: 60px;
+  justify-content: center;
+  padding: 15px;
+  background-image: linear-gradient(to bottom, rgb(175, 174, 174), black);
+  color: white;
+  font-family: 'Neucha', cursive;
+  font-size: 1.5em;
+}
+/* ------------------------------ */
 
 /* ===============================
   Nutritional Data Tables

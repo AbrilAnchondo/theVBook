@@ -50,8 +50,6 @@ const MyVBook = () => {
  }
  
  const getFilteredRecipes = () => {
-   console.log('filterTerm', filterTerm);
-   console.log('categoryTerm', categoryTerm);
    return userRe
     //.filter(re => filterTerm === 'All' ? true : re.favorite)
     //for each recipe return true if the filterTerm is equal to All or re.favorite is equal to true
@@ -63,8 +61,7 @@ const MyVBook = () => {
     //.filter(re => (filterTerm === 'All' || re.favorite) && (categoryTerm === 'All' || re.category === categoryTerm))
   }
 
-  console.log('getFilteredRecipes()', getFilteredRecipes());
-  let fullReList = mergedList(getFilteredRecipes(),recipeList);
+ let fullReList = mergedList(getFilteredRecipes(),recipeList);
 
  const onFilterChange = (e) => {
    setFilterTerm(e.target.value); 
