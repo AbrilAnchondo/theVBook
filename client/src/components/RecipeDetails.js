@@ -10,6 +10,7 @@ import '../index.css';
 
 
 const RecipeDetails = (props) => {
+  console.log('props', props);
   const image = props.location.state.image;
   let imageURL = `https://spoonacular.com/recipeImages/${image}?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`
   const id = props.id;
@@ -93,7 +94,7 @@ const RecipeDetails = (props) => {
             color="black"
             style={{marginTop: '20px'}}
             >
-            Register to start saving recipes!
+            Register to save recipes!
           </Button>
         </Link>
         :

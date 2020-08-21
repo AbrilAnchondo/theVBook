@@ -11,7 +11,7 @@ const Recipe = (props) => {
   return (
     <Fragment>
        <Card>
-        <Image src={imageUrl} ui={false} className="card-img"/>
+        <Image src={imageUrl} ui={false} className='card-img'/>
         <Card.Content>
           <Card.Header textAlign='left'>{title}</Card.Header>
           <Card.Meta>{servings} Servings</Card.Meta>
@@ -23,7 +23,7 @@ const Recipe = (props) => {
           <Link to={`${id}`} state={{ 
             image: `${image}`
             }}>
-            <Button animated="vertical" size="medium">
+            <Button animated='vertical'size='medium'>
               <Button.Content visible>View</Button.Content>
               <Button.Content hidden>
                 <Icon name='eye'/> 

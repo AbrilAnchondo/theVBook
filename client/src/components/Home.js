@@ -5,8 +5,7 @@ import Flip from 'react-reveal/Flip';
 
 export default function Home() {
   return (
-    <div className="home">
-
+    <div>
       <div className='home-1'>
         <img className='home-img' src='https://images.unsplash.com/photo-1474557242647-c4c248efbc5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' alt=''/>
       </div>
@@ -42,7 +41,6 @@ export default function Home() {
           <div>Find Vegan and Vegetarian recipes to suit your specific needs and bring to your life all the benefits of a healthier diet</div>
       </Flip>
       </div>
-
     </div>
   )
 }

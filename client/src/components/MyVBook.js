@@ -79,6 +79,7 @@ const MyVBook = () => {
           <h1 className='vbook-title'>My VBook</h1>
         </div>
        
+       <div className='recipe-search'>
         <div className='vbook-filters'>
           <div>
             <MyRecipeOptions 
@@ -93,6 +94,7 @@ const MyVBook = () => {
             />
           </div>
         </div>
+       </div>
 
         <SavedReList fullReList={fullReList}/>
       </div>

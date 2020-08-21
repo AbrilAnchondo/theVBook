@@ -65,7 +65,7 @@ const AllRecipes = () => {
   return (
     <Fragment>
       <h1 className='vbook-title'>What do you feel like eating?</h1>
-      <Segment inverted color='grey'>
+      <div className='recipe-search'>
         <SearchByKeyWord onInputChange={onInputChange} keyword={keyword}/>
         <Divider horizontal />
         <Options className="options"
@@ -77,7 +77,7 @@ const AllRecipes = () => {
           onIntolerancesChange={onIntolerancesChange}
         />
         <Divider horizontal></Divider>
-      </Segment>
+      </div>
       <div style={{'visibility': showRecipes}}>
         <Button fluid color='grey' onClick={clearFilters}>Clear</Button>
         <div>

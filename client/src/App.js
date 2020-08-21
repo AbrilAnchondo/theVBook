@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { Router, Link } from '@reach/router';
-import { Menu } from 'semantic-ui-react';
+import React  from 'react';
+import { Router } from '@reach/router';
 
 import Home from './components/Home';
 import AllRecipes from './components/AllRecipes';
@@ -22,9 +21,9 @@ function App() {
           <a href='/' >Home</a>
           <a href='recipes'>Recipes</a>
           <a href='/myvbook'>MyVBook</a>
-          <a href='register'>Register</a>
-          <a href='login'>Login</a>
-          <a href='logout'>Logout</a>
+          <a href='logout' style={{float: 'right'}}>Logout</a>
+          <a href='login' style={{float: 'right'}}>Login</a>
+          <a href='register' style={{float: 'right'}}>Register</a>
           <a href='javascript:void(0);' class="icon" onclick='myFunction()'>
             <i class='fa fa-bars'></i>
           </a>
