@@ -18,29 +18,29 @@ function App() {
 
   return (
       <div>
-        <div class="topnav" id="myTopnav">
-          <a href="/" class="active">Home</a>
-          <a href="recipes">Recipes</a>
-          <a href="/myvbook">MyVBook</a>
-          <a href="register">Register</a>
-          <a href="login">Login</a>
-          <a href="logout">Logout</a>
-          <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
+        <div class='topnav' id='myTopnav'>
+          <a href='/' >Home</a>
+          <a href='recipes'>Recipes</a>
+          <a href='/myvbook'>MyVBook</a>
+          <a href='register'>Register</a>
+          <a href='login'>Login</a>
+          <a href='logout'>Logout</a>
+          <a href='javascript:void(0);' class="icon" onclick='myFunction()'>
+            <i class='fa fa-bars'></i>
           </a>
         </div>
 
         <Router>
-          <Home path="/" />
-          <RecipeContainer path="recipes">
-            <AllRecipes path="/"/>
-            <RecipeDetails path=":id" />
+          <Home path='/' />
+          <RecipeContainer path='recipes'>
+            <AllRecipes path='/'/>
+            <RecipeDetails path=':id'/>
           </RecipeContainer>
-          <MyVBook path="/myvbook" />
-          <MyRecipeDetails path="/myvbook/:id"/>
-          <Register path="/register" />
-          <Login path="/login" />
-          <Logout path="/logout" style={{float: "right"}}/>
+          <MyVBook path='/myvbook' />
+          <MyRecipeDetails path='/myvbook/:id'/>
+          <Register path='/register' />
+          <Login path='/login' />
+          <Logout path='/logout'/>
         </Router>
         {/* <Footer /> */}
       </div>

@@ -64,7 +64,7 @@ const AllRecipes = () => {
 
   return (
     <Fragment>
-      <Segment inverted textAlign='center'><h1 className='h2-header'>What do you feel like eating?</h1></Segment>
+      <h1 className='vbook-title'>What do you feel like eating?</h1>
       <Segment inverted color='grey'>
         <SearchByKeyWord onInputChange={onInputChange} keyword={keyword}/>
         <Divider horizontal />
