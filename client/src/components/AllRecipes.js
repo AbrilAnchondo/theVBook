@@ -3,7 +3,7 @@ import SearchByKeyWord from './SearchByKeyWord';
 import Options from './Options';
 import RecipeList from './RecipeList';
 import '../index.css';
-import { Divider, Segment, Button } from 'semantic-ui-react';
+import { Divider, Placeholder, Card, Button } from 'semantic-ui-react';
 
 
 const AllRecipes = () => {
@@ -15,6 +15,7 @@ const AllRecipes = () => {
   const [limit, setLimit] = useState(5);
   // const [skip, setSkip] = useState(0);
   const [showRecipes, setShowRecipes] = useState('hidden');
+  const [showPlaceholder, setShowPlaceholder] = useState('');
 
 
   useEffect(() => {
@@ -30,22 +31,26 @@ const AllRecipes = () => {
   const onCuisineChange = (e, { value }) => {
     setCuisine(value);
     setShowRecipes('');
+    setShowPlaceholder('none');
   }
 
   const onDietChange = (e, { value }) => {
     setDiet(value);
     setShowRecipes('');
+    setShowPlaceholder('none');
   }
   
   const onIntolerancesChange = (e, { value }) => {
     setIntolerances(value);
     setShowRecipes('');
+    setShowPlaceholder('none');
   }
 
   const onInputChange = (e) => {
     let word = e.target.value;
     setKeyWord(word);
     setShowRecipes('');
+    setShowPlaceholder('none');
   }
 
   const loadMore = (e) => {
@@ -60,6 +65,7 @@ const AllRecipes = () => {
     setDiet('');
     setIntolerances('');
     setKeyWord('');
+    setShowPlaceholder('');
   }
 
   return (
@@ -68,7 +74,7 @@ const AllRecipes = () => {
       <div className='recipe-search'>
         <SearchByKeyWord onInputChange={onInputChange} keyword={keyword}/>
         <Divider horizontal />
-        <Options className="options"
+        <Options className='options'
           cuisine={cuisine} 
           onCuisineChange={onCuisineChange} 
           diet={diet} 
@@ -78,6 +84,52 @@ const AllRecipes = () => {
         />
         <Divider horizontal></Divider>
       </div>
+
+      <Card.Group itemsPerRow={3} style={{margin: '15px', display: showPlaceholder}}>
+        <Card>
+          <Card.Content>
+            <Placeholder>
+              <Placeholder.Image square />
+            </Placeholder>
+          </Card.Content>
+        </Card>
+        <Card>
+          <Card.Content>
+            <Placeholder>
+              <Placeholder.Image square />
+            </Placeholder>
+          </Card.Content>
+        </Card>
+        <Card>
+          <Card.Content>
+            <Placeholder>
+              <Placeholder.Image square />
+            </Placeholder>
+          </Card.Content>
+        </Card>
+        <Card>
+          <Card.Content>
+            <Placeholder>
+              <Placeholder.Image square />
+            </Placeholder>
+          </Card.Content>
+        </Card>
+        <Card>
+          <Card.Content>
+            <Placeholder>
+              <Placeholder.Image square />
+            </Placeholder>
+          </Card.Content>
+        </Card>
+        <Card>
+          <Card.Content>
+            <Placeholder>
+              <Placeholder.Image square />
+            </Placeholder>
+          </Card.Content>
+        </Card>
+      </Card.Group>
+
       <div style={{'visibility': showRecipes}}>
         <Button fluid color='grey' onClick={clearFilters}>Clear</Button>
         <div>
