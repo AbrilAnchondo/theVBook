@@ -13,15 +13,16 @@ import Logout from './components/auth/Logout';
 import Footer from './components/Footer';
 
 
-function App() {
+const  App = () => {
 
   /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
-  function myFunction() {
-    var x = document.getElementById('myTopnav');
-    if (x.className === 'topnav') {
-      x.className += ' responsive';
+  const addResponsiveClass = () => {
+    console.log('responsive');
+    const x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
     } else {
-      x.className = 'topnav';
+      x.className = "topnav";
     }
   }
 
@@ -31,11 +32,11 @@ function App() {
           <a href='/' >Home</a>
           <a href='recipes'>Recipes</a>
           <a href='/myvbook'>MyVBook</a>
-          <a href='logout' style={{float: 'right'}}>Logout</a>
-          <a href='login' style={{float: 'right'}}>Login</a>
-          <a href='register' style={{float: 'right'}}>Register</a>
-          <a href='javascript:void(0);' className='icon' onclick='myFunction()'>
-            <i class='fa fa-bars'></i>
+          <a href='logout' >Logout</a>
+          <a href='login' >Login</a>
+          <a href='register' >Register</a>
+          <a href='#' className='icon' onClick={addResponsiveClass}>
+            <i className='fa fa-bars'></i>
           </a>
         </div>
 
