@@ -130,12 +130,22 @@ body {
 
 /* ------------------------------------------------------ */
 
-.bg-rdetails {
+.bg-details {
   background-image: url('https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2110&q=80');
   background-attachment: fixed;
   background-size: cover;
   padding: 20px;
+  margin-left: 20px;
 } 
+
+.bg-mydetails {
+  background-image: url('https://images.unsplash.com/photo-1528458909336-e7a0adfed0a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'); 
+  background-attachment: fixed; 
+  background-size: cover;
+  /* background: rgb(243, 243, 243); */
+  padding: 20px;
+  margin-left: 20px;
+}
 
 .vbook-container {
   background-image: url('https://images.unsplash.com/photo-1582609978967-7857a3fa93d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60');
@@ -248,15 +258,21 @@ body {
 
 .table-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
   overflow-x: auto;
+}
+
+.table-container > div {
+  margin: 15px 15px;
+}
+
+.table-header {
+  text-align: center;
 }
 
 table {
   border-spacing: 0;
-  width: 100%;
 }
 
 th, td {
@@ -311,18 +327,27 @@ tr:nth-child(even){background-color: #f2f2f2}
   border-top-right-radius: 10px;
 }
 /* ----------------------------------------------- */
-.arrows {
-  margin: 10px 0;
-  padding: 10px 0;
-  text-align: center;
+
+.myrecipe-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
-.arrows > span {
-  margin: 0 10px;
+.myrecipe-details > div {
+  border: 1px solid grey;
+  border-bottom: solid 2px black;
+  height: 50px;
+  padding: 5px;
+  margin-bottom: 15px;
+  border-radius: 8px;
 }
 
-.fas {
-  margin: 10px;
+.myrecipe-category {
+  margin-top: 10px;
+  margin-bottom: 15px;
 }
 
 .notepad-container {
@@ -347,6 +372,9 @@ tr:nth-child(even){background-color: #f2f2f2}
   color: black;
 }
 
+.conv-subs-container {
+  background: transparent;
+}
 
 
 /* ===============================
@@ -401,8 +429,10 @@ tr:nth-child(even){background-color: #f2f2f2}
 }
 
 
-/* ---------------- */
-/* Add a black background color to the top navigation */
+/* ========================== 
+         Navbar
+============================== */
+
 .topnav {
   background-color: rgb(27, 27, 27);
   overflow: hidden;
@@ -425,7 +455,7 @@ tr:nth-child(even){background-color: #f2f2f2}
   color: white;
 }
 
-/* active class highlights the current page */
+/* TODO: active class highlights the current page */
 .topnav a.active {
   background-color: rgb(39, 39, 39);
   color: white;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Segment, Image, Button, Divider, Form, Grid, Icon, Label } from 'semantic-ui-react';
+import { Segment, Image, Button, Divider, Form, Grid, Icon, Label, Container } from 'semantic-ui-react';
 
 import Conversions from './Conversions';
 import Substitute from './Substitute';
@@ -163,14 +163,12 @@ const MyRecipeDetails = (props) => {
   // const square = { width: 175, height: 175 }
   
   return (
-    <div>
-      <Segment inverted>
-        <h2 className='header'>
+    <div className='bg-mydetails'>
+      <h1 className='header'>
           {title}
-        </h2>
-      </Segment>
-
-      <Image fluid centered src={imageUrl} style={{'marginBottom': '5px'}}></Image>
+      </h1>
+      
+      <Image rounded fluid centered src={imageUrl} style={{'marginBottom': '5px'}}></Image>
 
       {
         isFavorite === false ? 
@@ -191,9 +189,23 @@ const MyRecipeDetails = (props) => {
         </Button>
       }
 
-      <Segment secondary color='black'>
+      <div className='myrecipe-details'>
+        <div>
+          {diets.map(type => type.toUpperCase() + ' / ')}
+        </div>
+        <div>{servings} servings</div>
+        <div>Ready in {readyInMinutes} minutes</div>
+        <div>{glutenFree ? 'Gluten Free' : 'Not Gluten Free'}</div>
+        <div>{sustainable ? 'Sustainable' : 'Not marked as sustainable'}</div>
+        <div>{lowFodmap ? 'OK for Low FODMAP' : 'Not for Low FODMAP diet'}</div>
+        <div>WeitghtWatchers Points {weightWatcherSmartPoints}</div>
+      </div>
+    
+      <div className='myrecipe-category'>
         Category: <span className='category'>{categorize === '' ? 'no category assiged' : categorize} </span>
+        <br></br>
         <Button color='grey' size='mini' onClick={() => showCategoryEditForm()}>Edit</Button>
+        <br></br>
         <Form style={{'display': showCategoryForm}} onSubmit={() => updateCategory()}>
           <Form.Field>
             <input 
@@ -203,27 +215,16 @@ const MyRecipeDetails = (props) => {
             onChange={(e) => onCategoryChange(e)}
             />
           </Form.Field>
-          <Button primary type='submit'>Save</Button>
-          <Button secondary onClick={() => hideCategoryForm()}>Cancel</Button>
+          <Button size='mini' primary type='submit'>Save</Button>
+          <Button size='mini' secondary onClick={() => hideCategoryForm()}>Cancel</Button>
         </Form>
-      </Segment>
+      </div>
 
-      <Segment tertiary color='grey' className='h2-header'>
-        {diets.map(type => type.toUpperCase() + ' / ')}
-      </Segment>
-
-      <Segment color="olive" className='h2-header'>{servings} servings</Segment>
-      <Segment color="green" className='h2-header'>Ready in {readyInMinutes} minutes</Segment>
-      <Segment color='teal' className='h2-header'>{glutenFree ? 'Gluten Free' : 'Not Gluten Free'}</Segment>
-      <Segment color='blue' className='h2-header'>{sustainable ? 'Sustainable' : 'Not marked as sustainable'}</Segment>
-      <Segment color='purple' className='h2-header'>{lowFodmap ? 'Good forLow FODMAP diet restrictions' : 'Does not support a Low FODMAP diet'}</Segment>
-      <Segment color='pink' className='h2-header'>WeitghtWatchers Points {weightWatcherSmartPoints}</Segment>
-    
       <Ingredients ingredients={extendedIngredients} />
 
       <Steps instructions={instructions} />
 
-      <Segment tertiary textAlign="center"><h2 className='h2-header'>Notepad</h2></Segment>
+      <h2 className='header'>Notepad</h2>
       <div className='notepad-container'>
         <div className="notepad" style={{'display': showNote}}>
           {note}
@@ -242,7 +243,7 @@ const MyRecipeDetails = (props) => {
         <Button secondary onClick={() => hideForm()}>Cancel</Button>
       </Form>
 
-      <Segment>
+      <Segment className='conv-subs-container'>
         <Grid columns={2} relaxed='very'>
           <Grid.Column>
             <Conversions />
