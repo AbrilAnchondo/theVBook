@@ -11,7 +11,7 @@ import '../index.css';
 
 const RecipeDetails = (props) => {
   console.log('props', props);
-  
+  const title = props.location.state.title;
   const image = props.location.state.image;
   let imageURL = `https://spoonacular.com/recipeImages/${image}?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`
   const id = props.id;
@@ -77,12 +77,15 @@ const RecipeDetails = (props) => {
   })
   return (
     <div className="bg-details">
-      {
+      <h1 className='header'>
+        {title}
+      </h1>
+      {/* {
         localStorage.length !== 0 ? <Message>
         <Message.Header>Look for the save button and navigate to MyVBook</Message.Header></Message>
         :
         null
-      }
+      } */}
 
       <div className="img-container">
         <Image src={imageURL} centered="true" rounded="true"/>
@@ -107,7 +110,7 @@ const RecipeDetails = (props) => {
         </Button>
         }
 
-      <h3><Link to='/myvbook' state={{ image: `${imageURL}`}}>Go to MyVBook</Link></h3>
+      <h3><Link to='/myvbook' state={{ image: imageURL }}>Go to MyVBook</Link></h3>
 
       <Ingredients ingredients={completeIngList} />
       <br></br>
