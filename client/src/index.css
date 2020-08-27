@@ -11,10 +11,6 @@ body {
   /* font-family: 'Neucha', cursive; */
 }
 
-/* .main {
-  padding: 50px;
-} */
-
 /* ===============================
    Recipes
 =============================== */
@@ -135,7 +131,6 @@ body {
   background-attachment: fixed;
   background-size: cover;
   padding: 20px;
-  margin-left: 20px;
 } 
 
 .bg-mydetails {
