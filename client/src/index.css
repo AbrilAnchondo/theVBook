@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
 
+
+
 body {
   margin: auto;
   padding: 0;
@@ -15,15 +17,16 @@ body {
    Recipes
 =============================== */
 .recipe-search {
-  padding: 10px 5px;
-  background-image: url('https://images.unsplash.com/photo-1515192665289-06a8c3c54343?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60');
+  padding: 20px 15px;
+  background: rgb(27, 27, 27);
 }
 
 .recipe-list {
-  background-image: url('https://images.unsplash.com/photo-1545810300-732e4b9e06b3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60');
-  height: 100%;
+  background-image: url('assets/images/annie-spratt-L6GydBHMVGQ-unsplash.jpg');
+  /*height: 100%;
   background-position: center;
-  background-repeat: repeat;
+  background-repeat: repeat; */
+  background-size: cover;
   padding: 20px 10px;
 }
 
@@ -46,12 +49,13 @@ body {
 .home-img {
   width:100%;
   height:400px;
-  object-fit:cover;
+  object-fit:cover; 
 }
 
 .home-1 {
-  margin: 0px;
-  padding: 0px;
+  margin: 0 auto;
+  padding: 0;
+  background: rgb(27, 27, 27);;
 }
 
 .home-2 {
@@ -59,7 +63,8 @@ body {
   align-items: center;
   justify-content: space-around;
   height: 30vh;
-  background-color: rgb(27, 27, 27);
+  /* background-color: rgb(27, 27, 27); */
+  background-color: black;
   color: white;
   opacity: 0.9;
   margin-bottom: 1px;
@@ -80,8 +85,7 @@ body {
   padding: 10px;
   height: 200px;
   background-size: cover;
-  opacity: 0.7;
-  
+  opacity: 0.8;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -98,7 +102,8 @@ body {
 
 .home-4 {
  height: 30vh;
- background-color: rgb(27, 27, 27);
+ /* background-color: rgb(27, 27, 27); */
+ background-color: black;
  opacity: 0.9;
  color: white;
 }
@@ -109,32 +114,32 @@ body {
 }
 
 .bg-1 {
-  background: url('https://images.unsplash.com/photo-1508061253366-f7da158b6d46?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60');
+  background: url('assets/images/syed-f-hashemi-x1CTeuCNhSI-unsplash.jpg');
 }
 
 .bg-2 {
-  background: url('https://images.unsplash.com/photo-1586810512929-6b8659fde098?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60')
+  background: url('assets/images/melissa-di-rocco-caPcNn41FnY-unsplash.jpg')
 }
 
 .bg-3 {
-  background: url('https://images.unsplash.com/photo-1582362731063-debbd3406f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60')
+  background: url('assets/images/louis-hansel-shotsoflouis-gBxUqEpBPsI-unsplash.jpg')
 }
 
 .bg-4 {
-  background: url('https://images.unsplash.com/photo-1546548970-71785318a17b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=60')
+  background: url('assets/images/bruna-branco-7r1HxvVC7AY-unsplash.jpg')
 }
 
 /* ------------------------------------------------------ */
 
 .bg-details {
-  background-image: url('https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2110&q=80');
+  background-image: url('assets/images/lukas-blazek-EWDvHNNfUmQ-unsplash.jpg');
   background-attachment: fixed;
   background-size: cover;
   padding: 20px;
 } 
 
 .bg-mydetails {
-  background-image: url('https://images.unsplash.com/photo-1528458909336-e7a0adfed0a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'); 
+  background-image: url('assets/images/annie-spratt-xTaOPMa6wAE-unsplash.jpg'); 
   background-attachment: fixed; 
   background-size: cover;
   /* background: rgb(243, 243, 243); */
@@ -142,16 +147,19 @@ body {
 }
 
 .vbook-container {
-  background-image: url('https://images.unsplash.com/photo-1582609978967-7857a3fa93d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60');
-
+  background-image: url('assets/images/tim-mossholder-07uiqD9LS6U-unsplash.jpg');
+  height: 100%;
+  /* background-position: center;
+  background-repeat: repeat; */
+  background-size: cover;
 }
 
 .vbook-title {
   text-align: center;
-  padding-top: 55px;
+  padding-top: 40px;
   background-color: rgb(27, 27, 27);
   color: white;
-  height: 150px;
+  height: 100px;
   font-family: 'Neucha', cursive;
   margin-bottom: 0;
 }
@@ -301,24 +309,20 @@ tr:nth-child(even){background-color: #f2f2f2}
 =========================================== */
 
 .login-wrapper {
-  background-image: url('https://images.unsplash.com/photo-1532768778661-1b347c5f02ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60');
+  background-image: url('assets/images/creatv-eight-smN1dzUTj9Y-unsplash.jpg');
   background-attachment: fixed;
   background-size: cover;
   height: 100vh;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
 }
 
 .login-form-wrapper {
   margin-bottom: 3px;
 }
 .signup-wrapper {
-  background-image: url('https://images.unsplash.com/photo-1484980972926-edee96e0960d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60');
+  background-image: url('assets/images/dan-cristian-padure-mIyZDPhuyY0-unsplash.jpg');
   background-attachment: fixed;
   background-size: cover;
   height: 100vh;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
 }
 /* ----------------------------------------------- */
 
@@ -379,9 +383,9 @@ tr:nth-child(even){background-color: #f2f2f2}
   padding: 1.5rem;
   background: black;
   color: white;
-  margin-top: 3px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  /* margin-top: 1px; */
+  /* border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px; */
   /* font-family: 'PT Sans', sans-serif; */
 }
 

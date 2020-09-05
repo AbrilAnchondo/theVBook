@@ -1,5 +1,5 @@
 import React  from 'react';
-import { Router } from '@reach/router';
+import { Router, Link } from '@reach/router';
 
 import Home from './components/Home';
 import AllRecipes from './components/AllRecipes';
@@ -29,15 +29,15 @@ const  App = () => {
   return (
       <div>
         <div className='topnav' id='myTopnav'>
-          <a href='/' >Home</a>
-          <a href='recipes'>Recipes</a>
-          <a href='/myvbook'>MyVBook</a>
-          <a href='logout' >Logout</a>
-          <a href='login' >Login</a>
-          <a href='register' >Register</a>
-          <a href='#' className='icon' onClick={addResponsiveClass}>
+          <Link to='/' >Home</Link>
+          <Link to='recipes'>Recipes</Link>
+          <Link to='myvbook'>MyVBook</Link>
+          <Link to='logout' >Logout</Link>
+          <Link to='login' >Login</Link>
+          <Link to='register' >Register</Link>
+          <Link to='#' className='icon' onClick={addResponsiveClass}>
             <i className='fa fa-bars'></i>
-          </a>
+          </Link>
         </div>
 
         <Router>
@@ -46,13 +46,13 @@ const  App = () => {
             <AllRecipes path='/'/>
             <RecipeDetails path=':id'/>
           </RecipeContainer>
-          <MyVBook path='/myvbook' />
+          <MyVBook path='/myvbook'/>
           <MyRecipeDetails path='/myvbook/:id'/>
-          <Register path='/register' />
-          <Login path='/login' />
-          <Logout path='/logout'/>
+          <Register path='register' />
+          <Login path='login' />
+          <Logout path='logout'/>
         </Router>
-        {/* <Footer /> */}
+        <Footer />
       </div>
   );
 }

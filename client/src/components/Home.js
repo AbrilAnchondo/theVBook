@@ -2,12 +2,13 @@ import React from 'react';
 import '../index.css';
 import Zoom from 'react-reveal/Zoom';
 import Flip from 'react-reveal/Flip';
+import homephoto from '../assets/images/brooke-lark-AgD6OBNXF0Q-unsplash.jpg'
 
 export default function Home() {
   return (
-    <div>
+    <div> 
       <div className='home-1'>
-        <img className='home-img' src='https://images.unsplash.com/photo-1474557242647-c4c248efbc5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60' alt=''/>
+        <img className='home-img' src={homephoto} alt='vegetarian plate'/>
       </div>
 
       <div className='home-2'>
@@ -20,7 +21,7 @@ export default function Home() {
 
       <div className='home-3'>
         <div className='bg-1'>
-          <h2>PROTEIN</h2>
+          <h2 classname='home-text'>PROTEIN</h2>
         </div>
 
         <div className='bg-2'>
