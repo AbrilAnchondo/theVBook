@@ -236,18 +236,20 @@ body {
   padding: 8px 15px;
   height: 30px;
   color: white;
+  background: black;
   font-family: 'Neucha', cursive;
 }
 
-.mycard-info:nth-child(even) {
+/* .mycard-info:nth-child(even) {
   background: rgb(175, 174, 174);
-}
+} */
 
 .mycard-title {
   height: 60px;
   justify-content: center;
   padding: 15px;
-  background-image: linear-gradient(to bottom, rgb(175, 174, 174), rgb(39, 39, 39));
+  /* background-image: linear-gradient(to bottom, rgb(175, 174, 174), rgb(39, 39, 39)); */
+  background: black;
   color: white;
   font-family: 'Neucha', cursive;
   font-size: 1.5em;
