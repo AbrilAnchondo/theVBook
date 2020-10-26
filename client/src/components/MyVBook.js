@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+import { navigate } from "@reach/router";
+
 import SavedReList from './SavedReList';
 import MyRecipeOptions from './MyRecipeOptions';
 import CategoryOptions from './CategoryOptions';
@@ -15,6 +17,10 @@ const MyVBook = () => {
 
   
   useEffect (() => {
+    if (localStorage.length == 0) {
+      alert("Please sign up or Login");
+      navigate('/');
+    }
     const fetchUserRecipes = async () => {
     
       const configObj = {
@@ -35,7 +41,8 @@ const MyVBook = () => {
       setRecipeList(recipeList);
     } 
     fetchUserRecipes();
- },[])
+   },[])
+  
 
  const mergedList = (arr1,arr2) => {
   const temp = [];
