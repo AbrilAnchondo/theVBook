@@ -39,7 +39,7 @@ export default function Home() {
 
       <div className='home-4'>
       <Flip top>
-          <div>Find Vegan and Vegetarian recipes and bring to your life all the benefits of a healthier diet</div>
+          <div>Find Vegan and Vegetarian recipes and bring to your life all the benefits of a healthy diet</div>
       </Flip>
       </div>
     </div>

@@ -80,13 +80,6 @@ const RecipeDetails = (props) => {
       <h1 className='header'>
         {title}
       </h1>
-      {/* {
-        localStorage.length !== 0 ? <Message>
-        <Message.Header>Look for the save button and navigate to MyVBook</Message.Header></Message>
-        :
-        null
-      } */}
-
       <div className="img-container">
         <Image src={imageURL} centered="true" rounded="true"/>
       </div>

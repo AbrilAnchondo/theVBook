@@ -63,7 +63,6 @@ const MyRecipeDetails = (props) => {
         notepad : note
       });
       const res = await axios.put(`http://localhost:5000/api/users/${userId}/recipes/${_id}/notepad`, body, configObj);
-      //console.log('res: ',res.data);
       setShowForm('none');
       setShowNote('block');
     } catch (err) {
@@ -95,7 +94,6 @@ const MyRecipeDetails = (props) => {
       });
 
       const res = await axios.put(`http://localhost:5000/api/users/${userId}/recipes/${_id}/favorite`, body, configObj);
-      //console.log('res: ',res.data);
       setIsFavorite(true);
     } catch (err) {
       console.error("error: ",err);
@@ -116,7 +114,6 @@ const MyRecipeDetails = (props) => {
       });
 
       const res = await axios.put(`http://localhost:5000/api/users/${userId}/recipes/${_id}/favorite`, body, configObj);
-      //console.log('res: ',res.data);
       setIsFavorite(false);
     } catch (err) {
       console.error("error: ",err);
@@ -124,8 +121,6 @@ const MyRecipeDetails = (props) => {
   }
 
   const onCategoryChange = (e) => {
-    // console.log('on category change');
-    // console.log('etv: ',e.target.value)
     let newCategory = e.target.value;
     setCategorize(newCategory);
   }
@@ -159,8 +154,6 @@ const MyRecipeDetails = (props) => {
   const hideCategoryForm = () => {
     setShowCategoryForm('none');
   }
-
-  // const square = { width: 175, height: 175 }
   
   return (
     <div className='bg-mydetails'>

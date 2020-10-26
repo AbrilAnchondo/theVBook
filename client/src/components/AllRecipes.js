@@ -13,7 +13,6 @@ const AllRecipes = () => {
   const [intolerances, setIntolerances] = useState('');
   const [keyword, setKeyWord] = useState('');
   const [limit, setLimit] = useState(5);
-  // const [skip, setSkip] = useState(0);
   const [showRecipes, setShowRecipes] = useState('hidden');
   const [showPlaceholder, setShowPlaceholder] = useState('');
 
@@ -54,7 +53,6 @@ const AllRecipes = () => {
   }
 
   const loadMore = (e) => {
-    // setSkip(skip + limit);
     setLimit(limit + 5);
   }
 

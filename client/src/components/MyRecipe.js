@@ -6,7 +6,6 @@ import { Link } from '@reach/router';
 import '../index.css';
 
 const MyRecipe = ({ reDetails, id }) => {
-  //TODO:: fix size and refine card styling
   const imageUrl = `${reDetails.image}?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`
 
   const isFav = () => (
