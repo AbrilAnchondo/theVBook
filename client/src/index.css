@@ -1,14 +1,11 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Advent+Pro:wght@500&family=Rajdhani:wght@500&display=swap'); */
+
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
-
-
 
 body {
   margin: auto;
   padding: 0;
   background: black;
-  /* font-family: 'Advent Pro', sans-serif; */
   font-family: 'Dosis', sans-serif;
   /* font-family: 'Neucha', cursive; */
 }
@@ -23,9 +20,6 @@ body {
 
 .recipe-list {
   background-image: url('assets/images/annie-spratt-L6GydBHMVGQ-unsplash.jpg');
-  /*height: 100%;
-  background-position: center;
-  background-repeat: repeat; */
   background-size: cover;
   padding: 20px 10px;
 }
@@ -63,7 +57,6 @@ body {
   align-items: center;
   justify-content: space-around;
   height: 30vh;
-  /* background-color: rgb(27, 27, 27); */
   background-color: black;
   color: white;
   opacity: 0.9;
@@ -102,7 +95,6 @@ body {
 
 .home-4 {
  height: 30vh;
- /* background-color: rgb(27, 27, 27); */
  background-color: black;
  opacity: 0.9;
  color: white;
@@ -142,15 +134,12 @@ body {
   background-image: url('assets/images/annie-spratt-xTaOPMa6wAE-unsplash.jpg'); 
   background-attachment: fixed; 
   background-size: cover;
-  /* background: rgb(243, 243, 243); */
   padding: 20px;
 }
 
 .vbook-container {
   background-image: url('assets/images/tim-mossholder-07uiqD9LS6U-unsplash.jpg');
   height: 100%;
-  /* background-position: center;
-  background-repeat: repeat; */
   background-size: cover;
 }
 
@@ -240,15 +229,10 @@ body {
   font-family: 'Neucha', cursive;
 }
 
-/* .mycard-info:nth-child(even) {
-  background: rgb(175, 174, 174);
-} */
-
 .mycard-title {
   height: 60px;
   justify-content: center;
   padding: 15px;
-  /* background-image: linear-gradient(to bottom, rgb(175, 174, 174), rgb(39, 39, 39)); */
   background: black;
   color: white;
   font-family: 'Neucha', cursive;
@@ -386,10 +370,6 @@ tr:nth-child(even){background-color: #f2f2f2}
   padding: 1.5rem;
   background: black;
   color: white;
-  /* margin-top: 1px; */
-  /* border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px; */
-  /* font-family: 'PT Sans', sans-serif; */
 }
 
 /* ===============================
