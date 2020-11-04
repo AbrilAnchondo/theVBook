@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Segment, Image, Button, Divider, Form, Grid, Icon, Label, Container } from 'semantic-ui-react';
+import { Segment, Image, Button, Divider, Form, Grid, Icon, Label} from 'semantic-ui-react';
 
 import Conversions from './Conversions';
 import Substitute from './Substitute';
@@ -38,7 +38,7 @@ const MyRecipeDetails = (props) => {
     const [isFavorite, setIsFavorite] = useState(favorite);
     const [categorize, setCategorize] = useState(category);
     const [showCategoryForm, setShowCategoryForm] = useState('none');
-    const [showGlutenFree, setShowGlutenFree] = useState('');
+    //const [showGlutenFree, setShowGlutenFree] = useState('');
 
   let imageUrl = `${image}?apiKey=${process.env.REACT_APP_SPOONACULAR_API_KEY}`;
   const getInstructions = analyzedInstructions[0].steps;

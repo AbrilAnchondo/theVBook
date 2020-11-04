@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import Ingredients from './Ingredients';
 import Steps from './Steps';
-import { Image, Message, Divider, Button } from 'semantic-ui-react';
+import { Image, Button } from 'semantic-ui-react';
 import { Link } from '@reach/router';
 
 import '../index.css';

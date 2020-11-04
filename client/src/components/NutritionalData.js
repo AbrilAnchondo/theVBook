@@ -1,5 +1,4 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import { Segment } from 'semantic-ui-react';
 
 const NutritionalData = ({ recipeId }) => {
   const [nutritionalData, setNutritionalData] = useState({});
@@ -73,7 +72,7 @@ const NutritionalData = ({ recipeId }) => {
               </tr>
             </thead>
             <tbody>
-              {goodStuff.map((nutrient, index) => <tr key={index}>
+              {badStuff.map((nutrient, index) => <tr key={index}>
                 <td>{nutrient.title}</td>
                 <td>{nutrient.amount}</td>
                 <td>{nutrient.percentOfDailyNeeds}</td>

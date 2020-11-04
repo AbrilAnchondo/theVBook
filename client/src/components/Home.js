@@ -21,7 +21,7 @@ export default function Home() {
 
       <div className='home-3'>
         <div className='bg-1'>
-          <h2 classname='home-text'>PROTEIN</h2>
+          <h2 className='home-text'>PROTEIN</h2>
         </div>
 
         <div className='bg-2'>
