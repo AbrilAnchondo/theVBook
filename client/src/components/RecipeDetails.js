@@ -76,42 +76,55 @@ const RecipeDetails = (props) => {
     instructions.push(step.step);
   })
   return (
-    <div className="bg-details">
+    <div className="bg-details myrecipe-details">
       <h1 className='header'>
         {title}
       </h1>
-      <div className="img-container">
-        <Image src={imageURL} centered="true" rounded="true"/>
+      <div className="recipe-img">
+        <Image src={imageURL} centered fluid style={{objectFit: 'cover'}}/>
       </div>
 
-      { 
-        localStorage.length === 0 ? 
-        <Link to='/register'>
-          <Button fluid 
-            color="black"
-            style={{marginTop: '20px'}}
-            >
-            Register to save recipes!
+      <div className='detail'>
+        { 
+          localStorage.length === 0 ? 
+          <Link to='/register'>
+            <Button fluid 
+              color="black"
+              style={{marginTop: '20px'}}
+              >
+              Register to save recipes!
+            </Button>
+          </Link>
+          :
+          <Button 
+            onClick={e => saveRecipe(e)}
+            color="black" 
+            style={{marginTop: '20px'}} 
+          >Save this recipe!
           </Button>
+          }
+      </div>
+
+      <h3 className='detail'>
+        <Link to='/myvbook' state={{ image: imageURL }}>
+          Go to MyVBook
         </Link>
-        :
-        <Button 
-          onClick={e => saveRecipe(e)}
-          color="black" 
-          style={{marginTop: '20px'}} 
-          fluid>Save this recipe!
-        </Button>
-        }
+      </h3>
 
-      <h3><Link to='/myvbook' state={{ image: imageURL }}>Go to MyVBook</Link></h3>
+      <div className='detail'>
+        <Ingredients ingredients={completeIngList} />
+      </div>
 
-      <Ingredients ingredients={completeIngList} />
-      <br></br>
-      <Steps instructions={instructions} /> 
-      <Link to='/recipes'>
-        <div className='back-arrow'><i class="fas fa-arrow-left"> back to recipes</i>
-        </div>
-      </Link>    
+      <div className='detail'>
+        <Steps instructions={instructions} /> 
+      </div>
+
+      <div className='detail'>
+        <Link to='/recipes'>
+          <div className='back-arrow'><i class="fas fa-arrow-left"> back to recipes</i>
+          </div>
+        </Link>    
+      </div>
     </div>
   )
 }

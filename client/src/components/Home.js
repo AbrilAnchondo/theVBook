@@ -2,7 +2,7 @@ import React from 'react';
 import '../index.css';
 import Zoom from 'react-reveal/Zoom';
 import Flip from 'react-reveal/Flip';
-import homephoto from '../assets/images/brooke-lark-AgD6OBNXF0Q-unsplash.jpg'
+import homephoto from '../assets/images/creatv-eight-smN1dzUTj9Y-unsplash.jpg'
 
 export default function Home() {
   return (

@@ -83,28 +83,7 @@ const AllRecipes = () => {
         <Divider horizontal></Divider>
       </div>
 
-      <Card.Group itemsPerRow={3} style={{margin: '15px', display: showPlaceholder}}>
-        <Card>
-          <Card.Content>
-            <Placeholder>
-              <Placeholder.Image square />
-            </Placeholder>
-          </Card.Content>
-        </Card>
-        <Card>
-          <Card.Content>
-            <Placeholder>
-              <Placeholder.Image square />
-            </Placeholder>
-          </Card.Content>
-        </Card>
-        <Card>
-          <Card.Content>
-            <Placeholder>
-              <Placeholder.Image square />
-            </Placeholder>
-          </Card.Content>
-        </Card>
+      <Card.Group itemsPerRow={3} style={{margin: '15px', display: showPlaceholder, maxHeight: '100vh'}}>
         <Card>
           <Card.Content>
             <Placeholder>

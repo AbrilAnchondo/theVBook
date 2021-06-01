@@ -156,48 +156,46 @@ const MyRecipeDetails = (props) => {
   }
   
   return (
-    <div className='bg-mydetails'>
+    <div className='bg-mydetails myrecipe-details'>
       <h1 className='header'>
           {title}
       </h1>
       
-      <Image rounded fluid centered src={imageUrl} style={{'marginBottom': '5px'}}></Image>
+      <Image centered src={imageUrl} style={{width: '75%', objectFit: 'cover'}} className='detail'></Image>
 
-      {
-        isFavorite === false ? 
-        <Button as='div' labelPosition='right'>
-          <Button color='' onClick={() => makeFavorite()}>
-            <Icon name='heart' />
+      <div className='detail favorite'>
+        {
+          isFavorite === false ? 
+          <Button as='div' labelPosition='right'>
+            <Button color='' onClick={() => makeFavorite()}>
+              <Icon name='heart' />
+            </Button>
+            <Label as='a' basic color=''>
+            </Label>
           </Button>
-          <Label as='a' basic color=''>
-          </Label>
-        </Button>
-        :
-        <Button as='div' labelPosition='right'>
-          <Button color='red' onClick={() => unFavorite()}>
-            <Icon name='heart' />
+          :
+          <Button as='div' labelPosition='right'>
+            <Button color='red' onClick={() => unFavorite()}>
+              <Icon name='heart' />
+            </Button>
+            <Label as='a' basic color='red'>
+            </Label>
           </Button>
-          <Label as='a' basic color='red'>
-          </Label>
-        </Button>
-      }
-
-      <div className='myrecipe-details'>
-        <div>
-          {diets.map(type => type.toUpperCase() + ' / ')}
-        </div>
-        <div>{servings} servings</div>
-        <div>Ready in {readyInMinutes} minutes</div>
-        <div>{glutenFree ? 'Gluten Free' : 'Not Gluten Free'}</div>
-        <div>{sustainable ? 'Sustainable' : 'Not marked as sustainable'}</div>
-        <div>{lowFodmap ? 'OK for Low FODMAP' : 'Not for Low FODMAP diet'}</div>
-        <div>WeitghtWatchers Points {weightWatcherSmartPoints}</div>
+        }
+        <Button>{servings} servings</Button>
+        <Button>Ready in {readyInMinutes} minutes</Button>
       </div>
-    
-      <div className='myrecipe-category'>
-        Category: <span className='category'>{categorize === '' ? 'no category assiged' : categorize} </span>
+
+      <div className='myrecipe-diet detail'>
+        <div>
+          {diets.map((type, i) => `${type.toUpperCase()} ${diets.length - 1 === i ? '' : '  |  '}`)}
+        </div>
+      </div>
+
+      <div className='myrecipe-category detail'>
+        <span className='category'>{categorize === '' ? 'No category assiged' : categorize} </span>
         <br></br>
-        <Button color='grey' size='mini' onClick={() => showCategoryEditForm()}>Edit</Button>
+        <Button color='grey' size='mini' onClick={() => showCategoryEditForm()}>Edit Category</Button>
         <br></br>
         <Form style={{'display': showCategoryForm}} onSubmit={() => updateCategory()}>
           <Form.Field>
@@ -212,45 +210,45 @@ const MyRecipeDetails = (props) => {
           <Button size='mini' secondary onClick={() => hideCategoryForm()}>Cancel</Button>
         </Form>
       </div>
+      
+      <div className='detail'>
+        <Ingredients ingredients={extendedIngredients} />
+      </div>
 
-      <Ingredients ingredients={extendedIngredients} />
+      <div className='detail'>
+        <Steps instructions={instructions} className='detail'/>
+      </div>
 
-      <Steps instructions={instructions} />
-
-      <h2 className='header'>Notepad</h2>
-      <div className='notepad-container'>
+      <div className='notepad-container detail' >
+        <h2 className='header'>Notepad</h2>
         <div className="notepad" style={{'display': showNote}}>
           {note}
         </div>
+        <Button style={{'display': showNote}} onClick={() => showNoteEditForm()}>Edit</Button>
+      
+        <Form style={{'display': showForm, width: '50%'}} onSubmit={(e) => updateNote(e)}>
+          <Form.Field>
+            <textarea 
+              value={note} 
+              name="note" 
+              onChange={(e) => onNoteChange(e)} 
+              />
+          </Form.Field>
+          <Button primary type="submit" value="update">Save</Button>
+          <Button secondary onClick={() => hideForm()}>Cancel</Button>
+        </Form>
       </div> 
-      <Button style={{'display': showNote}} fluid onClick={() => showNoteEditForm()}>Edit</Button>
-      <Form style={{'display': showForm}} onSubmit={(e) => updateNote(e)}>
-        <Form.Field>
-          <textarea 
-            value={note} 
-            name="note" 
-            onChange={(e) => onNoteChange(e)} 
-            />
-        </Form.Field>
-        <Button primary type="submit" value="update">Save</Button>
-        <Button secondary onClick={() => hideForm()}>Cancel</Button>
-      </Form>
 
-      <Segment className='conv-subs-container'>
-        <Grid columns={2} relaxed='very'>
-          <Grid.Column>
-            <Conversions />
-          </Grid.Column>
-          <Grid.Column>
-            <Substitute />
-          </Grid.Column>
-        </Grid>
-        <Divider vertical>OR</Divider>
-      </Segment> 
+      <div className='conv-subs-container detail'>
+        <Conversions className='conversions'/>
+        <Substitute className='substitutes'/>
+      </div> 
 
-      <NutritionalData recipeId={recipeID} />
+      <div className='detail'>
+        <NutritionalData recipeId={recipeID} />
+      </div>
     </div>
   )
 }
 
-export default MyRecipeDetails
+export default MyRecipeDetails;

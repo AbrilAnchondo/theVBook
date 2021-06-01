@@ -19,7 +19,7 @@ body {
 }
 
 .recipe-list {
-  background-image: url('assets/images/annie-spratt-L6GydBHMVGQ-unsplash.jpg');
+  background-image: url('assets/images/annie-spratt-xTaOPMa6wAE-unsplash.jpg');
   background-size: cover;
   padding: 20px 10px;
 }
@@ -124,7 +124,7 @@ body {
 /* ------------------------------------------------------ */
 
 .bg-details {
-  background-image: url('assets/images/lukas-blazek-EWDvHNNfUmQ-unsplash.jpg');
+  background-image: url('assets/images/annie-spratt-xTaOPMa6wAE-unsplash.jpg');
   background-attachment: fixed;
   background-size: cover;
   padding: 20px;
@@ -138,7 +138,7 @@ body {
 }
 
 .vbook-container {
-  background-image: url('assets/images/tim-mossholder-07uiqD9LS6U-unsplash.jpg');
+  background-image: url('assets/images/annie-spratt-xTaOPMa6wAE-unsplash.jpg');
   height: 100%;
   background-size: cover;
 }
@@ -171,17 +171,14 @@ body {
   justify-content: flex-end;
 }
 
-.category {
-  font-family: 'Neucha', cursive;
-
-}
-
 .substitute, .conversion {
   background-color: rgb(223, 224, 224);
-  width: 95%;
+  width: 100%;
   margin-right: 0;
-  padding: 10px;
+  padding: 20px;
+  margin-right: 20px;
   border-radius: 5px;
+  margin-bottom: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -246,7 +243,7 @@ body {
 
 .table-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   flex-wrap: wrap;
   overflow-x: auto;
 }
@@ -267,6 +264,10 @@ th, td {
   border-collapse: collapse;
   text-align: left;
   padding: 8px;
+  background-color: transparent;
+}
+th {
+  background-color: #f2f2f2;
 }
 
 tr:nth-child(even){background-color: #f2f2f2}
@@ -278,7 +279,7 @@ tr:nth-child(even){background-color: #f2f2f2}
 }
 
 .table-good {
-  border-top: 2px solid rgb(195, 224, 115);
+  border-top: 2px solid rgb(99, 206, 73);
   border-bottom: solid  1px rgb(194, 193, 193);
   border-radius: 5px;
 }
@@ -311,42 +312,60 @@ tr:nth-child(even){background-color: #f2f2f2}
   height: 100vh;
 }
 /* ----------------------------------------------- */
-
+.recipe-img {
+  width: 75%;
+}
 .myrecipe-details {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  font-family: 'Neucha', cursive;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.myrecipe-details > div {
-  border-bottom: solid 1px black;
-  background-color: rgb(227, 228, 228);
-  height: 50px;
-  padding: 8px;
-  margin-bottom: 15px;
-  border-radius: 8px;
+.detail {
+  width: 75%;
+  margin-bottom: 20px;
+}
+
+.favorite {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.myrecipe-diet {
+  display: flex;
+  justify-content: space-between;
+  width: 75%;
+  margin-top: 20px;
+  font-size:large;
 }
 
 .myrecipe-category {
   margin-top: 10px;
   margin-bottom: 15px;
+  font-size: large;
+}
+
+.category {
+  font-size: 1.5rem;
+  font-family: 'Neucha', cursive;
 }
 
 .notepad-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
 }
 
 .notepad {
-  text-align: center;
+  text-align: left;
   overflow-y: scroll;
   margin-bottom: 10px;
   word-wrap: break-word;
-  width: 100%;
-  height: 40vh;
+  width: 50%;
+  height: auto;
   padding: 20px;
   border-radius: 10px;
   background-color: rgb(211, 212, 212);
@@ -358,7 +377,10 @@ tr:nth-child(even){background-color: #f2f2f2}
 }
 
 .conv-subs-container {
-  background: transparent;
+  display: flex;
+  margin-bottom: 40px;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 
