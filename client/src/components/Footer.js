@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className='footer'>
       <div>
-        TheVBook
+        <span className='logo'>T</span>he<span className='logo'>V</span>book
       </div>
     </footer>
   )

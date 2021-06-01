@@ -83,24 +83,24 @@ const MyVBook = () => {
   return (
       <div className='vbook-container'>
         <div>
-          <h1 className='vbook-title'>My VBook</h1>
+          <h1 className='vbook-title'><span className='logo'>M</span>y <span className='logo'>V</span>book</h1>
         </div>
        
        <div className='recipe-search'>
-        <div className='vbook-filters'>
-          <div>
-            <MyRecipeOptions 
-              filterTerm={filterTerm}
-              onFilterChange={onFilterChange}
-            />
+          <div className='vbook-filters'>
+            <div>
+              <MyRecipeOptions 
+                filterTerm={filterTerm}
+                onFilterChange={onFilterChange}
+              />
+            </div>
+            <div>
+              <CategoryOptions categories={categories} 
+                categoryTerm={categoryTerm}
+                onCategoryChange={onCategoryChange}
+              />
+            </div>
           </div>
-          <div>
-            <CategoryOptions categories={categories} 
-              categoryTerm={categoryTerm}
-              onCategoryChange={onCategoryChange}
-            />
-          </div>
-        </div>
        </div>
 
         <SavedReList fullReList={fullReList}/>

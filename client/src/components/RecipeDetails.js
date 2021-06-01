@@ -116,7 +116,7 @@ const RecipeDetails = (props) => {
       </div>
 
       <div className='detail'>
-        <Steps instructions={instructions} /> 
+        <Steps instructions={instructions} style={{fontSize: '2rem'}}/> 
       </div>
 
       <div className='detail'>

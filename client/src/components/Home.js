@@ -2,13 +2,13 @@ import React from 'react';
 import '../index.css';
 import Zoom from 'react-reveal/Zoom';
 import Flip from 'react-reveal/Flip';
-import homephoto from '../assets/images/creatv-eight-smN1dzUTj9Y-unsplash.jpg'
+import homephoto from '../assets/images/dan-cristian-padure-mIyZDPhuyY0-unsplash.jpg'
 
 export default function Home() {
   return (
     <div> 
       <div className='home-1'>
-        <img className='home-img' src={homephoto} alt='vegetarian plate'/>
+        <img className='home-img' src={homephoto} alt='vegetables'/>
       </div>
 
       <div className='home-2'>

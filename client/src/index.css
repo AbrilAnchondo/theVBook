@@ -1,21 +1,25 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
 
 body {
   margin: auto;
   padding: 0;
   background: black;
-  font-family: 'Dosis', sans-serif;
-  /* font-family: 'Neucha', cursive; */
+  font-family: 'Dosis', sans-serif;;
 }
 
+.logo {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem;
+}
 /* ===============================
    Recipes
 =============================== */
 .recipe-search {
   padding: 20px 15px;
-  background: rgb(27, 27, 27);
+  background: rgb(32, 32, 32);
 }
 
 .recipe-list {
@@ -149,8 +153,12 @@ body {
   background-color: rgb(27, 27, 27);
   color: white;
   height: 100px;
-  font-family: 'Neucha', cursive;
+  font-family: 'Neucha', cursive; 
   margin-bottom: 0;
+}
+
+.vbook-title > span {
+  font-size: 3rem;
 }
 
 .vbook-filters {
@@ -169,6 +177,7 @@ body {
 .back-arrow {
   display: flex;
   justify-content: flex-end;
+  font-size: 1.5rem;
 }
 
 .substitute, .conversion {
@@ -179,11 +188,11 @@ body {
   margin-right: 20px;
   border-radius: 5px;
   margin-bottom: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
 }
 
 .steps {
-  font-size: large;
+  font-size: 1.7rem;
   font-family: 'Neucha', cursive;
   font-weight: 700;
 }
@@ -222,7 +231,7 @@ body {
   padding: 8px 15px;
   height: 30px;
   color: white;
-  background: black;
+  background: rgb(32, 32, 32);
   font-family: 'Neucha', cursive;
 }
 
@@ -230,7 +239,7 @@ body {
   height: 60px;
   justify-content: center;
   padding: 15px;
-  background: black;
+  background: rgb(32, 32, 32);
   color: white;
   font-family: 'Neucha', cursive;
   font-size: 1.5em;
@@ -370,7 +379,7 @@ tr:nth-child(even){background-color: #f2f2f2}
   border-radius: 10px;
   background-color: rgb(211, 212, 212);
   color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
   font-family: 'Neucha', cursive;
   font-size: 1.5em;
   color: black;

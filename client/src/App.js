@@ -28,7 +28,7 @@ const  App = () => {
 
   return (
       <div>
-        <div className='topnav' id='myTopnav'>
+        <div className='topnav' id='myTopnav' style={{height: '64px', alignContent: 'center'}}>
           <Link to='/' >Home</Link>
           <Link to='recipes'>Recipes</Link>
           <Link to='myvbook'>MyVBook</Link>
